@@ -190,7 +190,8 @@ function doDelete()
 
 	$id = 	$_GET['id'];
 
-	$emp = new Employee();
+	// $emp = new Employee();
+	$emp = new JobRegistration();
 	$emp->delete($id);
 
 

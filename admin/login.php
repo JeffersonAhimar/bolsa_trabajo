@@ -5,7 +5,7 @@ require_once("../include/initialize.php");
   <?php
  // login confirmation
   if(isset($_SESSION['ADMIN_USERID'])){
-    redirect(web_root."admin/index.php");
+    redirect(web_root."admin/company/");
   }
   ?>
    
@@ -120,7 +120,7 @@ if(isset($_POST['btnLogin'])){
         unset( $_SESSION['ROLE'] );
         unset($_SESSION['PICLOCATION']);
 
-         redirect(web_root."admin/index.php");
+         redirect(web_root."admin/company/");
       // } 
     }else{
       message("Account does not exist! Please contact Administrator.", "error");

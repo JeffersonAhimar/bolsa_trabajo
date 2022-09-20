@@ -39,10 +39,10 @@ switch ($view) {
         $title='Contact Us';	
 		$content='Contact.php';		
 		break;	
-	case 'About' :
-        $title='About Us';	
-		$content='About.php';		
-		break;	
+	// case 'About' :
+    //     $title='About Us';	
+	// 	$content='About.php';		
+	// 	break;	
 	case 'advancesearch' :
         $title='Advance Search';	
 		$content='advancesearch.php';		

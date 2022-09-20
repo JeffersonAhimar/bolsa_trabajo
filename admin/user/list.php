@@ -5,15 +5,15 @@
 
 ?> 
        	 <div class="col-lg-12">
-            <h1 class="page-header">Lista de Usuarios  <a href="index.php?view=add" class="btn btn-primary btn-xs  ">  <i class="fa fa-plus-circle fw-fa"></i> Añadir Usuario</a>  </h1>
+            <h1 class="page-header">Lista de Admins  <a href="index.php?view=add" class="btn btn-primary btn-xs  ">  <i class="fa fa-plus-circle fw-fa"></i> Añadir Admin</a>  </h1>
        		</div>
         	<!-- /.col-lg-12 --> 
    		 	<div class="col-lg-12"> 
 				<table id="dash-table" class="table  table-bordered table-hover table-responsive" style="font-size:12px;" cellspacing="0"> 
 				  <thead>
 				  	<tr>
-				  		<th>Account ID</th>
-				  		<th> Account Name</th>
+				  		<th>ID</th>
+				  		<th> Nombre</th>
 				  		<th>Username</th>
 				  		<th>Role</th>
 				  		<th width="10%" >Acción</th>

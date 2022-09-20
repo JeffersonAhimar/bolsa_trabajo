@@ -81,21 +81,6 @@ switch ($action) {
 
 
 	function doDelete(){
-		
-		// if (isset($_POST['selector'])==''){
-		// message("Select the records first before you delete!","info");
-		// redirect('index.php');
-		// }else{
-
-		// $id = $_POST['selector'];
-		// $key = count($id);
-
-		// for($i=0;$i<$key;$i++){
-
-		// 	$user = New User();
-		// 	$user->delete($id[$i]);
-
-		
 				$id = 	$_GET['id'];
 
 				$user = New User();

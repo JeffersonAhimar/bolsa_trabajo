@@ -15,7 +15,7 @@
  <form class="form-horizontal span6" action="controller.php?action=edit" method="POST">
 
           <fieldset>
-            <legend> Actualizar Cuenta de Usuario</legend>
+            <legend> Actualizar Cuenta de Admin</legend>
                    
                     <!-- <div class="form-group">
                     <div class="col-md-8">
