@@ -23,9 +23,8 @@ switch ($view) {
 		$content    = 'view.php';		
 		break;
 
+
 	default :
 		$content    = 'list.php';		
 }
 require_once ("../theme/templates.php");
-?>
-  
