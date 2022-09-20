@@ -25,13 +25,13 @@ $appl  = $applicant->single_applicant($_SESSION['APPLICANTID']);
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Read Message</h3> 
+              <h3 class="box-title">Leer Mensaje</h3> 
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">
               <div class="mailbox-read-info">
                 <h3><?php  echo $res->OCCUPATIONTITLE; ?></h3>
-                <h5>From: <?php  echo $res->COMPANYNAME; ?>
+                <h5>De: <?php  echo $res->COMPANYNAME; ?>
                   <span class="mailbox-read-time pull-right"><?php  echo date_format(date_create($res->DATETIMEAPPROVED),'d M. Y h:i a'); ?></span></h5>
               </div>
               <!-- /.mailbox-read-info -->
@@ -50,7 +50,7 @@ $appl  = $applicant->single_applicant($_SESSION['APPLICANTID']);
               </div>
               <!-- /.mailbox-controls -->
               <div class="mailbox-read-message">
-                <p>Hello <?php  echo $appl->FNAME; ?>,</p>  
+                <p>Hola <?php  echo $appl->FNAME; ?>,</p>  
                   <p><?php  echo $res->REMARKS; ?></p>
 <!-- 
                 <p>Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird
@@ -84,7 +84,7 @@ $appl  = $applicant->single_applicant($_SESSION['APPLICANTID']);
                   vinyl. Readymade next level literally trust fund. Distillery master cleanse migas, Vice sriracha
                   flannel chambray chia cronut.</p> -->
 
-                <p>Thanks,<br><?php  echo $res->COMPANYNAME; ?></p>
+                <p>Gracias,<br><?php  echo $res->COMPANYNAME; ?></p>
               </div>
               <!-- /.mailbox-read-message -->
             </div>

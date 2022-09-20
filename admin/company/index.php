@@ -7,7 +7,7 @@ require_once("../../include/initialize.php");
 
 $view = (isset($_GET['view']) && $_GET['view'] != '') ? $_GET['view'] : '';
 $header=$view;
-$title="Compañía";
+$title="Compañías";
 switch ($view) {
 	case 'list' :
 		$content    = 'list.php';		

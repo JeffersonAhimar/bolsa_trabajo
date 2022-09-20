@@ -8,7 +8,7 @@
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Applied Jobs</h3> 
+              <h3 class="box-title">Empleos Aplicados</h3> 
               <!-- /.box-tools -->
             </div>
             <!-- /.box-header -->
@@ -17,10 +17,10 @@
                 <table id="dash-table" class="table table-hover table-striped">
                   <thead> 
                     <tr>
-                      <th>Job Title</th>
-                      <th>Company</th>
-                      <th>Location</th>
-                      <th>Status</th>
+                      <th>Título Profesional</th>
+                      <th>Compañía</th>
+                      <th>Ubicación</th>
+                      <th>Estado</th>
                     </tr>
                   </thead>
                   <tbody>
