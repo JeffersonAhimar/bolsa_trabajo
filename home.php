@@ -44,7 +44,7 @@
   <div class="container">
         <div class="row">
       <div class="col-md-12">
-        <div class="aligncenter"><h2 class="aligncenter">Company</h2><!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt.. --></div>
+        <div class="aligncenter"><h2 class="aligncenter">Compañías</h2><!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt.. --></div>
         <br/>
       </div>
     </div>
@@ -64,8 +64,8 @@
                 <div class="info-blocks-in">
                     <h3><?php echo $company->COMPANYNAME;?></h3>
                     <!-- <p><?php echo $company->COMPANYMISSION;?></p> -->
-                    <p>Address :<?php echo $company->COMPANYADDRESS;?></p>
-                    <p>Contact No. :<?php echo $company->COMPANYCONTACTNO;?></p>
+                    <p>Dirección :<?php echo $company->COMPANYADDRESS;?></p>
+                    <p>Nro. de Contacto :<?php echo $company->COMPANYCONTACTNO;?></p>
                 </div>
             </div>
 

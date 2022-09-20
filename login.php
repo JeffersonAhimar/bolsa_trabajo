@@ -7,7 +7,7 @@
                   <button class="close" data-dismiss="modal" type=
                   "button">×</button>
 
-                  <h4 class="modal-title" id="myModalLabel">Login</h4>
+                  <h4 class="modal-title" id="myModalLabel">Ingresar</h4>
                 </div>
 
                 <!-- <form action="process.php?action=login" enctype="multipart/form-data" method="post"> -->
@@ -29,7 +29,7 @@
                               <div class="col-xs-8">
                                 <div class="checkbox icheck">
                                   <label>
-                                    <input type="checkbox"> Remember Me
+                                    <input type="checkbox"> Recuérdame
                                   </label>
                                 </div>
                               </div>
@@ -41,8 +41,8 @@
                             </div>
                           </form> 
                           
-                          <a href="#">I forgot my password</a><br>
-                          <a href="<?php echo web_root; ?>index.php?q=register" class="text-center">Register a new membership</a>
+                          <a href="#">Olvidé mi contraseña</a><br>
+                          <a href="<?php echo web_root; ?>index.php?q=register" class="text-center">Registrarse</a>
 
                         </div>
                         <!-- /.login-box-body -->
@@ -50,8 +50,8 @@
                   </div>
 
                   <div class="modal-footer">
-                    <button class="btn btn-default" data-dismiss="modal">Close</button> <button class="btn btn-primary"
-                    name="btnlogin" id="btnlogin"  >Login</button>
+                    <button class="btn btn-default" data-dismiss="modal">Cerrar</button> <button class="btn btn-primary"
+                    name="btnlogin" id="btnlogin"  >Ingresar</button>
                   </div>
                 <!-- </form> -->
               </div><!-- /.modal-content -->
