@@ -58,6 +58,31 @@ $singleuser = $user->single_applicant($APPLICANTID);
       </div>
     </div>
 
+    <!--  -->
+    <?php
+    $fecha = $singleuser->BIRTTHDATE;
+    $mes_f = $fecha->format('m');
+
+
+    ?>
+    <div class="form-group">
+      <div class="col-md-8">
+        <label class="col-md-4 control-label" for="U_ADDRESS">MES:</label>
+
+        <div class="col-md-8">
+          <input name="deptid" type="hidden" value="">
+          <input class="form-control input-sm" id="U_ADDRESS" name="U_ADDRESS" placeholder="Apellidos" type="text" value="<?php echo $singleuser->BIRTHDATE; ?>">
+          <input class="form-control input-sm" id="U_ADDRESS" name="U_ADDRESS" placeholder="Apellidos" type="text" value="<?php echo $mes_f; ?>">
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!--  -->
+    
+
     <div class="form-group">
       <div class="rows">
         <div class="col-md-8">
@@ -203,11 +228,11 @@ $singleuser = $user->single_applicant($APPLICANTID);
 
     <div class="form-group">
       <div class="col-md-8">
-        <label class="col-md-4 control-label" for="U_DEGREE">Correo Electrónico:</label>
+        <label class="col-md-4 control-label" for="U_DEGREE">Estudios:</label>
 
         <div class="col-md-8">
           <input name="deptid" type="hidden" value="">
-          <input class="form-control input-sm" id="U_DEGREE" name="U_DEGREE" placeholder="Apellidos" type="text" value="<?php echo $singleuser->DEGREE; ?>">
+          <input class="form-control input-sm" id="U_DEGREE" name="U_DEGREE" placeholder="DEGREE" type="text" value="<?php echo $singleuser->DEGREE; ?>">
         </div>
       </div>
     </div>
