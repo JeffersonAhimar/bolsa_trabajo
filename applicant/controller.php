@@ -32,7 +32,7 @@ function doEdit_Profile()
 {
 
 	$birthdate =  $_POST['U_year'] . '-' . $_POST['U_month'] . '-' . $_POST['U_day'];
-	echo $birthdate;
+	// echo $birthdate;
 	// $age = date_diff(date_create($birthdate), date_create('today'))->y;
 	// $birthdate =  date_format(date_create($_POST['BIRTHDATE']), 'Y-m-d');
 	// $birthdate =  date_format(date_create($birthdate), 'Y-m-d');
@@ -59,7 +59,7 @@ function doEdit_Profile()
 		$applicant->DEGREE = $_POST['U_DEGREE'];
 		$applicant->update($_SESSION['APPLICANTID']);
 
-		message("Account has been updated!", "success");
+		message("Cuenta actualizada!", "success");
 		redirect("index.php?view=accounts");
 	}
 }
@@ -88,7 +88,7 @@ function doEdit()
 		$applicant->DEGREE = $_POST['DEGREE'];
 		$applicant->update($_SESSION['APPLICANTID']);
 
-		message("Account has been updated!", "success");
+		message("Cuenta actualizada!", "success");
 		redirect("index.php?view=accounts");
 	}
 }

@@ -19,7 +19,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 					<th>Nombre</th>
 					<th>Dirección</th>
 					<th>Nro. de Contacto</th>
-					<th>Estados</th>
+					<th>Estado</th>
 					<th>Username</th>
 					<th width="10%" align="center">Acción</th>
 				</tr>
@@ -30,18 +30,18 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 				$cur = $mydb->loadResultList();
 				foreach ($cur as $result) {
 					echo '<tr>';
-					// echo '<td width="5%" align="center"></td>';
-					// echo '<td>
-					//      <input type="checkbox" name="selector[]" id="selector[]" value="'.$result->CATEGORYID. '"/>
-					// 		' . $result->CATEGORIES.'</a></td>';
 					echo '<td>' . $result->COMPANYNAME . '</td>';
 					echo '<td>' . $result->COMPANYADDRESS . '</td>';
 					echo '<td>' . $result->COMPANYCONTACTNO . '</td>';
 					echo '<td>' . $result->COMPANYSTATUS . '</td>';
-					echo '<td>' . $result->COMPANYUSER. '</td>';
-					echo '<td align="center"><a title="Edit" href="index.php?view=edit&id=' . $result->COMPANYID . '" class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
-				  		     <a title="Delete" href="controller.php?action=delete&id=' . $result->COMPANYID . '" class="btn btn-danger btn-xs  ">  <span class="fa  fa-trash-o fw-fa "></a></td>';
-					// echo '<td></td>';
+					echo '<td>' . $result->COMPANYUSER . '</td>';
+					echo '<td align="center">
+					
+					<a title="Edit_Status" href="index.php?view=edit_status&id=' . $result->COMPANYID . '" class="btn btn-warning btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
+					<a title="Edit" href="index.php?view=edit&id=' . $result->COMPANYID . '" class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
+					
+					<a title="Delete" href="controller.php?action=delete&id=' . $result->COMPANYID . '" class="btn btn-danger btn-xs  ">  <span class="fa  fa-trash-o fw-fa "></a>
+					</td>';
 					echo '</tr>';
 				}
 				?>

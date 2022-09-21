@@ -173,13 +173,13 @@
                               echo '';
                             }
                           } ?>"><a href="<?php echo web_root; ?>index.php?q=hiring">Postula Ahora</a></li>
-               <li class="<?php if (isset($_GET['q'])) {
+               <!-- <li class="<?php if (isset($_GET['q'])) {
                             if ($_GET['q'] == 'Contact') {
                               echo 'active';
                             } else {
                               echo '';
                             }
-                          }  ?>"><a href="<?php echo web_root; ?>index.php?q=Contact">Contacto</a></li>
+                          }  ?>"><a href="<?php echo web_root; ?>index.php?q=Contact">Contacto</a></li> -->
              </ul>
            </div>
          </div>
@@ -237,7 +237,7 @@
                  <li><a href="<?php echo web_root; ?>index.php">Inicio</a></li>
                  <li><a href="<?php echo web_root; ?>index.php?q=company">Compañías</a></li>
                  <li><a href="<?php echo web_root; ?>index.php?q=hiring">Postula Ahora</a></li>
-                 <li><a href="<?php echo web_root; ?>index.php?q=Contact">Contáctanos</a></li>
+                 <!-- <li><a href="<?php echo web_root; ?>index.php?q=Contact">Contáctanos</a></li> -->
                </ul>
              </div>
            </div>

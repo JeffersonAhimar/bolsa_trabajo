@@ -109,7 +109,7 @@ function doInsert($jobid = 0, $fileid = 0)
 			$jobreg->APPLICANT   = $_POST['FNAME'] . ' ' . $_POST['LNAME'];
 			$jobreg->REGISTRATIONDATE = date('Y-m-d');
 			$jobreg->FILEID = date('Y') . $fileid;
-			$jobreg->REMARKS = 'Pending';
+			$jobreg->REMARKS = 'Pendiente';
 			$jobreg->DATETIMEAPPROVED = date('Y-m-d H:i');
 			$jobreg->create();
 
@@ -142,7 +142,7 @@ function doUpdate($jobid = 0, $fileid = 0)
 		$jobreg->APPLICANT   = $appl->FNAME . ' ' . $appl->LNAME;
 		$jobreg->REGISTRATIONDATE = date('Y-m-d');
 		$jobreg->FILEID = date('Y') . $fileid;
-		$jobreg->REMARKS = 'Pending';
+		$jobreg->REMARKS = 'Pendiente';
 		$jobreg->DATETIMEAPPROVED = date('Y-m-d H:i');
 		$jobreg->create();
 
@@ -176,7 +176,7 @@ function doRegister()
 			$applicant->LNAME = $_POST['LNAME'];
 			$applicant->MNAME = $_POST['MNAME'];
 			$applicant->ADDRESS = $_POST['ADDRESS'];
-			$applicant->SEX = $_POST['optionsRadios'];
+			$applicant->SEX = $_POST['SEX'];
 			$applicant->CIVILSTATUS = $_POST['CIVILSTATUS'];
 			$applicant->BIRTHDATE = $birthdate;
 			$applicant->BIRTHPLACE = $_POST['BIRTHPLACE'];
@@ -192,7 +192,7 @@ function doRegister()
 			$autonum->auto_update('APPLICANT');
 
 
-			message("You are successfully registered to the site. You can login now!", "success");
+			message("Te has registrado correctamente. Ahora puedes ingresar con tu cuenta!", "success");
 			redirect("index.php?q=success");
 		}
 	}

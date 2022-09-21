@@ -5,7 +5,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 ?>
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Lista de Vacantes <a href="index.php?view=add" class="btn btn-primary btn-xs  "> <i class="fa fa-plus-circle fw-fa"></i> Añadir Vacante Laboral</a> </h1>
+		<h1 class="page-header">Lista de Ofertas Laborales <a href="index.php?view=add" class="btn btn-primary btn-xs  "> <i class="fa fa-plus-circle fw-fa"></i> Añadir Vacante Laboral</a> </h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -26,7 +26,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 					<th>Descripción del Trabajo</th>
 					<th>Género</th>
 					<th>Sector de Vacante</th>
-					<th>Estado Laboral</th>
+					<!-- <th>Estado Laboral</th> -->
 					<th width="10%" align="center">Acción</th>
 				</tr>
 			</thead>
@@ -50,7 +50,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 					echo '<td>' . $result->JOBDESCRIPTION . '</td>';
 					echo '<td>' . $result->PREFEREDSEX . '</td>';
 					echo '<td>' . $result->SECTOR_VACANCY . '</td>';
-					echo '<td>' . $result->JOBSTATUS . '</td>';
+					// echo '<td>' . $result->JOBSTATUS . '</td>';
 					echo '<td align="center"><a title="Edit" href="index.php?view=edit&id=' . $result->JOBID . '" class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
 				  		     <a title="Delete" href="controller.php?action=delete&id=' . $result->JOBID . '" class="btn btn-danger btn-xs  ">  <span class="fa  fa-trash-o fw-fa "></a></td>';
 					// echo '<td></td>';

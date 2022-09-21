@@ -53,7 +53,7 @@ $singleuser = $user->single_applicant($APPLICANTID);
 
         <div class="col-md-8">
           <input name="deptid" type="hidden" value="">
-          <input class="form-control input-sm" id="U_ADDRESS" name="U_ADDRESS" placeholder="Apellidos" type="text" value="<?php echo $singleuser->ADDRESS; ?>">
+          <input class="form-control input-sm" id="U_ADDRESS" name="U_ADDRESS" placeholder="Dirección" type="text" value="<?php echo $singleuser->ADDRESS; ?>">
         </div>
       </div>
     </div>
@@ -163,8 +163,9 @@ $singleuser = $user->single_applicant($APPLICANTID);
 
         <div class="col-md-8">
           <select class="form-control input-sm" name="U_SEX" id="U_SEX">
-            <option value="Male" <?php echo ($singleuser->SEX == 'Male') ? 'selected="true"' : ''; ?>>Male</option>
-            <option value="Female" <?php echo ($singleuser->SEX == 'Female') ? 'selected="true"' : ''; ?>>Female</option>
+            <option value="none" <?php echo ($singleuser->SEX == 'None') ? 'selected="true"' : ''; ?>>Seleccionar</option>
+            <option value="Masculino" <?php echo ($singleuser->SEX == 'Masculino') ? 'selected="true"' : ''; ?>>Masculino</option>
+            <option value="Femenino" <?php echo ($singleuser->SEX == 'Femenino') ? 'selected="true"' : ''; ?>>Femenino</option>
 
           </select>
         </div>
@@ -195,9 +196,9 @@ $singleuser = $user->single_applicant($APPLICANTID);
             <option value="Widow">Viudo(a)</option> -->
             <!-- <option value="Fourth" >Fourth</option> -->
             <option value="none" <?php echo ($singleuser->CIVILSTATUS == 'none') ? 'selected="true"' : ''; ?>>Seleccionar</option>
-            <option value="Single" <?php echo ($singleuser->CIVILSTATUS == 'Single') ? 'selected="true"' : ''; ?>>Soltero(a)</option>
-            <option value="Married" <?php echo ($singleuser->CIVILSTATUS == 'Married') ? 'selected="true"' : ''; ?>>Casado(a)</option>
-            <option value="Widow" <?php echo ($singleuser->CIVILSTATUS == 'Widow') ? 'selected="true"' : ''; ?>>Viudo(a)</option>
+            <option value="Soltero(a)" <?php echo ($singleuser->CIVILSTATUS == 'Soltero(a)') ? 'selected="true"' : ''; ?>>Soltero(a)</option>
+            <option value="Casado(a)" <?php echo ($singleuser->CIVILSTATUS == 'Casado(a)') ? 'selected="true"' : ''; ?>>Casado(a)</option>
+            <option value="Viudo(a)" <?php echo ($singleuser->CIVILSTATUS == 'Viudo(a)') ? 'selected="true"' : ''; ?>>Viudo(a)</option>
           </select>
         </div>
       </div>

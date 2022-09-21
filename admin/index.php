@@ -4,7 +4,7 @@ require_once("../include/initialize.php");
     redirect(web_root."admin/login.php");
   }
 
-$content='home.php';
+$content='index.php';
 $view = (isset($_GET['page']) && $_GET['page'] != '') ? $_GET['page'] : '';
 switch ($view) {
   case '1' :
@@ -22,10 +22,10 @@ switch ($view) {
 
     } 
     break;  
+
   default :
- 
-      $title="Home"; 
-    $content ='home.php';    
+    $title="Inicio"; 
+    $content ='index.php';    
 }
 require_once("theme/templates.php");
 ?>

@@ -17,6 +17,12 @@ switch ($action) {
 		doEdit();
 		break;
 
+
+	case 'edit_status':
+		doEdit_Status();
+		break;
+
+
 	case 'delete':
 		doDelete();
 		break;
@@ -36,10 +42,12 @@ function doInsert()
 			$company->COMPANYNAME		= $_POST['COMPANYNAME'];
 			$company->COMPANYADDRESS	= $_POST['COMPANYADDRESS'];
 			$company->COMPANYCONTACTNO	= $_POST['COMPANYCONTACTNO'];
-			// $company->COMPANYMISSION	= $_POST['COMPANYMISSION'];
+			$company->COMPANYSTATUS	= $_POST['COMPANYSTATUS'];
+			$company->COMPANYUSER			= $_POST['COMPANYUSER'];
+			$company->COMPANYPASS				= sha1($_POST['COMPANYPASS']);
 			$company->create();
 
-			message("New company created successfully!", "success");
+			message("Nueva compañía creada correctamente!", "success");
 			redirect("index.php");
 		}
 	}
@@ -53,13 +61,26 @@ function doEdit()
 		$company->COMPANYNAME		= $_POST['COMPANYNAME'];
 		$company->COMPANYADDRESS	= $_POST['COMPANYADDRESS'];
 		$company->COMPANYCONTACTNO	= $_POST['COMPANYCONTACTNO'];
-		$company->COMPANYSTATUS	= $_POST['COMPANYSTATUS'];
+		// $company->COMPANYSTATUS	= $_POST['COMPANYSTATUS'];
 		$company->COMPANYUSER			= $_POST['COMPANYUSER'];
 		$company->COMPANYPASS				= sha1($_POST['COMPANYPASS']);
 		// $company->COMPANYMISSION	= $_POST['COMPANYMISSION'];
 		$company->update($_POST['COMPANYID']);
 
-		message("Company has been updated!", "success");
+		message("La compañía se ha actualizado!", "success");
+		redirect("index.php");
+	}
+}
+
+function doEdit_Status()
+{
+	if (isset($_POST['save'])) {
+
+		$company = new Company();
+		$company->COMPANYSTATUS	= $_POST['COMPANYSTATUS'];
+		$company->update($_POST['COMPANYID']);
+
+		message("Estado Actualizado!", "success");
 		redirect("index.php");
 	}
 }
@@ -67,31 +88,14 @@ function doEdit()
 
 function doDelete()
 {
-	// if (isset($_POST['selector'])==''){
-	// message("Select a records first before you delete!","error");
-	// redirect('index.php');
-	// }else{
 
 	$id = $_GET['id'];
 
 	$company = new Company();
 	$company->delete($id);
 
-	message("Company has been Deleted!", "info");
+	message("La compañía ha sido eliminada!", "info");
 	redirect('index.php');
-
-	// $id = $_POST['selector'];
-	// $key = count($id);
-
-	// for($i=0;$i<$key;$i++){
-
-	// 	$category = New Category();
-	// 	$category->delete($id[$i]);
-
-	// 	message("Category already Deleted!","info");
-	// 	redirect('index.php');
-	// }
-	// }
 
 }
 ?>

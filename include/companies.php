@@ -162,4 +162,13 @@ class Company
 			}
 		}
 	}
+
+	function single_user($id = "")
+	{
+		global $mydb;
+		$mydb->setQuery("SELECT * FROM " . self::$tblname . " 
+				Where COMPANYID= '{$id}' LIMIT 1");
+		$cur = $mydb->loadSingleResult();
+		return $cur;
+	}
 }

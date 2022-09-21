@@ -14,7 +14,7 @@ $res = $company->single_company($companyid);
 
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Añadir Nueva Compañía</h1>
+      <h1 class="page-header">Actualizar Compañía</h1>
     </div>
     <!-- /.col-lg-12 -->
   </div>
@@ -48,15 +48,12 @@ $res = $company->single_company($companyid);
     </div>
   </div>
 
-  <div class="form-group">
-    <div class="col-md-8">
-      <label class="col-md-4 control-label" for="COMPANYSTATUS">Estado:</label>
 
-      <div class="col-md-8">
-        <input class="form-control input-sm" id="COMPANYSTATUS" name="COMPANYSTATUS" placeholder="Estado de la Compañía" type="text" value="<?php echo $res->COMPANYSTATUS; ?>">
-      </div>
-    </div>
-  </div>
+  <!-- STATUS -->
+  <!-- <div class="form-group">
+
+  </div> -->
+
 
   <!-- USERNAME -->
   <div class="form-group">

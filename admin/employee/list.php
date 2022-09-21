@@ -30,8 +30,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 		</thead>
 		<tbody>
 			<?php
-			$mydb->setQuery("SELECT * 
-														FROM   `tblapplicants`");
+			$mydb->setQuery("SELECT * FROM   `tblapplicants`");
 			$cur = $mydb->loadResultList();
 
 			foreach ($cur as $result) {
