@@ -41,10 +41,10 @@
 	<div class="row">
 		<div class="col-md-2"></div>
         <div class="col-md-8">
-    		<h2>Search field</h2>
+    		<h2>BÚSQUEDA</h2>
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
-                    <input type="text" name="SEARCH" class="form-control input-lg" placeholder="Search By Job Title" />
+                    <input type="text" name="SEARCH" class="form-control input-lg" placeholder="" />
                     <span class="input-group-btn">
                         <button class="btn btn-info btn-lg" type="button">
                             <i class="glyphicon glyphicon-search"></i>

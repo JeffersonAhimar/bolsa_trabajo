@@ -36,14 +36,17 @@ $applicant = $appl->single_applicant($_SESSION['APPLICANTID']);
         <div class="panel-body">
           <div id="image-container">
             <!-- <img title="profile image"  data-target="#myModal"  data-toggle="modal"  src="<?php echo web_root . 'applicant/' . $applicant->APPLICANTPHOTO; ?>">   -->
-            <img title="profile image" src="./photos/avatar.png">
+            <a href="index.php?view=edit_profile&id=<?php echo $applicant->APPLICANTID;?>">
+
+              <img title="profile image" src="./photos/avatar.png">
+            </a>
           </div>
-          <a title="Edit" href="index.php?view=edit_profile&id=<?php echo $applicant->APPLICANTID;?>"  class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></span></a>
+          <!-- <a title="Edit" href="index.php?view=edit_profile&id=<?php echo $applicant->APPLICANTID;?>"  class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></span></a> -->
         </div>
 
 
         <ul class="list-group">
-          <li class="list-group-item text-muted">Perfil</li>
+          <li class="list-group-item text-muted">Editar Perfil</li>
           <!-- 
             <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> 2.13.2014</li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> Yesterday</li> -->
@@ -59,7 +62,7 @@ $applicant = $appl->single_applicant($_SESSION['APPLICANTID']);
             <ul class="nav nav-pills nav-stacked">
               <li class="<?php echo ($view == 'appliedjobs' || $view == '') ? 'active' : ''; ?>"><a href="<?php echo web_root . 'applicant/index.php?view=appliedjobs'; ?>"><i class="fa fa-list"></i> Trabajos Aplicados
                 </a></li>
-              <li class="<?php echo ($view == 'accounts') ? 'active' : ''; ?>"><a href="<?php echo web_root . 'applicant/index.php?view=accounts'; ?>"><i class="fa fa-user"></i> Cuentas </a></li>
+              <!-- <li class="<?php echo ($view == 'accounts') ? 'active' : ''; ?>"><a href="<?php echo web_root . 'applicant/index.php?view=accounts'; ?>"><i class="fa fa-user"></i> Cuentas </a></li> -->
               <li class="<?php echo ($view == 'message') ? 'active' : ''; ?>"><a href="<?php echo web_root . 'applicant/index.php?view=message'; ?>"><i class="fa fa-envelope-o"></i> Mensajes
                   <span class="label label-success pull-right"><?php echo isset($showMsg->COUNT) ? $showMsg->COUNT : 0; ?></span></a></li>
               <!--      <li class="<?php echo ($view == 'notification') ? 'active' : ''; ?>"><a href="<?php echo web_root . 'applicant/index.php?view=notification'; ?>"><i class="fa fa-bell-o"></i> Notification

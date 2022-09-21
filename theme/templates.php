@@ -106,7 +106,7 @@
            </div>
            <div class="navbar-collapse collapse ">
              <ul class="nav navbar-nav">
-               <li class="<?php echo !isset($_GET['q']) ? 'active' : '' ?>"><a href="<?php echo web_root; ?>index.php">Home</a></li>
+               <li class="<?php echo !isset($_GET['q']) ? 'active' : '' ?>"><a href="<?php echo web_root; ?>index.php">Inicio</a></li>
                <li class="dropdown">
                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">Buscar Trabajo <b class="caret"></b></a>
                  <ul class="dropdown-menu">
@@ -117,9 +117,9 @@
                                   echo '';
                                 }
                               }  ?>"><a href="<?php echo web_root; ?>index.php?q=advancesearch">Búsqueda Avanzada</a></li>
-                   <li><a href="<?php echo web_root; ?>index.php?q=search-company">Trabajo por Compañía</a></li>
-                   <li><a href="<?php echo web_root; ?>index.php?q=search-function">Trabajo por Función</a></li>
-                   <li><a href="<?php echo web_root; ?>index.php?q=search-jobtitle">Trabajo por Título</a></li>
+                   <li><a href="<?php echo web_root; ?>index.php?q=search-company">Trabajos por Compañía</a></li>
+                   <li><a href="<?php echo web_root; ?>index.php?q=search-function">Trabajos por Categoría</a></li>
+                   <!-- <li><a href="<?php echo web_root; ?>index.php?q=search-jobtitle">Trabajo por Título</a></li> -->
                    <!--      <li><a href="#">Job for Women</a></li>
                               <li><a href="#">Job for Men</a></li> -->
                  </ul>
@@ -165,14 +165,14 @@
                             } else {
                               echo '';
                             }
-                          }  ?>"><a href="<?php echo web_root; ?>index.php?q=company">Compañía</a></li>
+                          }  ?>"><a href="<?php echo web_root; ?>index.php?q=company">Compañías</a></li>
                <li class="<?php if (isset($_GET['q'])) {
                             if ($_GET['q'] == 'hiring') {
                               echo 'active';
                             } else {
                               echo '';
                             }
-                          } ?>"><a href="<?php echo web_root; ?>index.php?q=hiring">Contratando Ahora</a></li>
+                          } ?>"><a href="<?php echo web_root; ?>index.php?q=hiring">Postula Ahora</a></li>
                <li class="<?php if (isset($_GET['q'])) {
                             if ($_GET['q'] == 'Contact') {
                               echo 'active';
@@ -221,8 +221,8 @@
                <h5 class="widgetheading">Contacto</h5>
                <address>
                  <strong>Nuestra Compañía</strong><br>
-                 JC Main Road, Near Silnile tower<br>
-                 Pin-21542 NewYork US.
+                 Av. Arequipa 1345 <br>
+                 Lima 15046
                </address>
                <p>
                  <i class="icon-phone"></i> (123) 456-789 - 1255-12584 <br>
@@ -234,16 +234,16 @@
              <div class="widget">
                <h5 class="widgetheading">Accesos Rápidos</h5>
                <ul class="link-list">
-                 <li><a href="<?php echo web_root; ?>index.php">Home</a></li>
-                 <li><a href="<?php echo web_root; ?>index.php?q=company">Compañía</a></li>
-                 <li><a href="<?php echo web_root; ?>index.php?q=hiring">Contratando</a></li>
+                 <li><a href="<?php echo web_root; ?>index.php">Inicio</a></li>
+                 <li><a href="<?php echo web_root; ?>index.php?q=company">Compañías</a></li>
+                 <li><a href="<?php echo web_root; ?>index.php?q=hiring">Postula Ahora</a></li>
                  <li><a href="<?php echo web_root; ?>index.php?q=Contact">Contáctanos</a></li>
                </ul>
              </div>
            </div>
            <div class="col-md-4 col-sm-4">
              <div class="widget">
-               <h5 class="widgetheading">Latest posts</h5>
+               <h5 class="widgetheading">Últimas Publicaciones</h5>
                <ul class="link-list">
                  <?php
                   $sql = "SELECT * FROM `tblcompany` c,`tbljob` j WHERE c.`COMPANYID`=j.`COMPANYID`   ORDER BY DATEPOSTED DESC LIMIT 3";

@@ -114,7 +114,8 @@ function doInsert($jobid = 0, $fileid = 0)
 			$jobreg->create();
 
 
-			message("Your application already submitted. Please wait for the company confirmation if your are qualified to this job.", "success");
+			// message("Your application already submitted. Please wait for the company confirmation if your are qualified to this job.", "success");
+			message("Tu postulación ha sido enviada con éxito. Espera a la confirmación de la compañía si estás calificado para el trabajo.", "success");
 			redirect("index.php?q=success&job=" . $result->JOBID);
 		}
 	}
@@ -146,7 +147,8 @@ function doUpdate($jobid = 0, $fileid = 0)
 		$jobreg->create();
 
 
-		message("Your application already submitted. Please wait for the company confirmation if your are qualified to this job.", "success");
+		// message("Your application already submitted. Please wait for the company confirmation if your are qualified to this job.", "success");
+		message("Tu postulación ha sido enviada con éxito. Espera a la confirmación de la compañía si estás calificado para el trabajo.", "success");
 		redirect("index.php?q=success&job=" . $result->JOBID);
 	}
 }

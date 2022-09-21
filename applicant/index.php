@@ -25,6 +25,7 @@ switch ($view) {
 		break;
 
 	case 'edit_profile':
+		$title = "Edit_Profile";
 		$content    = 'edit_profile.php';
 		break;
 

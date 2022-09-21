@@ -13,7 +13,7 @@
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Notification</h3>
+              <h3 class="box-title">Notificaciones</h3>
 
              <!--  <div class="box-tools pull-right" style="margin-bottom: 5px;">
                 <div class="has-feedback">

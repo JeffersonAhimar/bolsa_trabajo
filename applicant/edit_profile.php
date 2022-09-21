@@ -15,7 +15,7 @@ $singleuser = $user->single_applicant($APPLICANTID);
 <form class="form-horizontal span6" action="controller.php?action=edit_profile" method="POST">
 
   <fieldset>
-    <legend> Actualizar Perfil <?php echo $APPLICANTID; ?></legend>
+    <legend>* Actualizar Mi Perfil</legend>
 
 
 
@@ -60,38 +60,29 @@ $singleuser = $user->single_applicant($APPLICANTID);
 
     <!--  -->
     <?php
-    $fecha = $singleuser->BIRTTHDATE;
-    $mes_f = $fecha->format('m');
-
-
+    $fecha = $singleuser->BIRTHDATE;
+    // $mes_f = $fecha->format('Y-m-d');
+    $f_year = date("Y", strtotime($fecha));
+    $f_month = date("m", strtotime($fecha));
+    $f_day = date("d", strtotime($fecha));
     ?>
-    <div class="form-group">
-      <div class="col-md-8">
-        <label class="col-md-4 control-label" for="U_ADDRESS">MES:</label>
 
-        <div class="col-md-8">
-          <input name="deptid" type="hidden" value="">
-          <input class="form-control input-sm" id="U_ADDRESS" name="U_ADDRESS" placeholder="Apellidos" type="text" value="<?php echo $singleuser->BIRTHDATE; ?>">
-          <input class="form-control input-sm" id="U_ADDRESS" name="U_ADDRESS" placeholder="Apellidos" type="text" value="<?php echo $mes_f; ?>">
-        </div>
-      </div>
-    </div>
 
 
 
 
     <!--  -->
-    
+
 
     <div class="form-group">
       <div class="rows">
         <div class="col-md-8">
           <div class="col-md-4">
-            <label class="col-lg-12 control-label">Date of Birth :</label>
+            <label class="col-lg-12 control-label">Fecha de Nacimiento :</label>
           </div>
 
           <div class="col-lg-3">
-            <select class="form-control input-sm" name="month">
+            <select class="form-control input-sm" name="U_month">
               <option>Month</option>
               <?php
 
@@ -101,19 +92,29 @@ $singleuser = $user->single_applicant($APPLICANTID);
               foreach ($mon as $month => $value) {
 
                 # code...
-                echo '<option value=' . $value . '>' . $month . '</option>';
+                if ($f_month == $value) {
+                  // echo "<option value=' . $value . ' selected='true' >" . $month . "</option>";
+                  echo "<option value='" . $value . "' selected='true' >" . $month . "</option>";
+                } else {
+                  echo '<option value=' . $value . '>' . $month . '</option>';
+                }
               }
               ?>
             </select>
           </div>
 
           <div class="col-lg-2">
-            <select class="form-control input-sm" name="day">
+            <select class="form-control input-sm" name="U_day">
               <option>Day</option>
               <?php
               $d = range(31, 1);
               foreach ($d as $day) {
-                echo '<option value=' . $day . '>' . $day . '</option>';
+                // echo '<option value=' . $day . '>' . $day . '</option>';
+                if ($f_day == $day) {
+                  echo "<option value='" . $day . "' selected='true' >" . $day . "</option>";
+                } else {
+                  echo '<option value=' . $day . '>' . $day . '</option>';
+                }
               }
 
               ?>
@@ -122,12 +123,18 @@ $singleuser = $user->single_applicant($APPLICANTID);
           </div>
 
           <div class="col-lg-3">
-            <select class="form-control input-sm" name="year">
+            <select class="form-control input-sm" name="U_year">
               <option>Year</option>
               <?php
               $years = range(2010, 1900);
               foreach ($years as $yr) {
-                echo '<option value=' . $yr . '>' . $yr . '</option>';
+
+                if ($f_year == $yr) {
+                  // echo "<option value=' . $yr . ' selected='true' >" . $yr . "</option>";
+                  echo "<option value='" . $yr . "' selected='true' >" . $yr . "</option>";
+                } else {
+                  echo '<option value=' . $yr . '>' . $yr . '</option>';
+                }
               }
 
               ?>
@@ -158,6 +165,7 @@ $singleuser = $user->single_applicant($APPLICANTID);
           <select class="form-control input-sm" name="U_SEX" id="U_SEX">
             <option value="Male" <?php echo ($singleuser->SEX == 'Male') ? 'selected="true"' : ''; ?>>Male</option>
             <option value="Female" <?php echo ($singleuser->SEX == 'Female') ? 'selected="true"' : ''; ?>>Female</option>
+
           </select>
         </div>
       </div>
@@ -177,15 +185,19 @@ $singleuser = $user->single_applicant($APPLICANTID);
 
     <div class="form-group">
       <div class="col-md-8">
-        <label class="col-md-4 control-label" for="U_CIVILSTATUS">Civil Status:</label>
+        <label class="col-md-4 control-label" for="U_CIVILSTATUS">Estado Civil:</label>
 
         <div class="col-md-8">
           <select class="form-control input-sm" name="U_CIVILSTATUS" id="U_CIVILSTATUS">
-            <option value="none">Seleccionar</option>
+            <!-- <option value="none">Seleccionar</option>
             <option value="Single">Soltero(a)</option>
             <option value="Married">Casado(a)</option>
-            <option value="Widow">Viudo(a)</option>
+            <option value="Widow">Viudo(a)</option> -->
             <!-- <option value="Fourth" >Fourth</option> -->
+            <option value="none" <?php echo ($singleuser->CIVILSTATUS == 'none') ? 'selected="true"' : ''; ?>>Seleccionar</option>
+            <option value="Single" <?php echo ($singleuser->CIVILSTATUS == 'Single') ? 'selected="true"' : ''; ?>>Soltero(a)</option>
+            <option value="Married" <?php echo ($singleuser->CIVILSTATUS == 'Married') ? 'selected="true"' : ''; ?>>Casado(a)</option>
+            <option value="Widow" <?php echo ($singleuser->CIVILSTATUS == 'Widow') ? 'selected="true"' : ''; ?>>Viudo(a)</option>
           </select>
         </div>
       </div>

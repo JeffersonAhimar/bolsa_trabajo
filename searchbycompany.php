@@ -27,18 +27,18 @@
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-sm-12 search1">
-									<label class="col-sm-3">SEARCH:</label>
+									<label class="col-sm-3">BÚSQUEDA:</label>
 									<div class="col-sm-9">
-										<input class="form-control" type="" name="SEARCH" placeholder="Search For">
+										<input class="form-control" type="" name="SEARCH" placeholder="">
 									</div>
 								</div>
 							</div>  
 							<div class="row">
 								<div class="col-sm-12 search1">
-									<label class="col-sm-3">COMPANY:</label>
+									<label class="col-sm-3">COMPAÑÍA:</label>
 									<div class="col-sm-9">
 										<select class="form-control" name="COMPANY">
-											<option value="">All</option>
+											<option value="">Todos</option>
 											<?php
 												$sql = "SELECT * FROM tblcompany";
 												$mydb->setQuery($sql);

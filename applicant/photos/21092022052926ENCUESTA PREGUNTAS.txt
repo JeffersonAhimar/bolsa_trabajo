@@ -1,0 +1,215 @@
+14
+¿Cuál fue la razón principal que lo motivo a estudiar en el IESTP SAN AGUSTIN?
+-
+Las carreras/programas que brindan no se encuentran en otras modalidades/niveles
+Los IEST son más accesibles (lejanía, costo o dificultad)
+Que los universitarios
+Se brindan carreras/programas más cortos
+Las carreras/programas que se brindan se adaptan mejor a mis necesidades
+Otros
+
+15
+¿Cuál es el factor más importante que lo conllevo a seleccionar su carrera en el SA?
+-
+Mi vocación habilidades y/o destrezas
+Bajos costos de estudios
+Orientación brindada en el colegio
+Recomendaciones u orientaciones brindadas por familiares y/o amigos
+Oportunidad laboral que existen en la zona donde vivo
+Información sobre la remuneración que obtendría al egresar
+Motivación relacionada a carrera con periodos menores
+Otros
+
+LIKERT (16-20)
+1=Insatisfecho
+2=Satisfecho
+3=Muy Satisfecho
+
+16
+¿Cuál es su nivel de satisfacción al momento de egresar el IESTP SA con relación a la formación en las siguientes competencias?
+-
+Comunicarse oralmente con los demás
+Utilizar herramientas informáticas básicas, procesadores de texto, hojas de cálculo, correo, etc.
+Buscar analizar administrar y compartir información
+Trabajo en equipo
+Toma de decisiones
+Conocimiento de la lengua extranjera
+Comprender la realidad que lo rodea
+
+17
+¿Cuál es su nivel de satisfacción respecto al Personal Docente? (marcar una sola alternativa por aspecto evaluado)
+-
+Formación académica
+Metodología de enseñanza
+Material didáctico utilizado para la enseñanza
+Conocimiento de la asignatura
+Disponibilidad de tiempo para la atención de consultas fuera de clase.
+
+18
+Nivel de satisfacción respecto al apoyo brindado a los estudiantes por parte del IESTP SA (marcar una sola alternativa por tipo de apoyo brindado)
+-
+Proceso de convalidaciones
+Búsqueda de experiencias en situaciones reales de trabajo(practicas)
+Convenios con otras instituciones para continuar para continuar estudios
+Para desarrollar investigaciones
+Asistencia médica psicológica
+Acceso a bolsa de trabajo
+
+19
+Nivel de satisfacción respecto a la gestión Administrativa (marcar una sola alternativa por tipo de apoyo brindado)
+-
+Agilidad de los trámites administrativos
+
+20
+Nivel de satisfacción respecto al estado de los recursos físicos (marcar una sola alternativa por curso evaluado)
+-
+Salones de clase
+Laboratorio talleres
+Espacios para estudiar
+Ayudas audiovisuales
+Computadoras
+Espacios para práctica Deportiva
+Espacios para realizar actividades artísticas/culturales
+Biblioteca
+
+21
+En la actualidad ¿Qué actividad ocupa la mayor parte de su tiempo (ocupación principal)?
+-
+Estudiar 
+Trabajar
+Buscar trabajo
+Realizar actividades del hogar 
+Otros
+
+22
+¿Cuántos empleos ha tenido durante el último año?
+1
+2
+3 a más 
+
+23
+¿Cuál es el tipo de vínculo laboral que mantiene con la empresa/entidad en la que trabaja?
+-
+Contratado
+Nombrado
+
+24
+Actualmente ¿En qué tipo de entidad/empresa labora?
+-
+Fuerzas armadas, policía nacional de Perú (militares )
+Administración publica
+Empresas especiales de servicios
+Empresa o patrono privado
+Asociación/organización civil
+Otros
+
+25
+¿Cuál es el nombre de la empresa/entidad donde labora?
+
+
+26
+¿A qué se dedica la empresa o institución donde labora?
+-
+
+27
+Su empleo actual, ¿Está relacionado con la carrera que estudio?
+-
+Si 
+No
+
+28
+Cuál fue la remuneración laboral que percibió por sus servicios durante el mes pasado? (Monto en Soles)
+-
+Menos de 1025
+1025 a 2000
+3000 a 4000
+4000 a 5000
+
+29
+¿Qué tan satisfecho está con su trabajo actual?
+-
+Insatisfecho
+Satisfecho
+Muy satisfecho
+
+30
+¿Qué competencias o habilidades favorecen su desempeño laboral? Puede marcar más de una alternativa.
+-
+Dominio de su carrera/especialidad
+Dominio o manejo de otro idioma/lengua
+Capacidad de trabajo grupal
+Organización en el trabajo
+Capacidad creativa/innovación
+Disciplina honestidad y orden
+Manejo de tecnologías de información 
+Habilidad comunicativa
+
+
+31
+¿Cuál es el canal de búsqueda que considera más efectivo para la búsqueda de empleo?
+-
+Redes sociales
+Medios de comunicación: Tv, Radio, etc.
+Por amigos y/o familiares
+
+
+32
+¿Cuánto tiempo ha demorado para encontrar un trabajo?
+-
+Días
+Semanas
+Meses
+Años
+
+
+33
+¿Cuál considera que es la principal dificultad en la búsqueda de trabajo?
+-
+Falta de conocimientos
+Las empresas demandan gente con experiencia mas no recién graduados
+Falta de experiencia laboral
+
+34
+Adicionalmente a su ocupación principal ¿Usted desempeña otra actividad/empleo para obtener ingresos?
+-
+Sí
+No
+
+
+35
+¿Qué tipo de actividad/ocupación secundaria usted desarrolla?
+-
+Empleador o patrono
+Trabajador independiente
+Empleado
+Obrero
+Trabajador familiar no remunerado
+Otros
+
+
+36
+¿Desde qué año realiza la actividad secundaria?
+-
+
+37
+En su ocupación secundaria usted trabaja para (ver)
+-
+Fuerzas armadas, policía nacional de Perú (militares)
+Administración publica
+Empresas especiales de servicios
+Empresa o patrono privado
+Asociación/organización civil
+Otros
+
+38
+En su ocupación secundaria ¿Cuál fue la remuneración que percibió el mes pasado? (Monto en Soles)
+-
+Menos de 1025
+1025 a 2000
+3000 a 4000
+4000 a 5000
+
+
+
+
+

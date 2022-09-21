@@ -45,7 +45,7 @@ class Applicants
 		return $cur;
 	}
 
-	
+
 	function select_applicant($id = "")
 	{
 		global $mydb;
@@ -188,6 +188,39 @@ class Applicants
 		$sql = "DELETE FROM " . self::$tblname;
 		$sql .= " WHERE APPLICANTID='" . $id . "'";
 		$sql .= " LIMIT 1 ";
+		$mydb->setQuery($sql);
+
+		if (!$mydb->executeQuery()) return false;
+	}
+
+	public function deleteJobRegistrations($id = '')
+	{
+		global $mydb;
+		$sql = "DELETE FROM tbljobregistration";
+		$sql .= " WHERE APPLICANTID='" . $id . "'";
+		// $sql .= " LIMIT 1 ";
+		$mydb->setQuery($sql);
+
+		if (!$mydb->executeQuery()) return false;
+	}
+
+	public function deleteFeedbacks($id = '')
+	{
+		global $mydb;
+		$sql = "DELETE FROM tblfeedback";
+		$sql .= " WHERE APPLICANTID='" . $id . "'";
+		// $sql .= " LIMIT 1 ";
+		$mydb->setQuery($sql);
+
+		if (!$mydb->executeQuery()) return false;
+	}
+
+	public function deleteAttachedFiles($id = '')
+	{
+		global $mydb;
+		$sql = "DELETE FROM tblattachmentfile";
+		$sql .= " WHERE APPLICANTID='" . $id . "'";
+		// $sql .= " LIMIT 1 ";
 		$mydb->setQuery($sql);
 
 		if (!$mydb->executeQuery()) return false;

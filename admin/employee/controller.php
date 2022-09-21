@@ -218,8 +218,10 @@ switch ($action) {
 		
 				$id = 	$_GET['id'];
 
-				$emp = New Employee();
+				$emp = New Applicants();
 	 		 	$emp->delete($id);
+	 		 	$emp->deleteJobRegistrations($id);
+	 		 	$emp->deleteFeedbacks($id);
 			 
 		
 		// }

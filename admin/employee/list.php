@@ -6,9 +6,8 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 ?>
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Lista de Usuarios <a href="index.php?view=add" class="btn btn-primary btn-xs  "> <i class="fa fa-plus-circle fw-fa"></i> Añadir Nuevo Empleado</a> </h1>
+		<h1 class="page-header">Lista de Usuarios </h1>
 	</div>
-	<!-- /.col-lg-12 -->
 </div>
 
 
@@ -26,7 +25,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 				<th>Edad</th>
 				<th>Correo Electrónico</th>
 				<th>Nro. Contacto</th>
-				<th width="14%">Acción</th>
+				<th width="7%">Acción</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -46,9 +45,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 				echo '<td>' . $result->AGE . '</td>';
 				echo '<td>' . $result->EMAILADDRESS . '</td>';
 				echo '<td>' . $result->CONTACTNO . '</td>';
-				echo '<td align="center" >    
-					  		             <a title="Edit" href="index.php?view=edit&id=' . $result->APPLICANTID . '"  class="btn btn-info btn-xs  ">
-					  		             <span class="fa fa-edit fw-fa"></span></a> 
+				echo '<td align="center" >
 					  		             <a title="Delete" href="controller.php?action=delete&id=' . $result->APPLICANTID . '"  class="btn btn-danger btn-xs  ">
 					  		             <span class="fa fa-trash-o fw-fa"></span></a> 
 					  					 </td>';

@@ -8,7 +8,11 @@ $jobid = $_GET['search'];
 $jobid = '';
 
 }
-$sql = "SELECT * FROM `tblcompany` c,`tbljob` j WHERE c.`COMPANYID`=j.`COMPANYID` AND JOBID LIKE '%" . $jobid ."%' ORDER BY DATEPOSTED DESC" ;
+
+$jobid = $_GET['job'];
+
+// $sql = "SELECT * FROM tblcompany c, tbljob j WHERE c.COMPANYID=j.COMPANYID AND j.JOBID=' . $jobid .'";
+$sql = "SELECT * FROM `tblcompany` c,`tbljob` j WHERE c.`COMPANYID`=j.`COMPANYID` AND JOBID = '" . $jobid ."' ORDER BY DATEPOSTED DESC" ;
 $mydb->setQuery($sql);
 $result = $mydb->loadSingleResult();
 
@@ -22,7 +26,7 @@ if (isset($_SESSION['APPLICANTID'])) {
 ?>
     <div class="col-sm-12">
                    <div class="row">
-                    <h2 class=" " >Job Details</h2>
+                    <h2 class=" " >Detalles del Trabajo</h2>
                      <div class="panel">
                          <div class="panel-header">
                               <div style="border-bottom: 1px solid #ddd;padding: 10px;font-size: 25px;font-weight: bold;color: #000;margin-bottom: 5px;"><a href="<?php echo web_root.'index.php?q=viewjob&search='.$result->JOBID;?>"><?php echo $result->OCCUPATIONTITLE ;?></a> 
@@ -32,37 +36,37 @@ if (isset($_SESSION['APPLICANTID'])) {
                                   <div class="row contentbody">
                                         <div class="col-sm-6">
                                             <ul>
-                                                <li><i class="fp-ht-bed"></i>Required No. of Employee's : <?php echo $result->REQ_NO_EMPLOYEES; ?></li>
-                                                <li><i class="fp-ht-food"></i>Salary : <?php echo number_format($result->SALARIES,2);  ?></li>
-                                                <li><i class="fa fa-sun-"></i>Duration of Employment : <?php echo $result->DURATION_EMPLOYEMENT; ?></li>
+                                                <li><i class="fp-ht-bed"></i>Nro. de Empleados Requeridos : <?php echo $result->REQ_NO_EMPLOYEES; ?></li>
+                                                <li><i class="fp-ht-food"></i>Salario : <?php echo number_format($result->SALARIES,2);  ?></li>
+                                                <li><i class="fa fa-sun-"></i>Duración del Empleo : <?php echo $result->DURATION_EMPLOYEMENT; ?></li>
                                             </ul>
                                         </div>
                                         <div class="col-sm-6">
                                             <ul> 
-                                                <li><i class="fp-ht-tv"></i>Prefered Sex : <?php echo $result->PREFEREDSEX; ?></li>
-                                                <li><i class="fp-ht-computer"></i>Sector of Vacancy : <?php echo $result->SECTOR_VACANCY; ?></li>
+                                                <li><i class="fp-ht-tv"></i>Género Preferido : <?php echo $result->PREFEREDSEX; ?></li>
+                                                <li><i class="fp-ht-computer"></i>Sector de Vacante : <?php echo $result->SECTOR_VACANCY; ?></li>
                                             </ul>
                                         </div>
                                         <div class="col-sm-12">
-                                            <p>Qualification/Work Experience :</p>
+                                            <p>Calificación/Experiencia Laboral :</p>
                                              <ul style="list-style: none;"> 
                                                 <li><?php echo $result->QUALIFICATION_WORKEXPERIENCE ;?></li> 
                                             </ul> 
                                         </div>
                                         <div class="col-sm-12"> 
-                                            <p>Job Description:</p>
+                                            <p>Descripción del Trabajo:</p>
                                             <ul style="list-style: none;"> 
                                                  <li><?php echo $result->JOBDESCRIPTION ;?></li> 
                                             </ul> 
                                          </div>
                                         <div class="col-sm-12">
-                                            <p>Employer :  <?php echo  $result->COMPANYNAME; ?></p> 
-                                            <p>Location :  <?php echo  $result->COMPANYADDRESS; ?></p>
+                                            <p>Compañía :  <?php echo  $result->COMPANYNAME; ?></p> 
+                                            <p>Ubicación :  <?php echo  $result->COMPANYADDRESS; ?></p>
                                         </div>
                                     </div>
                          </div>
                          <div class="panel-footer">
-                              Date Posted :  <?php echo date_format(date_create($result->DATEPOSTED),'M d, Y'); ?>
+                              Fecha de Publicación :  <?php echo date_format(date_create($result->DATEPOSTED),'M d, Y'); ?>
                          </div>
                      </div>
                      
@@ -74,12 +78,12 @@ if (isset($_SESSION['APPLICANTID'])) {
                 <div class="row">
                     <div class="panel panel-default">
                         <div class="panel-header">
-                            <div style="border-bottom: 1px solid #ddd;padding: 10px;font-size: 25px;font-weight: bold;color: #000;margin-bottom: 5px;">Attach your Resume here.
+                            <div style="border-bottom: 1px solid #ddd;padding: 10px;font-size: 25px;font-weight: bold;color: #000;margin-bottom: 5px;">Adjunta tu CV aquí.
                                 <input name="JOBID" type="hidden" value="<?php echo $_GET['job'];?>">
                             </div>
                         </div>
                         <div class="panel-body"> 
-                            <label class="col-md-2" for="picture" style="padding: 0;margin: 0;">Attachtment File:</label> 
+                            <label class="col-md-2" for="picture" style="padding: 0;margin: 0;">Adjuntar Archivo:</label> 
                             <div class="col-md-10" style="padding: 0;margin: 0;">
                                 <input id="picture" name="picture" type="file">
                                 <input name="MAX_FILE_SIZE" type="hidden" value="1000000"> 
@@ -90,8 +94,8 @@ if (isset($_SESSION['APPLICANTID'])) {
             </div>
            <div class="form-group">
             <div class="col-md-12"> 
-                 <button class="btn btn-primary btn-sm pull-right" name="submit" type="submit" >Submit <span class="fa fa-arrow-right"></span></button>
-              <a href="index.php" class="btn btn-info"><span class="fa fa-arrow-left"></span>&nbsp;<strong>Back</strong></a> 
+                 <button class="btn btn-primary btn-sm pull-right" name="submit" type="submit" >Enviar <span class="fa fa-arrow-right"></span></button>
+              <a href="index.php" class="btn btn-info"><span class="fa fa-arrow-left"></span>&nbsp;<strong>Atrás</strong></a> 
             </div>
            </div> 
         </form>

@@ -129,15 +129,15 @@ body {
 								switch ($searchfor) {
 									case 'bycompany':
 										# code...
-									echo 'Result : '  . $search . ' | Company : ' . $company;
+									echo 'Result : '  . $search . ' | Compañía : ' . $company;
 										break;
 									case 'advancesearch':
 										# code... 
-									echo 'Result : '  . $search . ' | Company : ' . $company . ' | Function : ' . $category; 
+									echo 'Result : '  . $search . ' | Compañía : ' . $company . ' | Categoría : ' . $category; 
 									    break;
 									case 'byfunction':
 										# code... 
-									echo 'Result : '  . $search . ' | Function : ' . $category; 
+									echo 'Result : '  . $search . ' | Categoría : ' . $category; 
 									    break;
 
 									case 'bytitle':
@@ -195,7 +195,7 @@ body {
 										</td>
 									</tr>
 								<?php } }else {
-									echo '<tr><td>No result found!.....</td></tr>';
+									echo '<tr><td>Sin Resultados!</td></tr>';
 
 								}?>
 								 

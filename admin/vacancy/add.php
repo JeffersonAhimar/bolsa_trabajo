@@ -62,7 +62,7 @@
                   <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "OCCUPATIONTITLE">Ocupación Título:</label> 
+                      "OCCUPATIONTITLE">Título Trabajo:</label> 
                       <div class="col-md-8">
                          <input class="form-control input-sm" id="OCCUPATIONTITLE" name="OCCUPATIONTITLE" placeholder="Ocupación Título"   autocomplete="none"/> 
                       </div>

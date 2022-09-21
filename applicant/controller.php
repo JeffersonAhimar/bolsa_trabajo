@@ -31,10 +31,11 @@ switch ($action) {
 function doEdit_Profile()
 {
 
-	$birthdate =  $_POST['year'] . '-' . $_POST['month'] . '-' . $_POST['day'];
-
+	$birthdate =  $_POST['U_year'] . '-' . $_POST['U_month'] . '-' . $_POST['U_day'];
+	echo $birthdate;
 	// $age = date_diff(date_create($birthdate), date_create('today'))->y;
 	// $birthdate =  date_format(date_create($_POST['BIRTHDATE']), 'Y-m-d');
+	// $birthdate =  date_format(date_create($birthdate), 'Y-m-d');
 
 	$age = date_diff(date_create($birthdate), date_create('today'))->y;
 	if ($age < 20) {
