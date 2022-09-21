@@ -35,6 +35,8 @@ $singleuser = $user->single_user($USERID);
       </div>
     </div>
 
+
+    <!-- USERNAME -->
     <div class="form-group">
       <div class="col-md-8">
         <label class="col-md-4 control-label" for="U_USERNAME">Username:</label>
@@ -46,6 +48,8 @@ $singleuser = $user->single_user($USERID);
       </div>
     </div>
 
+
+    <!-- PASSWORD -->
     <div class="form-group">
       <div class="col-md-8">
         <label class="col-md-4 control-label" for="U_PASS">Password:</label>
@@ -56,6 +60,10 @@ $singleuser = $user->single_user($USERID);
         </div>
       </div>
     </div>
+
+
+
+
     <div class="form-group">
       <div class="col-md-8">
         <label class="col-md-4 control-label" for="U_ROLE">Role:</label>

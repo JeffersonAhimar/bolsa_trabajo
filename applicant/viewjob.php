@@ -69,7 +69,7 @@ $attachmentfile = $mydb->loadSingleResult();
 	}
 </style>
 <form action="controller.php?action=approve" method="POST">
-	<div class="col-sm-12 content-header" style="">Ver Detalles</div>
+	<div class="col-sm-12 content-header">Ver Detalles</div>
 	<div class="col-sm-12 content-body">
 		<h3><?php echo $job->OCCUPATIONTITLE; ?></h3>
 		<input type="hidden" name="JOBREGID" value="<?php echo $jobreg->REGISTRATIONID; ?>">
