@@ -78,9 +78,9 @@ $res = $job->single_job($jobid);
   </div>
   <div class="form-group">
     <div class="col-md-8">
-      <label class="col-md-4 control-label" for="OCCUPATIONTITLE">Ocupación Título:</label>
+      <label class="col-md-4 control-label" for="OCCUPATIONTITLE">Título Trabajo:</label>
       <div class="col-md-8">
-        <input class="form-control input-sm" id="OCCUPATIONTITLE" name="OCCUPATIONTITLE" placeholder="Ocupación Título" autocomplete="none" value="<?php echo $res->OCCUPATIONTITLE; ?>" />
+        <input class="form-control input-sm" id="OCCUPATIONTITLE" name="OCCUPATIONTITLE" placeholder="Título Trabajo" autocomplete="none" value="<?php echo $res->OCCUPATIONTITLE; ?>" />
       </div>
     </div>
   </div>

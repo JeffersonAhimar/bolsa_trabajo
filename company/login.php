@@ -15,7 +15,7 @@ if (isset($_SESSION['COMPANYID'])) {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin | Log in</title>
+  <title>Compañía | Ingresar</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.5 -->
@@ -48,11 +48,11 @@ if (isset($_SESSION['COMPANYID'])) {
 
       <form action="" method="post">
         <div class="form-group has-feedback">
-          <input type="text" class="form-control" placeholder="Username" name="user_email">
+          <input type="text" class="form-control" placeholder="Nombre de Usuario" name="user_email">
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Password" name="user_pass">
+          <input type="password" class="form-control" placeholder="Contraseña" name="user_pass">
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
@@ -66,6 +66,9 @@ if (isset($_SESSION['COMPANYID'])) {
           <!-- /.col -->
           <div class="col-xs-4">
             <button type="submit" name="btnLogin" class="btn btn-primary btn-block btn-flat">Ingresar</button>
+            <br>
+            <a href="<?php echo web_root; ?>company/register.php" class="text-center">Registrarse</a>
+            <!-- <a href="<?php echo web_root; ?>company/register.php" class="text-center">Registrarse</a> -->
           </div>
         </div>
         <!-- /.col -->
@@ -86,7 +89,7 @@ if (isset($_SESSION['COMPANYID'])) {
 
     if ($email == '' or $upass == '') {
 
-      message("Invalid Username and Password!", "error");
+      message("Nombre de Usuario y Contraseña Inválidos!", "error");
       redirect("login.php");
     } else {
       //it creates a new objects of member
@@ -109,7 +112,7 @@ if (isset($_SESSION['COMPANYID'])) {
         redirect(web_root . "company/vacancy/");
         // } 
       } else {
-        message("Account does not exist! Please contact Administrator.", "error");
+        message("Error. Por favor contacta al administrador!", "error");
         redirect(web_root . "company/login.php");
       }
     }

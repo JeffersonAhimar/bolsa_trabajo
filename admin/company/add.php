@@ -77,7 +77,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 
       <div class="col-md-8">
         <input name="deptid" type="hidden" value="">
-        <input class="form-control input-sm" id="COMPANYPASS" name="COMPANYPASS" placeholder="Account Password" type="Password" value="" required>
+        <input class="form-control input-sm" id="COMPANYPASS" name="COMPANYPASS" placeholder="Contraseña" type="Password" value="" required>
       </div>
     </div>
   </div>

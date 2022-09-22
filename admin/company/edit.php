@@ -62,7 +62,7 @@ $res = $company->single_company($companyid);
 
       <div class="col-md-8">
         <input name="deptid" type="hidden" value="">
-        <input class="form-control input-sm" id="COMPANYUSER" name="COMPANYUSER" placeholder="Email Address" type="text" value="<?php echo $res->COMPANYUSER; ?>">
+        <input class="form-control input-sm" id="COMPANYUSER" name="COMPANYUSER" placeholder="Nombre de Usuario" type="text" value="<?php echo $res->COMPANYUSER; ?>">
       </div>
     </div>
   </div>
@@ -75,7 +75,7 @@ $res = $company->single_company($companyid);
 
       <div class="col-md-8">
         <input name="deptid" type="hidden" value="">
-        <input class="form-control input-sm" id="COMPANYPASS" name="COMPANYPASS" placeholder="Account Password" type="Password" value="" required>
+        <input class="form-control input-sm" id="COMPANYPASS" name="COMPANYPASS" placeholder="Contraseña" type="Password" value="" required>
       </div>
     </div>
   </div>

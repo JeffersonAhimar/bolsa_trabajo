@@ -17,8 +17,8 @@ if (!isset($_SESSION['ADMIN_COMPANYID'])) {
 
 		<thead>
 			<tr>
-				<th>Postulante</th>
 				<th>Título Trabajo</th>
+				<th>Postulante</th>
 				<!-- <th>Compañía</th> -->
 				<th>Fecha de postulación</th>
 				<th>Observaciones</th>
@@ -35,8 +35,8 @@ if (!isset($_SESSION['ADMIN_COMPANYID'])) {
 			foreach ($cur as $result) {
 				echo '<tr>';
 				// echo '<td width="5%" align="center"></td>';
-				echo '<td>' . $result->APPLICANT . '</td>';
 				echo '<td>' . $result->OCCUPATIONTITLE . '</a></td>';
+				echo '<td>' . $result->APPLICANT . '</td>';
 				// echo '<td>' . $result->COMPANYNAME . '</a></td>';
 				echo '<td>' . $result->REGISTRATIONDATE . '</td>';
 				echo '<td>' . $result->REMARKS . '</td>';

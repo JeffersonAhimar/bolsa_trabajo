@@ -18,7 +18,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 
 					<!-- <th>No.</th> -->
 					<th>Nombre de Compañía</th>
-					<th>Ocupación Título</th>
+					<th>Título del Trabajo</th>
 					<th>Nro. de Empleados Requeridos</th>
 					<th>Salarios</th>
 					<th>Duración del empleo</th>

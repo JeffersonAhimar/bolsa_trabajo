@@ -14,7 +14,7 @@
                   <div class="modal-body hold-transition login-page">
                     <div id="loginerrormessage"></div>
                     <div class="login-box"> 
-                        <div class="login-box-body" style="border: solid 1px #ddd;padding: 35px;min-height: 350px;"> 
+                        <div class="login-box-body" style="border: solid 1px #ddd;padding: 35px;min-height: 250px;"> 
 
                           <form action="" method="post">
                             <div class="form-group has-feedback">
@@ -41,7 +41,7 @@
                             </div>
                           </form> 
                           
-                          <a href="#">Olvidé mi contraseña</a><br>
+                          <!-- <a href="#">Olvidé mi contraseña</a><br> -->
                           <a href="<?php echo web_root; ?>index.php?q=register" class="text-center">Registrarse</a>
 
                         </div>

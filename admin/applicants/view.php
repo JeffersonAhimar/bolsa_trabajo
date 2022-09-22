@@ -123,11 +123,11 @@ $attachmentfile = $mydb->loadSingleResult();
 	<div class="col-sm-12 content-footer">
 		<p><i class="fa fa-paperclip"></i> Archivos Adjuntos</p>
 		<div class="col-sm-12 slider">
-			<h3>Descargar CV <a href="<?php echo web_root . 'applicant/' . $attachmentfile->FILE_LOCATION; ?>">Aquí</a></h3>
+			<h3>Descargar CV <a href="<?php echo web_root . 'applicant/' . $attachmentfile->FILE_LOCATION; ?>">Click Aquí</a></h3>
 		</div>
 
 		<div class="col-sm-12">
-			<p>Feedback</p>
+			<p>Mensaje</p>
 			<textarea class="input-group" name="REMARKS"><?php echo isset($jobreg->REMARKS) ? $jobreg->REMARKS : ""; ?></textarea>
 		</div>
 		<div class="col-sm-12  submitbutton ">

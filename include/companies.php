@@ -150,8 +150,8 @@ class Company
 				die(mysql_error());
 			}
 			$row_count = $mydb->num_rows($cur); //get the number of count
-			if ($row_count == 1) {
-				$user_found = $mydb->loadSingleResult();
+			$user_found = $mydb->loadSingleResult();
+			if ($row_count == 1 && $user_found->COMPANYSTATUS=='enabled') {
 				$_SESSION['COMPANYID']   		= $user_found->COMPANYID;
 				$_SESSION['COMPANYNAME']      	= $user_found->COMPANYNAME;
 				$_SESSION['COMPANYUSER'] 		= $user_found->COMPANYUSER;

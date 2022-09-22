@@ -65,7 +65,7 @@ if (isset($_SESSION['ADMIN_USERID'])) {
         </div>   -->
           <!-- /.col -->
           <div class="col-xs-4">
-            <button type="submit" name="btnLogin" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            <button type="submit" name="btnLogin" class="btn btn-primary btn-block btn-flat">Ingresar</button>
           </div>
         </div>
         <!-- /.col -->
@@ -97,7 +97,7 @@ if (isset($_SESSION['ADMIN_USERID'])) {
 
     if ($email == '' or $upass == '') {
 
-      message("Invalid Username and Password!", "error");
+      message("Nombre de Usuario y Contraseña Inválidos!", "error");
       redirect("login.php");
     } else {
       //it creates a new objects of member
@@ -105,7 +105,7 @@ if (isset($_SESSION['ADMIN_USERID'])) {
       //make use of the static function, and we passed to parameters
       $res = $user->userAuthentication($email, $h_upass);
       if ($res == true) {
-        message("You logon as " . $_SESSION['ROLE'] . ".", "success");
+        message("Estás logeado como " . $_SESSION['ROLE'] . ".", "success");
         // if ($_SESSION['ROLE']=='Administrator' || $_SESSION['ROLE']=='Cashier'){
 
         $_SESSION['ADMIN_USERID'] = $_SESSION['USERID'];
@@ -124,7 +124,7 @@ if (isset($_SESSION['ADMIN_USERID'])) {
         redirect(web_root . "admin/company/");
         // } 
       } else {
-        message("Account does not exist! Please contact Administrator.", "error");
+        message("La cuenta no existe! Por favor contacta al administrador.", "error");
         redirect(web_root . "admin/login.php");
       }
     }

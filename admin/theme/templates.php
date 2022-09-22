@@ -153,14 +153,14 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>  
           </a> 
         </li>  -->
-          <li class="<?php echo (currentpage() == 'category') ? "active" : false; ?>">
-            <a href="<?php echo web_root; ?>admin/category/">
-              <i class="fa fa-list"></i> <span>Categorías</span>
-            </a>
-          </li>
           <li class="<?php echo (currentpage() == 'company') ? "active" : false; ?>">
             <a href="<?php echo web_root; ?>admin/company/">
               <i class="fa fa-building"></i> <span>Compañías</span>
+            </a>
+          </li>
+          <li class="<?php echo (currentpage() == 'category') ? "active" : false; ?>">
+            <a href="<?php echo web_root; ?>admin/category/">
+              <i class="fa fa-list"></i> <span>Categorías</span>
             </a>
           </li>
           <li class="<?php echo (currentpage() == 'employee') ? "active" : false; ?>">

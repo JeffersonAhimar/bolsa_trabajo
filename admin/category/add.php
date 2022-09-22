@@ -17,7 +17,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
       <label class="col-md-4 control-label" for="CATEGORY">Categoría:</label>
 
       <div class="col-md-8">
-        <input class="form-control input-sm" id="CATEGORY" name="CATEGORY" placeholder="Category" type="text" value="">
+        <input class="form-control input-sm" id="CATEGORY" name="CATEGORY" placeholder="Categoría" type="text" value="">
       </div>
     </div>
   </div>
