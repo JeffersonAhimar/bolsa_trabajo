@@ -1,3 +1,10 @@
+<?php
+if (!isset($_SESSION['APPLICANTID'])) {
+    # code...
+    redirect(web_root . 'index.php');
+}
+?>
+
 <section id="content">
     <div class="container content">
         <!-- Service Blcoks -->

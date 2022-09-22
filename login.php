@@ -18,11 +18,11 @@
 
                           <form action="" method="post">
                             <div class="form-group has-feedback">
-                              <input type="text" class="form-control" placeholder="Username" name="user_email" id="user_email">
+                              <input type="text" class="form-control" placeholder="Nombre de usuario" name="user_email" id="user_email">
                               <span class="fa fa-user form-control-feedback" style="margin-top: -22px;"></span>
                             </div>
                             <div class="form-group has-feedback">
-                              <input type="password" class="form-control" placeholder="Password" name="user_pass" id="user_pass">
+                              <input type="password" class="form-control" placeholder="Contraseña" name="user_pass" id="user_pass">
                               <span class="fa fa-lock form-control-feedback" style="margin-top: -22px;"></span>
                             </div>
                             <div class="row">
