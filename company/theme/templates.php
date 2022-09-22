@@ -70,14 +70,29 @@
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu" style="padding-right: 15px;">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <!-- <img src="<?php echo web_root . 'company/user/' . $singleuser->PICLOCATION; ?>" class="user-image" alt="User Image"> -->
+                <img src="<?php
+                          if ($singleuser->COMPANYPHOTO == '') {
+                            echo web_root . 'uploads/images/no-image.png';
+                          } else {
+                            echo web_root . 'company/user/' . $singleuser->COMPANYPHOTO;
+                          }
+                          ?>" class="user-image" alt="User Image">
+
                 <span class="hidden-xs"> Sesión: <?php echo $singleuser->COMPANYUSER; ?></span>
               </a>
               <ul class="dropdown-menu">
                 <!-- User image -->
-                <!-- <li class="user-header">
-                  <img data-target="#menuModal" data-toggle="modal" src="../../plugins/home-plugins/img/avatars/admin.png" class="img-circle" alt="User Image" />
-                </li> -->
+                <li class="user-header" style="height: 100%;">
+                  <!-- <img data-target="#menuModal" data-toggle="modal" src="../../plugins/home-plugins/img/avatars/admin.png" class="img-circle" alt="User Image" /> -->
+                  <img data-target="#menuModal" data-toggle="modal" src="
+                  <?php
+                  if ($singleuser->COMPANYPHOTO == '') {
+                    echo web_root . 'uploads/images/no-image.png';
+                  } else {
+                    echo web_root . 'company/user/' . $singleuser->COMPANYPHOTO;
+                  }
+                  ?>" class="img-circle" alt="User Image" />
+                </li>
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
@@ -104,7 +119,7 @@
           <div class="modal-header">
             <button class="close" data-dismiss="modal" type="button">x</button>
 
-            <h4 class="modal-title" id="myModalLabel">Image.</h4>
+            <h4 class="modal-title" id="myModalLabel">Imagen Compañía</h4>
           </div>
 
           <form action="<?php echo web_root; ?>company/user/controller.php?action=photos" enctype="multipart/form-data" method="post">

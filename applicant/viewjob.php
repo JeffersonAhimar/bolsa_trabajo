@@ -9,7 +9,7 @@ $jobreg = $jobregistration->single_jobregistration($red_id);
 
 $applicant = new Applicants();
 $appl = $applicant->single_applicant($jobreg->APPLICANTID);
-// `FNAME`, `LNAME`, `MNAME`, `ADDRESS`, `SEX`, `CIVILSTATUS`, `BIRTHDATE`, `BIRTHPLACE`, `AGE`, `USERNAME`, `PASS`, `EMAILADDRESS`,CONTACTNO
+// `FNAME`, `LNAME`, `ADDRESS`, `SEX`, `CIVILSTATUS`, `BIRTHDATE`, `BIRTHPLACE`, `AGE`, `USERNAME`, `PASS`, `EMAILADDRESS`,CONTACTNO
 
 $jobvacancy = new Jobs();
 $job = $jobvacancy->single_job($jobreg->JOBID);

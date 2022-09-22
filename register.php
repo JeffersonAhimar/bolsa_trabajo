@@ -28,19 +28,6 @@
 
 				<div class="form-group">
 					<div class="col-md-8">
-						<label class="col-md-4 control-label" for="MNAME">Segundo Nombre:</label>
-
-						<div class="col-md-8">
-							<input name="deptid" type="hidden" value="">
-							<input class="form-control input-sm" id="MNAME" name="MNAME" placeholder="Middle Name" onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
-							<!-- <input class="form-control input-sm" id="DEPARTMENT_DESC" name="DEPARTMENT_DESC" placeholder=
-					      "Description" type="text" value=""> -->
-						</div>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<div class="col-md-8">
 						<label class="col-md-4 control-label" for="ADDRESS">Dirección:</label>
 
 						<div class="col-md-8">
@@ -136,14 +123,6 @@
 						</div>
 					</div>
 				</div>
-
-
-
-
-
-
-
-
 
 
 				<div class="form-group">

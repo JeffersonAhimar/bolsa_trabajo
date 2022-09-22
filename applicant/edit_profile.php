@@ -26,7 +26,7 @@ $singleuser = $user->single_applicant($APPLICANTID);
 
     <div class="form-group">
       <div class="col-md-8">
-        <label class="col-md-4 control-label" for="U_LNAME">Nombres:</label>
+        <label class="col-md-4 control-label" for="U_FNAME">Nombres:</label>
 
         <div class="col-md-8">
           <input name="deptid" type="hidden" value="">

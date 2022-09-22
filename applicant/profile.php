@@ -35,23 +35,25 @@ $applicant = $appl->single_applicant($_SESSION['APPLICANTID']);
 
         <div class="panel-body">
           <div id="image-container">
-            <!-- <img title="profile image"  data-target="#myModal"  data-toggle="modal"  src="<?php echo web_root . 'applicant/' . $applicant->APPLICANTPHOTO; ?>">   -->
-            <a href="index.php?view=edit_profile&id=<?php echo $applicant->APPLICANTID;?>">
-
+            <img title="profile image" data-target="#myModal" data-toggle="modal" src="<?php echo web_root . 'applicant/' . $applicant->APPLICANTPHOTO; ?>">
+            <!-- <a href="index.php?view=edit_profile&id=<?php echo $applicant->APPLICANTID; ?>">
               <img title="profile image" src="./photos/avatar.png">
-            </a>
+            </a> -->
           </div>
-          <!-- <a title="Edit" href="index.php?view=edit_profile&id=<?php echo $applicant->APPLICANTID;?>"  class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></span></a> -->
+          <!-- <a title="Edit" href="index.php?view=edit_profile&id=<?php echo $applicant->APPLICANTID; ?>"  class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></span></a> -->
         </div>
 
 
         <ul class="list-group">
-          <li class="list-group-item text-muted">Editar Perfil</li>
+          <li class="list-group-item text-muted">
+            <a href="index.php?view=edit_profile&id=<?php echo $applicant->APPLICANTID; ?>">Editar Perfil
+            </a>
+          </li>
           <!-- 
             <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> 2.13.2014</li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> Yesterday</li> -->
           <li class="list-group-item text-right"><span class="pull-left"><strong>Nombre</strong></span>
-            <?php echo $applicant->FNAME . ' ' . substr($applicant->MNAME, 1, 2) . '. ' . $applicant->LNAME; ?>
+            <?php echo $applicant->FNAME . ' ' . $applicant->LNAME; ?>
           </li>
         </ul>
 
@@ -88,7 +90,7 @@ $applicant = $appl->single_applicant($_SESSION['APPLICANTID']);
 
       ?>
 
-      <!-- <h1><?php echo $applicant->FNAME . ' ' . $applicant->MNAME . ' ' . $applicant->LNAME; ?>  </h1> -->
+      <!-- <h1><?php echo $applicant->FNAME . ' ' . $applicant->LNAME; ?>  </h1> -->
       <?php
 
       switch ($view) {

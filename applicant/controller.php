@@ -45,7 +45,6 @@ function doEdit_Profile()
 		$applicant = new Applicants();
 		$applicant->FNAME = $_POST['U_FNAME'];
 		$applicant->LNAME = $_POST['U_LNAME'];
-		// $applicant->MNAME = $_POST['U_MNAME'];
 		$applicant->ADDRESS = $_POST['U_ADDRESS'];
 		$applicant->SEX = $_POST['U_SEX'];
 		$applicant->CIVILSTATUS = $_POST['U_CIVILSTATUS'];
@@ -76,7 +75,6 @@ function doEdit()
 		$applicant = new Applicants();
 		$applicant->FNAME = $_POST['FNAME'];
 		$applicant->LNAME = $_POST['LNAME'];
-		$applicant->MNAME = $_POST['MNAME'];
 		$applicant->ADDRESS = $_POST['ADDRESS'];
 		$applicant->SEX = $_POST['optionsRadios'];
 		$applicant->CIVILSTATUS = $_POST['CIVILSTATUS'];
@@ -99,8 +97,10 @@ function doupdateimage()
 	$errofile = $_FILES['photo']['error'];
 	$type = $_FILES['photo']['type'];
 	$temp = $_FILES['photo']['tmp_name'];
-	$myfile = $_FILES['photo']['name'];
-	$location = "photos/" . $myfile;
+	// $myfile = $_FILES['photo']['name'];
+	$myfile = date("dmYhis") . basename($_FILES['photo']['name']);
+	// $location = "photos/".$_SESSION['APPLICANTID']. "/". $myfile;
+	$location = "photos/". $myfile;
 
 
 	if ($errofile > 0) {
@@ -119,6 +119,7 @@ function doupdateimage()
 		} else {
 			//uploading the file
 			move_uploaded_file($temp, "photos/" . $myfile);
+			// move_uploaded_file($temp, "photos/" .$_SESSION['APPLICANTID']."/". $myfile);
 
 
 

@@ -36,7 +36,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 			foreach ($cur as $result) {
 				echo '<tr>';
 				echo '<td>' . $result->APPLICANTID . '</a></td>';
-				echo '<td>' . $result->FNAME . ' ' . $result->MNAME . '</td>';
+				echo '<td>' . $result->FNAME . '</td>';
 				echo '<td>' . $result->LNAME . '</td>';
 				echo '<td>' . $result->ADDRESS . '</td>';
 				echo '<td>' . $result->SEX . '</td>';

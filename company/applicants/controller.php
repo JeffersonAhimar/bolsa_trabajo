@@ -45,7 +45,7 @@ function doInsert()
 
 		if (
 			$_POST['FNAME'] == "" or $_POST['LNAME'] == ""
-			or $_POST['MNAME'] == ""  or $_POST['ADDRESS'] == ""
+			or $_POST['ADDRESS'] == ""
 			or $_POST['TELNO'] == ""
 		) {
 			$messageStats = false;
@@ -84,7 +84,6 @@ function doInsert()
 					$emp->EMPLOYEEID 		= $_POST['EMPLOYEEID'];
 					$emp->FNAME				= $_POST['FNAME'];
 					$emp->LNAME				= $_POST['LNAME'];
-					$emp->MNAME 	   		= $_POST['MNAME'];
 					$emp->ADDRESS			= $_POST['ADDRESS'];
 					$emp->BIRTHDATE	 		= $birthdate;
 					$emp->BIRTHPLACE		= $_POST['BIRTHPLACE'];
@@ -122,7 +121,7 @@ function doEdit()
 
 		if (
 			$_POST['FNAME'] == "" or $_POST['LNAME'] == ""
-			or $_POST['MNAME'] == "" or $_POST['ADDRESS'] == ""
+			or $_POST['ADDRESS'] == ""
 			or $_POST['TELNO'] == ""
 		) {
 			$messageStats = false;
@@ -144,7 +143,6 @@ function doEdit()
 				$emp->EMPLOYEEID 		= $_POST['EMPLOYEEID'];
 				$emp->FNAME				= $_POST['FNAME'];
 				$emp->LNAME				= $_POST['LNAME'];
-				$emp->MNAME 	   		= $_POST['MNAME'];
 				$emp->ADDRESS			= $_POST['ADDRESS'];
 				$emp->BIRTHDATE	 		= $birthdate;
 				$emp->BIRTHPLACE		= $_POST['BIRTHPLACE'];

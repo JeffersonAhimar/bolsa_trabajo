@@ -9,7 +9,7 @@ $jobreg = $jobregistration->single_jobregistration($red_id);
 
 $applicant = new Applicants();
 $appl = $applicant->single_applicant($jobreg->APPLICANTID);
-// `FNAME`, `LNAME`, `MNAME`, `ADDRESS`, `SEX`, `CIVILSTATUS`, `BIRTHDATE`, `BIRTHPLACE`, `AGE`, `USERNAME`, `PASS`, `EMAILADDRESS`,CONTACTNO
+// `FNAME`, `LNAME` `ADDRESS`, `SEX`, `CIVILSTATUS`, `BIRTHDATE`, `BIRTHPLACE`, `AGE`, `USERNAME`, `PASS`, `EMAILADDRESS`,CONTACTNO
 
 $jobvacancy = new Jobs();
 $job = $jobvacancy->single_job($jobreg->JOBID);
@@ -105,7 +105,7 @@ $attachmentfile = $mydb->loadSingleResult();
 	</div>
 	<div class="col-sm-6 content-body">
 		<p>Información del Postulante</p>
-		<h3> <?php echo $appl->LNAME . ', ' . $appl->FNAME . ' ' . $appl->MNAME; ?></h3>
+		<h3> <?php echo $appl->LNAME . ', ' . $appl->FNAME; ?></h3>
 		<ul>
 			<li>Dirección : <?php echo $appl->ADDRESS; ?></li>
 			<li>Nro. de Contacto : <?php echo $appl->CONTACTNO; ?></li>
@@ -117,13 +117,14 @@ $attachmentfile = $mydb->loadSingleResult();
 			<p>Estudios : </p>
 			<p style="margin-left: 15px;"><?php echo $appl->DEGREE; ?></p>
 		</div>
-
-
 	</div>
+
+
+
 	<div class="col-sm-12 content-footer">
 		<p><i class="fa fa-paperclip"></i> Archivos Adjuntos</p>
 		<div class="col-sm-12 slider">
-			<h3>Descargar CV <a href="<?php echo web_root . 'applicant/' . $attachmentfile->FILE_LOCATION; ?>">Aquí</a></h3>
+			<h3>Revisar CV <a href="<?php echo web_root . 'uploads/' . $attachmentfile->FILE_LOCATION; ?>" target="_blank">Click aquí</a></h3>
 		</div>
 
 		<div class="col-sm-12">
@@ -134,4 +135,7 @@ $attachmentfile = $mydb->loadSingleResult();
 			<button type="submit" name="submit" class="btn btn-primary">Enviar</button>
 		</div>
 	</div>
+
+
+
 </form>

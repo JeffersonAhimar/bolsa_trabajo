@@ -26,8 +26,10 @@ function doSubmitApplication()
 	$autonum = new Autonumber();
 	$fileid = $autonum->set_autonumber('FILEID');
 
-	@$picture = UploadImage();
-	@$location = "photos/" . $picture;
+	@$picture = UploadFile();
+	@$location = "documents/" . $picture;
+	// @$picture = UploadImage();
+	// @$location = "photos/". $picture ;
 
 
 	if ($picture == "") {
@@ -60,6 +62,33 @@ function doSubmitApplication()
 
 	$autonum = new Autonumber();
 	$autonum->auto_update('FILEID');
+}
+
+
+function UploadFile()
+{
+	$target_dir = "uploads/documents/";
+	$target_file = $target_dir . date("dmYhis") . basename($_FILES["picture"]["name"]);
+	$uploadOk = 1;
+	$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+
+
+	if (
+		$imageFileType != "jpg" || $imageFileType != "png" || $imageFileType != "jpeg"
+		|| $imageFileType != "gif"
+	) {
+		if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
+			return  date("dmYhis") . basename($_FILES["picture"]["name"]);
+		} else {
+			message("Error Uploading File", "error");
+			// redirect(web_root."index.php?q=apply&job=".$jobid."&view=personalinfo");
+			// exit;
+		}
+	} else {
+		message("File Not Supported", "error");
+		// redirect(web_root."index.php?q=apply&job=".$jobid."&view=personalinfo");
+		// exit;
+	}
 }
 function doInsert($jobid = 0, $fileid = 0)
 {
@@ -174,7 +203,6 @@ function doRegister()
 			$applicant->APPLICANTID = date('Y') . $auto->AUTO;
 			$applicant->FNAME = $_POST['FNAME'];
 			$applicant->LNAME = $_POST['LNAME'];
-			$applicant->MNAME = $_POST['MNAME'];
 			$applicant->ADDRESS = $_POST['ADDRESS'];
 			$applicant->SEX = $_POST['SEX'];
 			$applicant->CIVILSTATUS = $_POST['CIVILSTATUS'];
@@ -218,7 +246,6 @@ function doUpdate_Profile()
 			$applicant->APPLICANTID = date('Y') . $auto->AUTO;
 			$applicant->FNAME = $_POST['FNAME'];
 			$applicant->LNAME = $_POST['LNAME'];
-			$applicant->MNAME = $_POST['MNAME'];
 			$applicant->ADDRESS = $_POST['ADDRESS'];
 			$applicant->SEX = $_POST['optionsRadios'];
 			$applicant->CIVILSTATUS = $_POST['CIVILSTATUS'];
@@ -258,14 +285,14 @@ function doLogin()
 	$res = $applicant->applicantAuthentication($email, $h_upass);
 	if ($res == true) {
 
-		message("You are now successfully login!", "success");
+		message("Te logueaste correctamente!", "success");
 
 		// $sql="INSERT INTO `tbllogs` (`USERID`,USERNAME, `LOGDATETIME`, `LOGROLE`, `LOGMODE`) 
 		//    VALUES (".$_SESSION['USERID'].",'".$_SESSION['FULLNAME']."','".date('Y-m-d H:i:s')."','".$_SESSION['UROLE']."','Logged in')";
 		//    mysql_query($sql) or die(mysql_error()); 
 		redirect(web_root . "applicant/");
 	} else {
-		echo "Account does not exist! Please contact Administrator.";
+		echo "Error al ingresar! Por favor contacta con el administrador";
 	}
 }
 
