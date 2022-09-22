@@ -16,7 +16,7 @@
         foreach ($cur as $result) {
             # code...
 
-            // `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `PREFEREDSEX`, `SECTOR_VACANCY`, `DATEPOSTED`
+            // `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `PREFEREDSEX`, `DATEPOSTED`
         ?>
             <div class="container">
                 <div class="mg-available-rooms">
@@ -33,7 +33,7 @@
                                     <div class="row contentbody">
                                         <div class="col-sm-6">
                                             <ul>
-                                                <li><i class="fp-ht-bed"></i>Nro. de Empleados Requeridos : <?php echo $result->REQ_NO_EMPLOYEES; ?></li>
+                                                <li><i class="fp-ht-bed"></i>Vacantes : <?php echo $result->REQ_NO_EMPLOYEES; ?></li>
                                                 <li><i class="fp-ht-food"></i>Salario : <?php echo number_format($result->SALARIES, 2);  ?></li>
                                                 <li><i class="fa fa-sun-"></i>Duración del Empleo : <?php echo $result->DURATION_EMPLOYEMENT; ?></li>
                                             </ul>
@@ -42,7 +42,6 @@
                                             <ul>
                                                 <!-- <li><i class="fp-ht-dumbbell"></i>Qualification/Work Experience : <?php echo $result->QUALIFICATION_WORKEXPERIENCE; ?></li> -->
                                                 <li><i class="fp-ht-tv"></i>Género Preferido : <?php echo $result->PREFEREDSEX; ?></li>
-                                                <li><i class="fp-ht-computer"></i>Sector de Vacante : <?php echo $result->SECTOR_VACANCY; ?></li>
                                             </ul>
                                         </div>
                                         <div class="col-sm-12">

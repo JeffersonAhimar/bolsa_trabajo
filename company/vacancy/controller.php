@@ -48,7 +48,6 @@ switch ($action) {
 			$job->QUALIFICATION_WORKEXPERIENCE		= $_POST['QUALIFICATION_WORKEXPERIENCE'];
 			$job->JOBDESCRIPTION					= $_POST['JOBDESCRIPTION'];
 			$job->PREFEREDSEX						= $_POST['PREFEREDSEX'];
-			$job->SECTOR_VACANCY					= $_POST['SECTOR_VACANCY']; 
 			$job->DATEPOSTED						= date('Y-m-d H:i');
 			$job->create();
 
@@ -82,7 +81,6 @@ switch ($action) {
 				$job->QUALIFICATION_WORKEXPERIENCE		= $_POST['QUALIFICATION_WORKEXPERIENCE'];
 				$job->JOBDESCRIPTION					= $_POST['JOBDESCRIPTION'];
 				$job->PREFEREDSEX						= $_POST['PREFEREDSEX'];
-				$job->SECTOR_VACANCY					= $_POST['SECTOR_VACANCY']; 
 				$job->update($_POST['JOBID']);
 
 				message("La Vacante Laboral ha sido actulizada!", "success");

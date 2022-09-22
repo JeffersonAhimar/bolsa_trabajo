@@ -100,9 +100,12 @@
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
              </button>
-             <a class="navbar-brand" href="<?php echo web_root; ?>index.php">BOLSA TRABAJO - DRE CAJAMARCA
-               <!-- <img src="<?php echo web_root; ?>plugins/home-plugins/img/logo.png" alt="logo"/> -->
+             <a class="navbar-brand" href="<?php echo web_root; ?>index.php">
+               <img src="<?php echo web_root; ?>plugins/home-plugins/img/logo_blue.png" alt="logo" style="max-width: 200px;" />
              </a>
+             <!-- <a class="navbar-brand" href="<?php echo web_root; ?>index.php">BOLSA TRABAJO - DRE CAJAMARCA
+               <img src="<?php echo web_root; ?>plugins/home-plugins/img/logo.png" alt="logo" />
+             </a> -->
            </div>
            <div class="navbar-collapse collapse ">
              <ul class="nav navbar-nav">

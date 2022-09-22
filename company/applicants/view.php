@@ -78,7 +78,7 @@ $attachmentfile = $mydb->loadSingleResult();
 
 		<div class="col-sm-6">
 			<ul>
-				<li><i class="fp-ht-bed"></i>Nro. de Empleados Requeridos : <?php echo $job->REQ_NO_EMPLOYEES; ?></li>
+				<li><i class="fp-ht-bed"></i>Vacantes : <?php echo $job->REQ_NO_EMPLOYEES; ?></li>
 				<li><i class="fp-ht-food"></i>Salario : <?php echo number_format($job->SALARIES, 2);  ?></li>
 				<li><i class="fa fa-sun-"></i>Duración del Empleo : <?php echo $job->DURATION_EMPLOYEMENT; ?></li>
 			</ul>
@@ -86,7 +86,7 @@ $attachmentfile = $mydb->loadSingleResult();
 		<div class="col-sm-6">
 			<ul>
 				<li><i class="fp-ht-tv"></i>Género Preferido : <?php echo $job->PREFEREDSEX; ?></li>
-				<li><i class="fp-ht-computer"></i>Sector de Vacante : <?php echo $job->SECTOR_VACANCY; ?></li>
+				<!-- <li><i class="fp-ht-computer"></i>Sector de Vacante : <?php echo $job->SECTOR_VACANCY; ?></li> -->
 			</ul>
 		</div>
 		<div class="col-sm-12">
@@ -114,7 +114,7 @@ $attachmentfile = $mydb->loadSingleResult();
 			<li>Edad : <?php echo $appl->AGE; ?></li>
 		</ul>
 		<div class="col-sm-12">
-			<p>Logro Educativo : </p>
+			<p>Estudios : </p>
 			<p style="margin-left: 15px;"><?php echo $appl->DEGREE; ?></p>
 		</div>
 
@@ -127,7 +127,7 @@ $attachmentfile = $mydb->loadSingleResult();
 		</div>
 
 		<div class="col-sm-12">
-			<p>Feedback</p>
+			<p>Mensaje</p>
 			<textarea class="input-group" name="REMARKS"><?php echo isset($jobreg->REMARKS) ? $jobreg->REMARKS : ""; ?></textarea>
 		</div>
 		<div class="col-sm-12  submitbutton ">

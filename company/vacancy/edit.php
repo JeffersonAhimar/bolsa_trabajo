@@ -87,9 +87,9 @@ $res = $job->single_job($jobid);
 
   <div class="form-group">
     <div class="col-md-8">
-      <label class="col-md-4 control-label" for="REQ_NO_EMPLOYEES">Nro. de Empleados Requeridos:</label>
+      <label class="col-md-4 control-label" for="REQ_NO_EMPLOYEES">Vacantes:</label>
       <div class="col-md-8">
-        <input class="form-control input-sm" id="REQ_NO_EMPLOYEES" name="REQ_NO_EMPLOYEES" placeholder="Nro. de Empleados Requeridos" autocomplete="none" value="<?php echo $res->REQ_NO_EMPLOYEES ?>" />
+        <input class="form-control input-sm" id="REQ_NO_EMPLOYEES" name="REQ_NO_EMPLOYEES" placeholder="Vacantes" autocomplete="none" value="<?php echo $res->REQ_NO_EMPLOYEES ?>" />
       </div>
     </div>
   </div>
@@ -144,14 +144,7 @@ $res = $job->single_job($jobid);
     </div>
   </div>
 
-  <div class="form-group">
-    <div class="col-md-8">
-      <label class="col-md-4 control-label" for="SECTOR_VACANCY">Sector de Vacante:</label>
-      <div class="col-md-8">
-        <textarea class="form-control input-sm" id="SECTOR_VACANCY" name="SECTOR_VACANCY" placeholder="Sector de Vacante" autocomplete="none"><?php echo $res->SECTOR_VACANCY ?></textarea>
-      </div>
-    </div>
-  </div>
+
 
   <div class="form-group">
     <div class="col-md-8">

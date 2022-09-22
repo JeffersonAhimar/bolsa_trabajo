@@ -13,7 +13,7 @@ $appl = $applicant->single_applicant($jobreg->APPLICANTID);
 
 $jobvacancy = new Jobs();
 $job = $jobvacancy->single_job($jobreg->JOBID);
-// `COMPANYID`, `CATEGORY`, `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `JOBDESCRIPTION`, `PREFEREDSEX`, `SECTOR_VACANCY`, `JOBSTATUS`, `DATEPOSTED`
+// `COMPANYID`, `CATEGORY`, `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `JOBDESCRIPTION`, `PREFEREDSEX`, `JOBSTATUS`, `DATEPOSTED`
 
 $company = new Company();
 $comp = $company->single_company($jobreg->COMPANYID);
@@ -76,7 +76,7 @@ $attachmentfile = $mydb->loadSingleResult();
 
 		<div class="col-sm-6">
 			<ul>
-				<li><i class="fp-ht-bed"></i>Nro. de Empleados Requeridos : <?php echo $job->REQ_NO_EMPLOYEES; ?></li>
+				<li><i class="fp-ht-bed"></i>Vacantes : <?php echo $job->REQ_NO_EMPLOYEES; ?></li>
 				<li><i class="fp-ht-food"></i>Salario : <?php echo number_format($job->SALARIES, 2);  ?></li>
 				<li><i class="fa fa-sun-"></i>Duración del Empleo : <?php echo $job->DURATION_EMPLOYEMENT; ?></li>
 			</ul>
@@ -84,7 +84,6 @@ $attachmentfile = $mydb->loadSingleResult();
 		<div class="col-sm-6">
 			<ul>
 				<li><i class="fp-ht-tv"></i>Género Preferido : <?php echo $job->PREFEREDSEX; ?></li>
-				<li><i class="fp-ht-computer"></i>Sector de Vacantes : <?php echo $job->SECTOR_VACANCY; ?></li>
 			</ul>
 		</div>
 		<div class="col-sm-12">

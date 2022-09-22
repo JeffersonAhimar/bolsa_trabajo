@@ -174,20 +174,6 @@ function doEdit()
 function doDelete()
 {
 
-	// if (isset($_POST['selector'])==''){
-	// message("Select the records first before you delete!","error");
-	// redirect('index.php');
-	// }else{
-
-	// $id = $_POST['selector'];
-	// $key = count($id);
-
-	// for($i=0;$i<$key;$i++){
-
-	// 	$subj = New Student();
-	// 	$subj->delete($id[$i]);
-
-
 	$id = 	$_GET['id'];
 
 	// $emp = new Employee();
@@ -294,7 +280,7 @@ function doApproved()
 				$cur = $mydb->executeQuery();
 			}
 
-			message("Applicant is calling for an interview.", "success");
+			message("Se ha enviado el mensaje al postulante.", "success");
 			redirect("index.php?view=view&id=" . $id);
 		} else {
 			message("cannot be sve.", "error");

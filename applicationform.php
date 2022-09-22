@@ -35,7 +35,7 @@
                             <div class="row contentbody">
                                 <div class="col-sm-6">
                                     <ul>
-                                        <li><i class="fp-ht-bed"></i>Nro. de Empleados Requeridos : <?php echo $result->REQ_NO_EMPLOYEES; ?></li>
+                                        <li><i class="fp-ht-bed"></i>Vacantes : <?php echo $result->REQ_NO_EMPLOYEES; ?></li>
                                         <li><i class="fp-ht-food"></i>Salario : <?php echo number_format($result->SALARIES, 2);  ?></li>
                                         <li><i class="fa fa-sun-"></i>Duración del Empleo : <?php echo $result->DURATION_EMPLOYEMENT; ?></li>
                                     </ul>
@@ -43,7 +43,6 @@
                                 <div class="col-sm-6">
                                     <ul>
                                         <li><i class="fp-ht-tv"></i>Género Preferido : <?php echo $result->PREFEREDSEX; ?></li>
-                                        <li><i class="fp-ht-computer"></i>Sector de Vacante : <?php echo $result->SECTOR_VACANCY; ?></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-12">
@@ -126,7 +125,6 @@
                                     <div class="col-sm-6">
                                         <ul>
                                             <li><i class="fp-ht-tv"></i>Prefered Sex : <?php echo $result->PREFEREDSEX; ?></li>
-                                            <li><i class="fp-ht-computer"></i>Sector of Vacancy : <?php echo $result->SECTOR_VACANCY; ?></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-12">

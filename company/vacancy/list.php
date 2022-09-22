@@ -19,21 +19,19 @@ if (!isset($_SESSION['ADMIN_COMPANYID'])) {
 					<!-- <th>No.</th> -->
 					<!-- <th>Nombre de Compañía</th> -->
 					<th>Título Trabajo</th>
-					<th>Nro. de Empleados Requeridos</th>
+					<th>Vacantes</th>
 					<th>Salarios</th>
 					<th>Duración del empleo</th>
 					<th>Calificación/Experiencia Laboral</th>
 					<th>Descripción del Trabajo</th>
 					<th>Género</th>
-					<th>Sector de Vacante</th>
-					<!-- <th>Estado Laboral</th> -->
 					<th width="10%" align="center">Acción</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
 				// `COMPANYID`, `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `JOBDESCRIPTION`, `PREFEREDSEX`, `SECTOR_VACANCY`, `JOBSTATUS`
-				$mydb->setQuery("SELECT * FROM `tbljob` j, `tblcompany` c WHERE j.COMPANYID=c.COMPANYID AND c.COMPANYID ='".$_SESSION['ADMIN_COMPANYID']."'");
+				$mydb->setQuery("SELECT * FROM `tbljob` j, `tblcompany` c WHERE j.COMPANYID=c.COMPANYID AND c.COMPANYID ='" . $_SESSION['ADMIN_COMPANYID'] . "'");
 				$cur = $mydb->loadResultList();
 				foreach ($cur as $result) {
 					echo '<tr>';
@@ -49,8 +47,6 @@ if (!isset($_SESSION['ADMIN_COMPANYID'])) {
 					echo '<td>' . $result->QUALIFICATION_WORKEXPERIENCE . '</td>';
 					echo '<td>' . $result->JOBDESCRIPTION . '</td>';
 					echo '<td>' . $result->PREFEREDSEX . '</td>';
-					echo '<td>' . $result->SECTOR_VACANCY . '</td>';
-					// echo '<td>' . $result->JOBSTATUS . '</td>';
 					echo '<td align="center"><a title="Edit" href="index.php?view=edit&id=' . $result->JOBID . '" class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
 				  		     <a title="Delete" href="controller.php?action=delete&id=' . $result->JOBID . '" class="btn btn-danger btn-xs  ">  <span class="fa  fa-trash-o fw-fa "></a></td>';
 					// echo '<td></td>';
