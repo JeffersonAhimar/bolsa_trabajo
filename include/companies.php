@@ -151,7 +151,7 @@ class Company
 			}
 			$row_count = $mydb->num_rows($cur); //get the number of count
 			$user_found = $mydb->loadSingleResult();
-			if ($row_count == 1 && $user_found->COMPANYSTATUS=='enabled') {
+			if ($row_count == 1 && $user_found->COMPANYSTATUS=='habilitado') {
 				$_SESSION['COMPANYID']   		= $user_found->COMPANYID;
 				$_SESSION['COMPANYNAME']      	= $user_found->COMPANYNAME;
 				$_SESSION['COMPANYUSER'] 		= $user_found->COMPANYUSER;

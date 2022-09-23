@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<title>Admin</title>
 <head>
   <meta charset="UTF-8">
   <title><?php
@@ -265,8 +265,7 @@
       <div class="pull-right hidden-xs">
         <b>Version</b> 1
       </div>
-      <strong>Copyright &copy; 2022 <a href="#">DRE Cajamarca</a>.</strong> All rights
-      reserved.
+      <strong>Copyright &copy; 2022 <a href="#">DRE Cajamarca</a>.</strong> Todos los derechos reservados.
     </footer>
 
 

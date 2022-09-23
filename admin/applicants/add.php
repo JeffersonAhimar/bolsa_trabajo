@@ -186,10 +186,10 @@ $res = $autonum->set_autonumber('employeeid');
 
               <div class="col-md-8">
                 <select class="form-control input-sm" name="CIVILSTATUS" id="CIVILSTATUS">
-                  <option value="none">Seleccionar</option>
-                  <option value="Single">Soltero(a)</option>
-                  <option value="Married">Cazado(a)</option>
-                  <option value="Widow">Viudo(a)</option>
+                  <option value="No Especificado">No Especificado</option>
+                  <option value="Soltero(a)">Soltero(a)</option>
+                  <option value="Casado(a)">Casado(a)</option>
+                  <option value="Viudo(a)">Viudo(a)</option>
                   <!-- <option value="Fourth" >Fourth</option> -->
                 </select>
               </div>

@@ -205,10 +205,10 @@ $searchfor = (isset($_GET['searchfor']) && $_GET['searchfor'] != '') ? $_GET['se
 															<!-- <span class="fa fa-building-o"></span> -->
 															<?php
 															if ($row->COMPANYPHOTO == '') {
-																echo '<span class="fa fa-building-o"></span>';
-																// echo web_root . 'uploads/images/no-image.png';
+																// echo '<span class="fa fa-building-o"></span>';
+																echo '<img src="' . web_root . 'uploads/images/no-company.png" ' . 'alt="" width="80px"; height="80px"';
 															} else {
-																echo '<img src="' . web_root . 'company/user/' . $row->COMPANYPHOTO . '" alt="" width="80px" height="100%"';
+																echo '<img src="' . web_root . 'company/user/' . $row->COMPANYPHOTO . '" alt="" width="80px"; height="80px';
 															}
 															?>
 														</a>

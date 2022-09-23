@@ -46,7 +46,7 @@ $singleuser = $user->single_user($USERID);
 
               <div class="col-md-8">
                 <input name="deptid" type="hidden" value="">
-                <input class="form-control input-sm" id="U_NAME" name="U_NAME" placeholder="Account Name" type="text" value="<?php echo $singleuser->COMPANYNAME; ?>">
+                <input class="form-control input-sm" id="U_NAME" name="U_NAME" placeholder="Nombre" type="text" value="<?php echo $singleuser->COMPANYNAME; ?>">
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@ $singleuser = $user->single_user($USERID);
 
               <div class="col-md-8">
                 <input name="deptid" type="hidden" value="">
-                <input class="form-control input-sm" id="U_ADDRESS" name="U_ADDRESS" placeholder="Account Name" type="text" value="<?php echo $singleuser->COMPANYADDRESS; ?>">
+                <input class="form-control input-sm" id="U_ADDRESS" name="U_ADDRESS" placeholder="Dirección" type="text" value="<?php echo $singleuser->COMPANYADDRESS; ?>">
               </div>
             </div>
           </div>
@@ -70,7 +70,7 @@ $singleuser = $user->single_user($USERID);
 
               <div class="col-md-8">
                 <input name="deptid" type="hidden" value="">
-                <input class="form-control input-sm" id="U_CONTACTNO" name="U_CONTACTNO" placeholder="Account Name" type="text" value="<?php echo $singleuser->COMPANYCONTACTNO; ?>">
+                <input class="form-control input-sm" id="U_CONTACTNO" name="U_CONTACTNO" placeholder="Nro. de Contacto" type="text" value="<?php echo $singleuser->COMPANYCONTACTNO; ?>">
               </div>
             </div>
           </div>
@@ -79,22 +79,22 @@ $singleuser = $user->single_user($USERID);
 
           <div class="form-group">
             <div class="col-md-8">
-              <label class="col-md-4 control-label" for="U_USERNAME">Username:</label>
+              <label class="col-md-4 control-label" for="U_USERNAME">Nombre de Usuario:</label>
 
               <div class="col-md-8">
                 <input name="deptid" type="hidden" value="">
-                <input class="form-control input-sm" id="U_USERNAME" name="U_USERNAME" placeholder="Email Address" type="text" value="<?php echo $singleuser->COMPANYUSER; ?>">
+                <input class="form-control input-sm" id="U_USERNAME" name="U_USERNAME" placeholder="Nombre de Usuario" type="text" value="<?php echo $singleuser->COMPANYUSER; ?>">
               </div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="col-md-8">
-              <label class="col-md-4 control-label" for="U_PASS">Password:</label>
+              <label class="col-md-4 control-label" for="U_PASS">Contraseña:</label>
 
               <div class="col-md-8">
                 <input name="deptid" type="hidden" value="">
-                <input class="form-control input-sm" id="U_PASS" name="U_PASS" placeholder="Account Password" type="Password" value="" required>
+                <input class="form-control input-sm" id="U_PASS" name="U_PASS" placeholder="Contraseña" type="Password" value="" required>
               </div>
             </div>
           </div>

@@ -88,9 +88,6 @@ function doDelete()
 
 	message("User has been deleted!", "info");
 	redirect('index.php');
-	// }
-	// }
-
 
 }
 
@@ -130,7 +127,8 @@ function doupdateimage()
 			$user = new Company();
 			$user->COMPANYPHOTO 			= $location;
 			$user->update($_SESSION['ADMIN_COMPANYID']);
-			redirect("index.php?view=view");
+			// redirect("index.php?view=view");
+			redirect("../vacancy");
 		}
 	}
 }

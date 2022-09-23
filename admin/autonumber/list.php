@@ -48,7 +48,7 @@
 								     <div class="btn-group">
 								  <a href="index.php?view=add" class="btn btn-default">New</a>
 									<?php
-									if($_SESSION['UROLE']=='Administrator'){
+									if($_SESSION['UROLE']=='Administrador'){
 									// echo '<button type="submit" class="btn btn-default" name="delete"><span class="glyphicon glyphicon-trash"></span> Delete Selected</button'
 									; }?>
 								</div>

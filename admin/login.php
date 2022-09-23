@@ -41,7 +41,7 @@ if (isset($_SESSION['ADMIN_USERID'])) {
     <a href="../../index2.html"><b>Admin</b>LTE</a>
   </div> -->
     <!-- /.login-logo -->
-    <div class="login-box-body" style="min-height: 400px;">
+    <div class="login-box-body" style="min-height: 280px;">
       <h1 class="login-box-msg">Login - ADMIN</h1>
       <hr />
       <p><?php check_message(); ?></p>
@@ -105,7 +105,7 @@ if (isset($_SESSION['ADMIN_USERID'])) {
       //make use of the static function, and we passed to parameters
       $res = $user->userAuthentication($email, $h_upass);
       if ($res == true) {
-        message("Estás logeado como " . $_SESSION['ROLE'] . ".", "success");
+        message("Estás logueado como " . $_SESSION['ROLE'] . ".", "success");
         // if ($_SESSION['ROLE']=='Administrator' || $_SESSION['ROLE']=='Cashier'){
 
         $_SESSION['ADMIN_USERID'] = $_SESSION['USERID'];

@@ -346,7 +346,7 @@ switch ($emp->WORKSTATS) {
 
       <div class="col-md-8">
         <select class="form-control input-sm" id="COMPANYID" name="COMPANYID">
-          <option value="None">Seleccionar</option>
+          <option value="No Especificado">Seleccionar</option>
           <?php
           $sql = "Select * From tblcompany WHERE COMPANYID=" . $emp->COMPANYID;
           $mydb->setQuery($sql);

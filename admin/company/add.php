@@ -49,8 +49,8 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
       <label class="col-md-4 control-label" for="COMPANYSTATUS">Estado:</label>
       <div class="col-md-8">
         <select class="form-control input-sm" id="COMPANYSTATUS" name="COMPANYSTATUS">
-          <option value="disabled" selected>disabled</option>
-          <option value="enabled">enabled</option>
+          <option value="deshabilitado" selected>deshabilitado</option>
+          <option value="habilitado">habilitado</option>
         </select>
       </div>
     </div>

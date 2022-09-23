@@ -14,8 +14,8 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 			<tr>
 				<th>ID</th>
 				<th> Nombre</th>
-				<th>Username</th>
-				<th>Role</th>
+				<th>Nombre de Usuario</th>
+				<th>Rol</th>
 				<th width="10%">Acción</th>
 
 			</tr>
@@ -35,7 +35,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 				echo '<td>' . $result->FULLNAME . '</a></td>';
 				echo '<td>' . $result->USERNAME . '</td>';
 				echo '<td>' . $result->ROLE . '</td>';
-				if ($result->USERID == $_SESSION['ADMIN_USERID'] || $result->ROLE == 'MainAdministrator' || $result->ROLE == 'Administrator') {
+				if ($result->USERID == $_SESSION['ADMIN_USERID'] || $result->ROLE == 'MainAdministrador' || $result->ROLE == 'Administrador') {
 					$active = "Disabled";
 				} else {
 					$active = "";

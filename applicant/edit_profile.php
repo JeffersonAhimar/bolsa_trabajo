@@ -163,7 +163,7 @@ $singleuser = $user->single_applicant($APPLICANTID);
 
         <div class="col-md-8">
           <select class="form-control input-sm" name="U_SEX" id="U_SEX">
-            <option value="none" <?php echo ($singleuser->SEX == 'None') ? 'selected="true"' : ''; ?>>Seleccionar</option>
+            <option value="No Especificado" <?php echo ($singleuser->SEX == 'No Especificado') ? 'selected="true"' : ''; ?>>No Especificado</option>
             <option value="Masculino" <?php echo ($singleuser->SEX == 'Masculino') ? 'selected="true"' : ''; ?>>Masculino</option>
             <option value="Femenino" <?php echo ($singleuser->SEX == 'Femenino') ? 'selected="true"' : ''; ?>>Femenino</option>
 

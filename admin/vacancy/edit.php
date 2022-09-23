@@ -25,7 +25,7 @@ $res = $job->single_job($jobid);
       <div class="col-md-8">
         <input type="hidden" name="JOBID" value="<?php echo $res->JOBID; ?>">
         <select class="form-control input-sm" id="COMPANYID" name="COMPANYID">
-          <option value="None">Seleccionar</option>
+          <option value="No Especificado">Seleccionar</option>
           <?php
           $sql = "Select * From tblcompany WHERE COMPANYID=" . $res->COMPANYID;
           $mydb->setQuery($sql);
@@ -134,7 +134,7 @@ $res = $job->single_job($jobid);
       <label class="col-md-4 control-label" for="PREFEREDSEX">Género Preferido:</label>
       <div class="col-md-8">
         <select class="form-control input-sm" id="PREFEREDSEX" name="PREFEREDSEX">
-          <option value="none">Seleccionar</option>
+          <option value="No Especificado">No Especificado</option>
           <option <?php echo ($res->PREFEREDSEX == 'Masculino') ? "SELECTED" : "" ?>>Masculino</option>
           <option <?php echo ($res->PREFEREDSEX == 'Femenino') ? "SELECTED" : "" ?>>Femenino</option>
           <option <?php echo ($res->PREFEREDSEX == 'Masculino/Femenino') ? "SELECTED" : "" ?>>Masculino/Femenino</option>

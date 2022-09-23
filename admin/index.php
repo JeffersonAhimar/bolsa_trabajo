@@ -8,14 +8,14 @@ $content='index.php';
 $view = (isset($_GET['page']) && $_GET['page'] != '') ? $_GET['page'] : '';
 switch ($view) {
   case '1' :
-        // $title="Home"; 
+      // $title="Home"; 
     // $content='home.php'; 
     if ($_SESSION['ADMIN_ROLE']=='Cashier') {
         # code...
       redirect('orders/');
 
     } 
-    if ($_SESSION['ADMIN_ROLE']=='Administrator') {
+    if ($_SESSION['ADMIN_ROLE']=='Administrador') {
         # code... 
 
       redirect('meals/');
@@ -26,6 +26,7 @@ switch ($view) {
   default :
     $title="Inicio"; 
     $content ='index.php';    
+    redirect('company');
 }
 require_once("theme/templates.php");
 ?>

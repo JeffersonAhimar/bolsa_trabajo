@@ -19,7 +19,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 
       <div class="col-md-8">
         <select class="form-control input-sm" id="COMPANYID" name="COMPANYID">
-          <option value="None">Seleccionar</option>
+          <option value="No Especificado">Seleccionar</option>
           <?php
           $sql = "Select * From tblcompany";
           $mydb->setQuery($sql);
@@ -41,7 +41,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 
       <div class="col-md-8">
         <select class="form-control input-sm" id="CATEGORY" name="CATEGORY">
-          <option value="None">Seleccionar</option>
+          <option value="No Especificado">Seleccionar</option>
           <?php
           $sql = "Select * From tblcategory";
           $mydb->setQuery($sql);
@@ -115,7 +115,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
       <label class="col-md-4 control-label" for="PREFEREDSEX">Género Preferido:</label>
       <div class="col-md-8">
         <select class="form-control input-sm" id="PREFEREDSEX" name="PREFEREDSEX">
-          <option value="None">Seleccionar</option>
+          <option value="No Especificado">No Especificado</option>
           <option>Masculino</option>
           <option>Femenino</option>
           <option>Masculino/Femenino</option>

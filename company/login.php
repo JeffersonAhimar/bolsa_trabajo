@@ -37,12 +37,8 @@ if (isset($_SESSION['COMPANYID'])) {
 
 <body class="hold-transition login-page">
   <div class="login-box">
-    <!--   <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
-  </div> -->
-    <!-- /.login-logo -->
-    <div class="login-box-body" style="min-height: 400px;">
-      <h1 class="login-box-msg">Login Compañía</h1>
+    <div class="login-box-body" style="min-height: 280px;">
+      <h1 class="login-box-msg">Login - Compañía</h1>
       <hr />
       <p><?php check_message(); ?></p>
 
@@ -56,30 +52,17 @@ if (isset($_SESSION['COMPANYID'])) {
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
-          <!-- <div class="col-xs-8"> -->
-          <!--   <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Remember Me
-            </label>
-          </div>
-        </div>   -->
-          <!-- /.col -->
           <div class="col-xs-4">
             <button type="submit" name="btnLogin" class="btn btn-primary btn-block btn-flat">Ingresar</button>
             <br>
             <a href="<?php echo web_root; ?>company/register.php" class="text-center">Registrarse</a>
-            <!-- <a href="<?php echo web_root; ?>company/register.php" class="text-center">Registrarse</a> -->
           </div>
         </div>
-        <!-- /.col -->
+      </form>
     </div>
-    </form>
+  </div>
 
 
-  </div>
-  <!-- /.login-box-body -->
-  </div>
-  <!-- /.login-box -->
   <?php
 
   if (isset($_POST['btnLogin'])) {

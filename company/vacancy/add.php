@@ -44,7 +44,7 @@
 
                       <div class="col-md-8">
                         <select class="form-control input-sm" id="CATEGORY" name="CATEGORY">
-                          <option value="None">Seleccionar</option>
+                          <option value="Otros">Otros</option>
                           <?php 
                             $sql ="Select * From tblcategory";
                             $mydb->setQuery($sql);
@@ -125,7 +125,7 @@
                       "PREFEREDSEX">Género Preferido:</label> 
                       <div class="col-md-8">
                           <select class="form-control input-sm" id="PREFEREDSEX" name="PREFEREDSEX">
-                          <option value="None">Seleccionar</option>
+                          <option value="No Especificado">No Especificado</option>
                            <option>Masculino</option>
                            <option>Femenino</option>
                            <option>Masculino/Femenino</option>

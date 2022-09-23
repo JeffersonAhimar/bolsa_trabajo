@@ -36,8 +36,8 @@ $res = $company->single_company($companyid);
       <label class="col-md-4 control-label" for="COMPANYSTATUS">Estado:</label>
       <div class="col-md-8">
         <select class="form-control input-sm" id="COMPANYSTATUS" name="COMPANYSTATUS">
-          <option value="disabled" <?php echo ($res->COMPANYSTATUS == 'disabled') ? 'selected="true"' : ''; ?>>disabled</option>
-          <option value="enabled" <?php echo ($res->COMPANYSTATUS == 'enabled') ? 'selected="true"' : ''; ?>>enabled</option>
+          <option value="deshabilitado" <?php echo ($res->COMPANYSTATUS == 'deshabilitado') ? 'selected="true"' : ''; ?>>deshabilitado</option>
+          <option value="habilitado" <?php echo ($res->COMPANYSTATUS == 'habilitado') ? 'selected="true"' : ''; ?>>habilitado</option>
         </select>
       </div>
     </div>

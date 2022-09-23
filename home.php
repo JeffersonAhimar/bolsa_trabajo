@@ -56,7 +56,7 @@
             echo '<i class="icon-info-blocks fa fa-building-o"></i>';
             // echo web_root . 'uploads/images/no-image.png';
           } else {
-            echo '<img src="' . web_root . 'company/user/' . $company->COMPANYPHOTO . '" alt="" width="80px" height="100%">';
+            echo '<img src="' . web_root . 'company/user/' . $company->COMPANYPHOTO . '" alt="" height="100px">';
           }
           ?>
           <div class="info-blocks-in">

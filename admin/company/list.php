@@ -3,6 +3,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 	redirect(web_root . "admin/index.php");
 }
 ?>
+
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">Lista de las Compañías <a href="index.php?view=add" class="btn btn-primary btn-xs  "> <i class="fa fa-plus-circle fw-fa"></i> Añadir Compañía</a> </h1>
@@ -20,7 +21,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 					<th>Dirección</th>
 					<th>Nro. de Contacto</th>
 					<th>Estado</th>
-					<th>Username</th>
+					<th>Nombre de Usuario</th>
 					<th width="10%" align="center">Acción</th>
 				</tr>
 			</thead>
@@ -33,7 +34,12 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 					echo '<td>' . $result->COMPANYNAME . '</td>';
 					echo '<td>' . $result->COMPANYADDRESS . '</td>';
 					echo '<td>' . $result->COMPANYCONTACTNO . '</td>';
-					echo '<td>' . $result->COMPANYSTATUS . '</td>';
+
+					if ($result->COMPANYSTATUS === 'deshabilitado') {
+						echo '<td style="color:red; ">' . $result->COMPANYSTATUS . '</td>';
+					} else {
+						echo '<td style="color:green; ">' . $result->COMPANYSTATUS . '</td>';
+					}
 					echo '<td>' . $result->COMPANYUSER . '</td>';
 					echo '<td align="center">
 					
@@ -51,7 +57,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 		<div class="btn-group">
 			<!--  <a href="index.php?view=add" class="btn btn-default">New</a> -->
 			<?php
-			if ($_SESSION['ADMIN_ROLE'] == 'Administrator') {
+			if ($_SESSION['ADMIN_ROLE'] == 'Administrador') {
 					// echo '<button type="submit" class="btn btn-default" name="delete"><span class="glyphicon glyphicon-trash"></span> Delete Selected</button'
 				;
 			} ?>

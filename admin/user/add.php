@@ -59,7 +59,7 @@
 
                       <div class="col-md-8">
                        <select class="form-control input-sm" name="U_ROLE" id="U_ROLE">
-                          <option value="Administrator"  >Administrator</option>
+                          <option value="Administrador"  >Administrador</option>
                           <option value="Staff"  >Staff</option>  
                         </select> 
                       </div>

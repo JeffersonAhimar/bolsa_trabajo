@@ -25,7 +25,6 @@ $res = $job->single_job($jobid);
       <div class="col-md-8">
         <input type="hidden" name="JOBID" value="<?php echo $res->JOBID; ?>">
         <select class="form-control input-sm" id="COMPANYID" name="COMPANYID">
-          <!-- <option value="None">Seleccionar</option> -->
           <?php
           // $sql ="Select * From tblcompany WHERE COMPANYID=".$res->COMPANYID;
           $sql = "Select * From tblcompany WHERE COMPANYID='" . $_SESSION['ADMIN_COMPANYID'] . "'";
@@ -54,7 +53,7 @@ $res = $job->single_job($jobid);
 
       <div class="col-md-8">
         <select class="form-control input-sm" id="CATEGORY" name="CATEGORY">
-          <option value="None">Seleccionar</option>
+          <option value="Otros">Otros</option>
           <?php
           $sql = "SELECT * FROM `tblcategory` WHERE CATEGORY='" . $res->CATEGORY . "'";
           $mydb->setQuery($sql);

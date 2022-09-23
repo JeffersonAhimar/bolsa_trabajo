@@ -44,7 +44,7 @@
 
 						<div class="col-md-8">
 							<select class="form-control input-sm" name="SEX" id="SEX">
-								<option value="none">Seleccionar</option>
+								<option value="No Especificado">No Especificado</option>
 								<option value="Masculino">Masculino</option>
 								<option value="Femenino">Femenino</option>
 
@@ -154,7 +154,7 @@
 
 						<div class="col-md-8">
 							<select class="form-control input-sm" name="CIVILSTATUS" id="CIVILSTATUS">
-								<option value="none">Seleccionar</option>
+								<option value="No Especificado">No Especificado</option>
 								<option value="Soltero(a)">Soltero(a)</option>
 								<option value="Casado(a)">Casado(a)</option>
 								<option value="Viudo(a)">Viudo(a)</option>

@@ -30,5 +30,6 @@ switch ($view) {
   default:
     $title = "Index";
     $content = 'index.php';
+    redirect('vacancy');
 }
 require_once("theme/templates.php");

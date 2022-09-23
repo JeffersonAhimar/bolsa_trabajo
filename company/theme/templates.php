@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<title>Compañía - <?php echo $_SESSION['ADMIN_COMPANYNAME']; ?></title>
 <head>
   <meta charset="UTF-8">
   <title>
@@ -47,7 +47,8 @@
       <!-- Logo -->
       <a href="<?php echo web_root; ?>company/vacancy/" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>CMP</b></span>
+        <!-- <span class="logo-mini"><b>CMP</b></span> -->
+        <span class="logo-mini"><b><?php echo strtoupper(substr($_SESSION['ADMIN_COMPANYNAME'],0,3)); ?></b></span>
         <!-- logo for regular state and mobile devices -->
         <!-- <span class="logo-lg"><b>COMPAÑÍA</b></span> -->
         <span class="logo-lg"><b><?php echo $_SESSION['ADMIN_COMPANYNAME']; ?></b></span>
@@ -72,7 +73,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="<?php
                           if ($singleuser->COMPANYPHOTO == '') {
-                            echo web_root . 'uploads/images/no-image.png';
+                            echo web_root . 'uploads/images/no-company.png';
                           } else {
                             echo web_root . 'company/user/' . $singleuser->COMPANYPHOTO;
                           }
@@ -82,12 +83,12 @@
               </a>
               <ul class="dropdown-menu">
                 <!-- User image -->
-                <li class="user-header" style="height: 100%;">
+                <li class="user-header" style="height: 100%; background-color: #b9d4e3;">
                   <!-- <img data-target="#menuModal" data-toggle="modal" src="../../plugins/home-plugins/img/avatars/admin.png" class="img-circle" alt="User Image" /> -->
                   <img data-target="#menuModal" data-toggle="modal" src="
                   <?php
                   if ($singleuser->COMPANYPHOTO == '') {
-                    echo web_root . 'uploads/images/no-image.png';
+                    echo web_root . 'uploads/images/no-company.png';
                   } else {
                     echo web_root . 'company/user/' . $singleuser->COMPANYPHOTO;
                   }
@@ -236,8 +237,7 @@
       <div class="pull-right hidden-xs">
         <b>Version</b> 1
       </div>
-      <strong>Copyright &copy; 2022 <a href="#">DRE Cajamarca</a>.</strong> All rights
-      reserved.
+      <strong>Copyright &copy; 2022 <a href="#">DRE Cajamarca</a>.</strong> Todos los derechos reservados.
     </footer>
 
 
