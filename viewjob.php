@@ -25,7 +25,16 @@
                         <div class="mg-avl-room">
                             <div class="row">
                                 <div class="col-sm-2">
-                                    <a href="#"><span class="fa fa-building-o" style="font-size: 50px"></span><!-- <img src="img/room-1.png" alt="" class="img-responsive"> --></a>
+                                    <!-- <a href="#"><span class="fa fa-building-o" style="font-size: 50px"></span> -->
+                                    <!-- <img src="img/room-1.png" alt="" class="img-responsive"></a> -->
+                                    <?php
+                                    if ($result->COMPANYPHOTO == '') {
+                                        echo '<span class="fa fa-building-o" style="font-size: 50px"></span>';
+                                        // echo web_root . 'uploads/images/no-image.png';
+                                    } else {
+                                        echo '<img src="' . web_root . 'company/user/' . $result->COMPANYPHOTO . '" alt="" width="80px" height="100%">';
+                                    }
+                                    ?>
                                 </div>
                                 <div class="col-sm-10">
                                     <div style="border-bottom: 1px solid #ddd;padding: 10px;font-size: 25px;font-weight: bold;color: #000;margin-bottom: 5px;"><?php echo $result->OCCUPATIONTITLE; ?>

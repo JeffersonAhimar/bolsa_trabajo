@@ -35,7 +35,16 @@ $applicant = $appl->single_applicant($_SESSION['APPLICANTID']);
 
         <div class="panel-body">
           <div id="image-container">
-            <img title="profile image" data-target="#myModal" data-toggle="modal" src="<?php echo web_root . 'applicant/' . $applicant->APPLICANTPHOTO; ?>">
+            <img title="profile image" data-target="#myModal" data-toggle="modal" src="
+            <?php
+            // echo web_root . 'applicant/' . $applicant->APPLICANTPHOTO; 
+            if ($applicant->APPLICANTPHOTO == '') {
+              echo web_root . 'uploads/images/no-image.png';
+            } else {
+              echo web_root . 'applicant/' . $applicant->APPLICANTPHOTO;
+            }
+            ?>
+            ">
             <!-- <a href="index.php?view=edit_profile&id=<?php echo $applicant->APPLICANTID; ?>">
               <img title="profile image" src="./photos/avatar.png">
             </a> -->

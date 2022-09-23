@@ -51,17 +51,14 @@
       ?>
         <div class="col-sm-4 info-blocks">
           <!-- <i class="icon-info-blocks fa fa-building-o"> -->
-          <i class="fa">
-            <img src="
-            <?php
-            if ($company->COMPANYPHOTO == '') {
-              echo web_root . 'uploads/images/no-image.png';
-            } else {
-              echo web_root . 'company/user/' . $company->COMPANYPHOTO;
-            }
-            ?>
-            " alt="" width="80px" height="80px">
-          </i>
+          <?php
+          if ($company->COMPANYPHOTO == '') {
+            echo '<i class="icon-info-blocks fa fa-building-o"></i>';
+            // echo web_root . 'uploads/images/no-image.png';
+          } else {
+            echo '<img src="' . web_root . 'company/user/' . $company->COMPANYPHOTO . '" alt="" width="80px" height="100%">';
+          }
+          ?>
           <div class="info-blocks-in">
             <h3><?php echo $company->COMPANYNAME; ?></h3>
             <!-- <p><?php echo $company->COMPANYMISSION; ?></p> -->
