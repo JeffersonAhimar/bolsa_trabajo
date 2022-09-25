@@ -59,6 +59,10 @@ function doEdit()
 		$user = new Company();
 		$user->COMPANYNAME 		= $_POST['U_NAME'];
 		$user->COMPANYADDRESS 		= $_POST['U_ADDRESS'];
+		$user->COMPANYRUC 		= $_POST['U_RUC'];
+		$user->COMPANYDEPARTAMENTO 		= $_POST['U_DEPARTAMENTO'];
+		$user->COMPANYPROVINCIA 		= $_POST['U_PROVINCIA'];
+		$user->COMPANYDISTRITO 		= $_POST['U_DISTRITO'];
 		$user->COMPANYCONTACTNO 		= $_POST['U_CONTACTNO'];
 		$user->COMPANYUSER			= $_POST['U_USERNAME'];
 		$user->COMPANYPASS				= sha1($_POST['U_PASS']);

@@ -42,7 +42,8 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <ul>
-                                        <li><i class="fp-ht-tv"></i>Género Preferido : <?php echo $result->PREFEREDSEX; ?></li>
+                                        <!-- <li><i class="fp-ht-dumbbell"></i>Qualification/Work Experience : <?php echo $result->QUALIFICATION_WORKEXPERIENCE; ?></li> -->
+                                        <li><i class="fp-ht-tv"></i>Modalidad : <?php echo $result->JOBTYPE; ?></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-12">
@@ -58,8 +59,18 @@
                                     </ul>
                                 </div>
                                 <div class="col-sm-12">
-                                    <p>Compañía : <?php echo  $result->COMPANYNAME; ?></p>
-                                    <p>Ubicación : <?php echo  $result->COMPANYADDRESS; ?></p>
+                                    <!-- <p>Compañía : <?php echo  $result->COMPANYNAME; ?></p> -->
+                                    <p>Compañía : </p>
+                                    <ul style="list-style: none;">
+                                        <li><?php echo $result->COMPANYNAME; ?></li>
+                                    </ul>
+                                    <!-- <p>Ubicación : <?php echo  $result->COMPANYADDRESS; ?></p> -->
+                                    <p>Ubicación : </p>
+                                    <ul style="list-style: none;">
+                                        <li><?php echo  $result->COMPANYDEPARTAMENTO . ' - ' . $result->COMPANYPROVINCIA . ' - ' . $result->COMPANYDISTRITO; ?></li>
+                                        <li><?php echo  $result->COMPANYADDRESS; ?></li>
+                                    </ul>
+
                                 </div>
                             </div>
                         </div>

@@ -60,7 +60,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
   <!-- USERNAME -->
   <div class="form-group">
     <div class="col-md-8">
-      <label class="col-md-4 control-label" for="COMPANYUSER">Username:</label>
+      <label class="col-md-4 control-label" for="COMPANYUSER">Nombre de Usuario:</label>
 
       <div class="col-md-8">
         <input name="deptid" type="hidden" value="">
@@ -73,7 +73,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
   <!-- PASSWORD -->
   <div class="form-group">
     <div class="col-md-8">
-      <label class="col-md-4 control-label" for="COMPANYPASS">Password:</label>
+      <label class="col-md-4 control-label" for="COMPANYPASS">Contraseña:</label>
 
       <div class="col-md-8">
         <input name="deptid" type="hidden" value="">

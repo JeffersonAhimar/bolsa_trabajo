@@ -19,18 +19,19 @@ if (!isset($_SESSION['ADMIN_COMPANYID'])) {
 					<!-- <th>No.</th> -->
 					<!-- <th>Nombre de Compañía</th> -->
 					<th>Título Trabajo</th>
+					<th>Categoría</th>
 					<th>Vacantes</th>
 					<th>Salarios</th>
 					<th>Duración del empleo</th>
 					<th>Calificación/Experiencia Laboral</th>
 					<th>Descripción del Trabajo</th>
-					<th>Género</th>
+					<th>Modalidad</th>
 					<th width="10%" align="center">Acción</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
-				// `COMPANYID`, `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `JOBDESCRIPTION`, `PREFEREDSEX`, `SECTOR_VACANCY`, `JOBSTATUS`
+				// `COMPANYID`, `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `JOBDESCRIPTION`,  `SECTOR_VACANCY`, `JOBSTATUS`
 				$mydb->setQuery("SELECT * FROM `tbljob` j, `tblcompany` c WHERE j.COMPANYID=c.COMPANYID AND c.COMPANYID ='" . $_SESSION['ADMIN_COMPANYID'] . "'");
 				$cur = $mydb->loadResultList();
 				foreach ($cur as $result) {
@@ -41,12 +42,13 @@ if (!isset($_SESSION['ADMIN_COMPANYID'])) {
 					// 		' . $result->CATEGORIES.'</a></td>';
 					// echo '<td>' . $result->COMPANYNAME . '</td>';
 					echo '<td>' . $result->OCCUPATIONTITLE . '</td>';
+					echo '<td>' . $result->CATEGORY . '</td>';
 					echo '<td>' . $result->REQ_NO_EMPLOYEES . '</td>';
 					echo '<td>' . $result->SALARIES . '</td>';
 					echo '<td>' . $result->DURATION_EMPLOYEMENT . '</td>';
 					echo '<td>' . $result->QUALIFICATION_WORKEXPERIENCE . '</td>';
 					echo '<td>' . $result->JOBDESCRIPTION . '</td>';
-					echo '<td>' . $result->PREFEREDSEX . '</td>';
+					echo '<td>' . $result->JOBTYPE . '</td>';
 					echo '<td align="center"><a title="Edit" href="index.php?view=edit&id=' . $result->JOBID . '" class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
 				  		     <a title="Delete" href="controller.php?action=delete&id=' . $result->JOBID . '" class="btn btn-danger btn-xs  ">  <span class="fa  fa-trash-o fw-fa "></a></td>';
 					// echo '<td></td>';

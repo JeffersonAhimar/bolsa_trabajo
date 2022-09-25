@@ -131,13 +131,12 @@ $res = $job->single_job($jobid);
 
   <div class="form-group">
     <div class="col-md-8">
-      <label class="col-md-4 control-label" for="PREFEREDSEX">Género Preferido:</label>
+      <label class="col-md-4 control-label" for="JOBTYPE">Modalidad:</label>
       <div class="col-md-8">
-        <select class="form-control input-sm" id="PREFEREDSEX" name="PREFEREDSEX">
-          <option value="No Especificado">No Especificado</option>
-          <option <?php echo ($res->PREFEREDSEX == 'Masculino') ? "SELECTED" : "" ?>>Masculino</option>
-          <option <?php echo ($res->PREFEREDSEX == 'Femenino') ? "SELECTED" : "" ?>>Femenino</option>
-          <option <?php echo ($res->PREFEREDSEX == 'Masculino/Femenino') ? "SELECTED" : "" ?>>Masculino/Femenino</option>
+        <select class="form-control input-sm" id="JOBTYPE" name="JOBTYPE">
+          <option value="Presencial" <?php echo ($res->JOBTYPE == 'Presencial') ? 'selected="true"' : ''; ?>>Presencial</option>
+          <option value="Virtual" <?php echo ($res->JOBTYPE == 'Virtual') ? 'selected="true"' : ''; ?>>Virtual</option>
+          <option value="Híbrido" <?php echo ($res->JOBTYPE == 'Híbrido') ? 'selected="true"' : ''; ?>>Híbrido</option>
         </select>
       </div>
     </div>

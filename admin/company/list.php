@@ -19,10 +19,14 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 					<!-- <th>No.</th> -->
 					<th>Nombre</th>
 					<th>Dirección</th>
+					<th>RUC</th>
 					<th>Nro. de Contacto</th>
 					<th>Estado</th>
 					<th>Nombre de Usuario</th>
 					<th width="10%" align="center">Acción</th>
+					<th>Departamento</th>
+					<th>Provincia</th>
+					<th>Distrito</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,7 +37,9 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 					echo '<tr>';
 					echo '<td>' . $result->COMPANYNAME . '</td>';
 					echo '<td>' . $result->COMPANYADDRESS . '</td>';
+					echo '<td>' . $result->COMPANYRUC . '</td>';
 					echo '<td>' . $result->COMPANYCONTACTNO . '</td>';
+					
 
 					if ($result->COMPANYSTATUS === 'deshabilitado') {
 						echo '<td style="color:red; ">' . $result->COMPANYSTATUS . '</td>';
@@ -48,6 +54,9 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 					
 					<a title="Delete" href="controller.php?action=delete&id=' . $result->COMPANYID . '" class="btn btn-danger btn-xs  ">  <span class="fa  fa-trash-o fw-fa "></a>
 					</td>';
+					echo '<td>' . $result->COMPANYDEPARTAMENTO . '</td>';
+					echo '<td>' . $result->COMPANYPROVINCIA . '</td>';
+					echo '<td>' . $result->COMPANYDISTRITO . '</td>';
 					echo '</tr>';
 				}
 				?>

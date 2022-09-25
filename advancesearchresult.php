@@ -213,7 +213,7 @@ $searchfor = (isset($_GET['searchfor']) && $_GET['searchfor'] != '') ? $_GET['se
 															?>
 														</a>
 														<div class="media-body">
-															<span class="media-meta pull-right"><?php echo $row->OCCUPATIONTITLE; ?></span>
+															<!-- <span class="media-meta pull-right"><?php echo $row->OCCUPATIONTITLE; ?></span> -->
 															<h4 class="title">
 																<a href="index.php?q=viewjob&search=<?php echo $row->JOBID ?>">
 																	<?php echo $row->OCCUPATIONTITLE; ?>

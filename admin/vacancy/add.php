@@ -112,13 +112,12 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 
   <div class="form-group">
     <div class="col-md-8">
-      <label class="col-md-4 control-label" for="PREFEREDSEX">Género Preferido:</label>
+      <label class="col-md-4 control-label" for="JOBTYPE">Modalidad:</label>
       <div class="col-md-8">
-        <select class="form-control input-sm" id="PREFEREDSEX" name="PREFEREDSEX">
-          <option value="No Especificado">No Especificado</option>
-          <option>Masculino</option>
-          <option>Femenino</option>
-          <option>Masculino/Femenino</option>
+        <select class="form-control input-sm" id="JOBTYPE" name="JOBTYPE">
+          <option value="Presencial">Presencial</option>
+          <option value="Virtual">Virtual</option>
+          <option value="Híbrido">Híbrido</option>
         </select>
       </div>
     </div>

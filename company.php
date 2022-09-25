@@ -32,8 +32,8 @@ if (!isset($_SESSION['APPLICANTID'])) {
                     <div class="info-blocks-in">
                         <h3><?php echo '<a href="' . web_root . 'index.php?q=hiring&search=' . $company->COMPANYNAME . '">' . $company->COMPANYNAME . '</a>'; ?></h3>
                         <!-- <p><?php echo $company->COMPANYMISSION; ?></p> -->
-                        <p>Dirección :<?php echo $company->COMPANYADDRESS; ?></p>
-                        <p>Nro. de Contacto :<?php echo $company->COMPANYCONTACTNO; ?></p>
+                        <p>Dirección : <?php echo $company->COMPANYADDRESS; ?></p>
+                        <p>Nro. de Contacto : <?php echo $company->COMPANYCONTACTNO; ?></p>
                     </div>
                 </div>
 

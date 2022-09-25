@@ -28,7 +28,11 @@ function doRegister()
 			$company = new Company();
 			$company->COMPANYNAME		= $_POST['COMPANYNAME'];
 			$company->COMPANYADDRESS	= $_POST['COMPANYADDRESS'];
+			$company->COMPANYRUC	= $_POST['COMPANYRUC'];
 			$company->COMPANYCONTACTNO	= $_POST['COMPANYCONTACTNO'];
+			$company->COMPANYDEPARTAMENTO	= $_POST['COMPANYDEPARTAMENTO'];
+			$company->COMPANYPROVINCIA	= $_POST['COMPANYPROVINCIA'];
+			$company->COMPANYDISTRITO	= $_POST['COMPANYDISTRITO'];
 			$company->COMPANYSTATUS	= 'disabled';
 			$company->COMPANYUSER			= $_POST['COMPANYUSER'];
 			$company->COMPANYPASS				= sha1($_POST['COMPANYPASS']);

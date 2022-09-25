@@ -47,13 +47,15 @@ $res = $job->single_job($jobid);
       </div>
     </div>
   </div>
+
+
   <div class="form-group">
     <div class="col-md-8">
-      <label class="col-md-4 control-label" for="CATEGORY">Categoría:</label>
+      <label class="col-md-4 control-label" for="CATEGORY">CategoríaSS:</label>
 
       <div class="col-md-8">
         <select class="form-control input-sm" id="CATEGORY" name="CATEGORY">
-          <option value="Otros">Otros</option>
+          <!-- <option value="Otros">Otros</option> -->
           <?php
           $sql = "SELECT * FROM `tblcategory` WHERE CATEGORY='" . $res->CATEGORY . "'";
           $mydb->setQuery($sql);
@@ -65,16 +67,31 @@ $res = $job->single_job($jobid);
           $sql = "SELECT * FROM `tblcategory` WHERE CATEGORY!='" . $res->CATEGORY . "'";
           $mydb->setQuery($sql);
           $cur  = $mydb->loadResultList();
+
           foreach ($cur as $result) {
             # code...
-            echo '<option value=' . $result->CATEGORYID . '>' . $result->CATEGORY . '</option>';
+            if ($result->CATEGORY == "Otros") {
+              echo '<option value=' . $result->CATEGORYID . '>' . $result->CATEGORY . '</option>';
+            }
           }
+          foreach ($cur as $result) {
+            # code...
+            if ($result->CATEGORY != "Otros") {
+              echo '<option value=' . $result->CATEGORYID . '>' . $result->CATEGORY . '</option>';
+            }
+          }
+          // foreach ($cur as $result) {
+          //   # code...
+          //   echo '<option value=' . $result->CATEGORYID . '>' . $result->CATEGORY . '</option>';
+          // }
 
           ?>
         </select>
       </div>
     </div>
   </div>
+
+
   <div class="form-group">
     <div class="col-md-8">
       <label class="col-md-4 control-label" for="OCCUPATIONTITLE">Título Trabajo:</label>
@@ -131,13 +148,12 @@ $res = $job->single_job($jobid);
 
   <div class="form-group">
     <div class="col-md-8">
-      <label class="col-md-4 control-label" for="PREFEREDSEX">Género Preferido:</label>
+      <label class="col-md-4 control-label" for="JOBTYPE">Modalidad:</label>
       <div class="col-md-8">
-        <select class="form-control input-sm" id="PREFEREDSEX" name="PREFEREDSEX">
-          <option value="None">Seleccionar</option>
-          <option value="Masculino" <?php echo ($res->PREFEREDSEX == 'Masculino') ? 'selected="true"' : ''; ?>>Masculino</option>
-          <option value="Femenino" <?php echo ($res->PREFEREDSEX == 'Femenino') ? 'selected="true"' : ''; ?>>Femenino</option>
-          <option value="Masculino/Femenino" <?php echo ($res->PREFEREDSEX == 'Masculino/Femenino') ? 'selected="true"' : ''; ?>>Masculino/Femenino</option>
+        <select class="form-control input-sm" id="JOBTYPE" name="JOBTYPE">
+          <option value="Presencial" <?php echo ($res->JOBTYPE == 'Presencial') ? 'selected="true"' : ''; ?>>Presencial</option>
+          <option value="Virtual" <?php echo ($res->JOBTYPE == 'Virtual') ? 'selected="true"' : ''; ?>>Virtual</option>
+          <option value="Híbrido" <?php echo ($res->JOBTYPE == 'Híbrido') ? 'selected="true"' : ''; ?>>Híbrido</option>
         </select>
       </div>
     </div>
