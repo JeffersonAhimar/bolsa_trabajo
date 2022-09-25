@@ -16,7 +16,11 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 				<th> Nombre</th>
 				<th>Nombre de Usuario</th>
 				<th>Rol</th>
-				<th width="10%">Acción</th>
+				<?php
+				if ($_SESSION['ADMIN_ROLE'] == 'Administrador') {
+					echo '<th width="10%">Acción</th>';
+				}
+				?>
 
 			</tr>
 		</thead>
@@ -35,15 +39,17 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 				echo '<td>' . $result->FULLNAME . '</a></td>';
 				echo '<td>' . $result->USERNAME . '</td>';
 				echo '<td>' . $result->ROLE . '</td>';
-				if ($result->USERID == $_SESSION['ADMIN_USERID'] || $result->ROLE == 'MainAdministrador' || $result->ROLE == 'Administrador') {
-					$active = "Disabled";
-				} else {
-					$active = "";
-				}
+				if ($_SESSION['ADMIN_ROLE'] == 'Administrador') {
+					if ($result->USERID == $_SESSION['ADMIN_USERID'] || $result->ROLE == 'MainAdministrador' || $result->ROLE == 'Administrador') {
+						$active = "disabled";
+					} else {
+						$active = "";
+					}
 
-				echo '<td align="center" > <a title="Edit" href="index.php?view=edit&id=' . $result->USERID . '"  class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></span></a>
-				  					 <a title="Delete" href="controller.php?action=delete&id=' . $result->USERID . '" class="btn btn-danger btn-xs" ' . $active . '><span class="fa fa-trash-o fw-fa"></span> </a>
-				  					 </td>';
+					echo '<td align="center" > <a title="Editar" href="index.php?view=edit&id=' . $result->USERID . '"  class="btn btn-primary btn-xs">  <span class="fa fa-edit fw-fa"></span></a>
+										   <a title="Eliminar" href="controller.php?action=delete&id=' . $result->USERID . '" class="btn btn-danger btn-xs  ' . $active . '"><span class="fa fa-trash-o fw-fa"></span> </a>
+										   </td>';
+				}
 				echo '</tr>';
 			}
 			?>

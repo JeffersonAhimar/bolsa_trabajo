@@ -26,11 +26,11 @@ $singleuser = $user->single_user($USERID);
 
     <div class="form-group">
       <div class="col-md-8">
-        <label class="col-md-4 control-label" for="U_NAME">Name:</label>
+        <label class="col-md-4 control-label" for="U_NAME">Nombre:</label>
 
         <div class="col-md-8">
           <input name="deptid" type="hidden" value="">
-          <input class="form-control input-sm" id="U_NAME" name="U_NAME" placeholder="Account Name" type="text" value="<?php echo $singleuser->FULLNAME; ?>">
+          <input class="form-control input-sm" id="U_NAME" name="U_NAME" placeholder="Nombre" type="text" value="<?php echo $singleuser->FULLNAME; ?>">
         </div>
       </div>
     </div>
@@ -39,11 +39,11 @@ $singleuser = $user->single_user($USERID);
     <!-- USERNAME -->
     <div class="form-group">
       <div class="col-md-8">
-        <label class="col-md-4 control-label" for="U_USERNAME">Username:</label>
+        <label class="col-md-4 control-label" for="U_USERNAME">Nombre de Usuario:</label>
 
         <div class="col-md-8">
           <input name="deptid" type="hidden" value="">
-          <input class="form-control input-sm" id="U_USERNAME" name="U_USERNAME" placeholder="Email Address" type="text" value="<?php echo $singleuser->USERNAME; ?>">
+          <input class="form-control input-sm" id="U_USERNAME" name="U_USERNAME" placeholder="Nombre de Usuario" type="text" value="<?php echo $singleuser->USERNAME; ?>">
         </div>
       </div>
     </div>
@@ -52,11 +52,11 @@ $singleuser = $user->single_user($USERID);
     <!-- PASSWORD -->
     <div class="form-group">
       <div class="col-md-8">
-        <label class="col-md-4 control-label" for="U_PASS">Password:</label>
+        <label class="col-md-4 control-label" for="U_PASS">Contraseña:</label>
 
         <div class="col-md-8">
           <input name="deptid" type="hidden" value="">
-          <input class="form-control input-sm" id="U_PASS" name="U_PASS" placeholder="Account Password" type="Password" value="" required>
+          <input class="form-control input-sm" id="U_PASS" name="U_PASS" placeholder="Contraseña" type="Password" value="" required>
         </div>
       </div>
     </div>
@@ -66,12 +66,12 @@ $singleuser = $user->single_user($USERID);
 
     <div class="form-group">
       <div class="col-md-8">
-        <label class="col-md-4 control-label" for="U_ROLE">Role:</label>
+        <label class="col-md-4 control-label" for="U_ROLE">Rol:</label>
 
         <div class="col-md-8">
           <select class="form-control input-sm" name="U_ROLE" id="U_ROLE">
             <option value="Administrador" <?php echo ($singleuser->ROLE == 'Administrador') ? 'selected="true"' : ''; ?>>Administrador</option>
-            <option value="Staff" <?php echo ($singleuser->ROLE == 'Staff') ? 'selected="true"' : ''; ?>>Staff</option>
+            <option value="IESTP" <?php echo ($singleuser->ROLE == 'IESTP') ? 'selected="true"' : ''; ?>>IESTP</option>
           </select>
         </div>
       </div>

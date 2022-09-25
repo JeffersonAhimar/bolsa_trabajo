@@ -31,12 +31,12 @@
                   <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "U_USERNAME">Username:</label>
+                      "U_USERNAME">Nombre de Usuario:</label>
 
                       <div class="col-md-8">
                         <input name="deptid" type="hidden" value="">
                          <input class="form-control input-sm" id="U_USERNAME" name="U_USERNAME" placeholder=
-                            "Account Username" type="text" value="">
+                            "Nombre de Usuario" type="text" value="">
                       </div>
                     </div>
                   </div>
@@ -44,23 +44,23 @@
                   <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "U_PASS">Password:</label>
+                      "U_PASS">Contraseña:</label>
 
                       <div class="col-md-8">
                         <input name="deptid" type="hidden" minlength="2" value="">
-                         <input class="form-control input-sm" id="U_PASS" min="3" name="U_PASS" placeholder="Account Password" type="Password" value="" required>
+                         <input class="form-control input-sm" id="U_PASS" min="3" name="U_PASS" placeholder="Contraseña" type="Password" value="" required>
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "U_ROLE">Role:</label>
+                      "U_ROLE">Rol:</label>
 
                       <div class="col-md-8">
                        <select class="form-control input-sm" name="U_ROLE" id="U_ROLE">
+                         <option value="IESTP"  >IESTP</option>  
                           <option value="Administrador"  >Administrador</option>
-                          <option value="Staff"  >Staff</option>  
                         </select> 
                       </div>
                     </div>

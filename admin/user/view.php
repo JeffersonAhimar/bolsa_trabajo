@@ -67,7 +67,7 @@ $singleuser = $user->single_user($USERID);
 
               <div class="col-md-8">
                 <input name="deptid" type="hidden" value="">
-                <input class="form-control input-sm" id="U_PASS" name="U_PASS" placeholder="Account Password" type="Contraseña" value="" required>
+                <input class="form-control input-sm" id="U_PASS" name="U_PASS" placeholder="Contraseña" type="Contraseña" value="" required>
               </div>
             </div>
           </div>
@@ -77,8 +77,18 @@ $singleuser = $user->single_user($USERID);
 
               <div class="col-md-8">
                 <select class="form-control input-sm" name="U_ROLE" id="U_ROLE">
-                  <option value="Administrador" <?php echo ($singleuser->ROLE == 'Administrador') ? 'selected="true"' : ''; ?>>Administrador</option>
-                  <option value="Staff" <?php echo ($singleuser->ROLE == 'Staff') ? 'selected="true"' : ''; ?>>Staff</option>
+
+                <?php
+                if($singleuser->ROLE == 'Administrador'){
+                  echo "<option value='Administrador' selected>Administrador</option>"; 
+                  echo "<option value='IESTP' >IESTP</option>"; 
+                }
+                else{
+                  echo "<option value='IESTP' selected>IESTP</option>"; 
+                }
+                ?>
+                  <!-- <option value="Administrador" <?php echo ($singleuser->ROLE == 'Administrador') ? 'selected="true"' : ''; ?>>Administrador</option>
+                  <option value="IESTP" <?php echo ($singleuser->ROLE == 'IESTP') ? 'selected="true"' : ''; ?>>IESTP</option> -->
                 </select>
               </div>
             </div>

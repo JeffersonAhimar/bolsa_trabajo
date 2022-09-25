@@ -49,10 +49,10 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 					echo '<td>' . $result->COMPANYUSER . '</td>';
 					echo '<td align="center">
 					
-					<a title="Edit_Status" href="index.php?view=edit_status&id=' . $result->COMPANYID . '" class="btn btn-warning btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
-					<a title="Edit" href="index.php?view=edit&id=' . $result->COMPANYID . '" class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
+					<a title="Editar Estado" href="index.php?view=edit_status&id=' . $result->COMPANYID . '" class="btn btn-warning btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
+					<a title="Editar" href="index.php?view=edit&id=' . $result->COMPANYID . '" class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
 					
-					<a title="Delete" href="controller.php?action=delete&id=' . $result->COMPANYID . '" class="btn btn-danger btn-xs  ">  <span class="fa  fa-trash-o fw-fa "></a>
+					<a title="Eliminar" href="controller.php?action=delete&id=' . $result->COMPANYID . '" class="btn btn-danger btn-xs  ">  <span class="fa  fa-trash-o fw-fa "></a>
 					</td>';
 					echo '<td>' . $result->COMPANYDEPARTAMENTO . '</td>';
 					echo '<td>' . $result->COMPANYPROVINCIA . '</td>';
