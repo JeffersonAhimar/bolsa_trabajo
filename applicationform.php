@@ -93,7 +93,7 @@
                             </div>
                             <div class="panel-body">
                                 <label class="col-md-2" for="picture" style="padding: 0;margin: 0;">Adjuntar Archivo:</label>
-                                <div class="col-md-10" style="padding: 0;margin: 0;">
+                                <div class="col-md-10" style="padding: 0;margin: 0;">(Sólo archivos .pdf)
                                     <input id="picture" name="picture" type="file">
                                     <input name="MAX_FILE_SIZE" type="hidden" value="1000000">
                                 </div>

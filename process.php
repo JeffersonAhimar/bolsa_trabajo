@@ -74,18 +74,17 @@ function UploadFile()
 
 
 	if (
-		$imageFileType != "jpg" || $imageFileType != "png" || $imageFileType != "jpeg"
-		|| $imageFileType != "gif"
+		$imageFileType == "pdf"
 	) {
 		if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
 			return  date("dmYhis") . basename($_FILES["picture"]["name"]);
 		} else {
-			message("Error Uploading File", "error");
+			message("Error Subiendo Archivo", "error");
 			// redirect(web_root."index.php?q=apply&job=".$jobid."&view=personalinfo");
 			// exit;
 		}
 	} else {
-		message("File Not Supported", "error");
+		message("Formato de Archivo no Soportado", "error");
 		// redirect(web_root."index.php?q=apply&job=".$jobid."&view=personalinfo");
 		// exit;
 	}
