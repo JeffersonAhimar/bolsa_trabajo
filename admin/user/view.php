@@ -67,7 +67,7 @@ $singleuser = $user->single_user($USERID);
 
               <div class="col-md-8">
                 <input name="deptid" type="hidden" value="">
-                <input class="form-control input-sm" id="U_PASS" name="U_PASS" placeholder="Contraseña" type="Contraseña" value="" required>
+                <input class="form-control input-sm" id="U_PASS" name="U_PASS" placeholder="Contraseña" type="password" value="" required>
               </div>
             </div>
           </div>

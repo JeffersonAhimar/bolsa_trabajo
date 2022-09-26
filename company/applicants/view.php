@@ -85,8 +85,8 @@ $attachmentfile = $mydb->loadSingleResult();
 		</div>
 		<div class="col-sm-6">
 			<ul>
-				<li><i class="fp-ht-tv"></i>Género Preferido : <?php echo $job->PREFEREDSEX; ?></li>
-				<!-- <li><i class="fp-ht-computer"></i>Sector de Vacante : <?php echo $job->SECTOR_VACANCY; ?></li> -->
+				<!-- <li><i class="fp-ht-dumbbell"></i>Qualification/Work Experience : <?php echo $result->QUALIFICATION_WORKEXPERIENCE; ?></li> -->
+				<li><i class="fp-ht-tv"></i>Modalidad : <?php echo $job->JOBTYPE; ?></li>
 			</ul>
 		</div>
 		<div class="col-sm-12">

@@ -85,7 +85,8 @@ $attachmentfile = $mydb->loadSingleResult();
 		</div>
 		<div class="col-sm-6">
 			<ul>
-				<li><i class="fp-ht-tv"></i>Género Preferido : <?php echo $job->PREFEREDSEX; ?></li>
+				<!-- <li><i class="fp-ht-dumbbell"></i>Qualification/Work Experience : <?php echo $result->QUALIFICATION_WORKEXPERIENCE; ?></li> -->
+				<li><i class="fp-ht-tv"></i>Modalidad : <?php echo $job->JOBTYPE; ?></li>
 			</ul>
 		</div>
 		<div class="col-sm-12">
@@ -104,7 +105,7 @@ $attachmentfile = $mydb->loadSingleResult();
 	</div>
 	<div class="col-sm-6 content-body">
 		<p>Información del Postulante</p>
-		<h3> <?php echo $appl->LNAME . ', ' . $appl->FNAME; ?></h3>
+		<h3> <?php echo $appl->FNAME . ' ' . $appl->LNAME; ?></h3>
 		<ul>
 			<li>Dirección : <?php echo $appl->ADDRESS; ?></li>
 			<li>Nro. de Contacto : <?php echo $appl->CONTACTNO; ?></li>
@@ -116,8 +117,6 @@ $attachmentfile = $mydb->loadSingleResult();
 			<p>Estudios : </p>
 			<p style="margin-left: 15px;"><?php echo $appl->DEGREE; ?></p>
 		</div>
-
-
 	</div>
 
 
