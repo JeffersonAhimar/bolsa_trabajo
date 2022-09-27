@@ -32,9 +32,9 @@ switch ($action) {
 		doApproved();
 		break;
 
-	// case 'checkid':
-	// 	Check_StudentID();
-	// 	break;
+		// case 'checkid':
+		// 	Check_StudentID();
+		// 	break;
 }
 
 function doInsert()
@@ -176,6 +176,17 @@ function doDelete()
 	// $emp = new Employee();
 	$emp = new JobRegistration();
 	$emp->delete($id);
+
+	// delete FEEDBACK WHERE REGISTRATIONID = ID
+	
+
+	// delete from database ATTACHMENTFILE WHERE FILEID = JR.FILEID
+
+
+
+	// delete from webroot/uploads/documents ATTACHMENTFILE WHERE FILEID = JR.FILEID
+
+
 
 
 	// }

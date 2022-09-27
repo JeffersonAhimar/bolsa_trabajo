@@ -26,6 +26,7 @@ if (isset($_SESSION['ADMIN_USERID'])) {
   <link rel="stylesheet" href="<?php echo web_root; ?>dist/css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="<?php echo web_root; ?>plugins/iCheck/square/blue.css">
+  <link rel="icon" type="image/x-icon" href="<?php echo web_root; ?>/plugins/home-plugins/img/icon_dre.png">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

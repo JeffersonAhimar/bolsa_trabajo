@@ -118,7 +118,10 @@ Edad inválida. Sólo mayores de 18 años son permitidos.
 
 
 
-
+SELECT FILE_LOCATION FROM tblattachmentfile af
+INNER JOIN tbljobregistration jr
+ON af.FILEID = jr.FILEID
+WHERE jr.REGISTRATIONID = 28
 
 
 

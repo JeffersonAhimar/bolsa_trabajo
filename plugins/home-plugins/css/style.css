@@ -3,7 +3,9 @@ Author URI: http://webthemez.com/
 Note: Licence under Creative Commons Attribution 3.0  
 -------------------------------------------------------*/
 
-@import url('http://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:400,600,700'); 
+/* @import url('http://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:400,600,700');  */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900');
 @import url('font-awesome.css');  
 @import url('animate.css');
@@ -823,8 +825,8 @@ form#commentform textarea {
 
 .about-text .btn {
 	margin-top: 20px;
-	//font-size: 15px;
-	//text-align: justify;
+	/* //font-size: 15px; */
+	/* //text-align: justify; */
 }
 
 .about-image img {
@@ -837,7 +839,7 @@ form#commentform textarea {
 
 .about-text li {
 	margin-bottom: 10px;
-	//
+	
 	font-weight: bold;
 	list-style: none;
 }
@@ -1561,7 +1563,7 @@ article img.pull-right, article .align-right{
 	float:right;
 	margin:5px 0 15px 15px;
 }
- ============================= */
+ /* ============================= */ */
 
 .clear-marginbot{
 	margin-bottom:0;
