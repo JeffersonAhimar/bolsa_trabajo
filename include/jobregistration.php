@@ -129,11 +129,38 @@ class JobRegistration
 	public function deleteFeedback($id = '')
 	{
 		global $mydb;
-		$sql = "DELETE FROM " . self::$tblname;
+		$sql = "DELETE FROM tblfeedback";
 		$sql .= " WHERE REGISTRATIONID= '{$id}'";
-		$sql .= " LIMIT 1 ";
 		$mydb->setQuery($sql);
 
 		if (!$mydb->executeQuery()) return false;
+	}
+
+
+	public function deleteAttachmentFile($id = '')
+	{
+		global $mydb;
+		$sql = "DELETE tblattachmentfile";
+		$sql .= " FROM tblattachmentfile";
+		$sql .= " INNER JOIN tbljobregistration jr ";
+		$sql .= " ON (jr.FILEID = tblattachmentfile.FILEID)";
+		$sql .= " WHERE jr.REGISTRATIONID = '{$id}'";
+		$mydb->setQuery($sql);
+
+		if (!$mydb->executeQuery()) return false;
+	}
+
+	public function getFILEFROMSERVER($id = '')
+	{
+		global $mydb;
+		$sql = "SELECT FILE_LOCATION FROM tblattachmentfile af";
+		$sql .= " INNER JOIN tbljobregistration jr";
+		$sql .= " ON af.FILEID = jr.FILEID";
+		$sql .= " WHERE jr.REGISTRATIONID = '{$id}' LIMIT 1";
+
+
+		$mydb->setQuery($sql);
+		$cur = $mydb->loadSingleResult();
+		return $cur;
 	}
 }

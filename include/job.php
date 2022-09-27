@@ -122,5 +122,15 @@ class Jobs {
 	}	
 
 
+	public function getJobRegistrations($id=0){
+		global $mydb;
+		$sql="SELECT * FROM tbljobregistration";
+		$sql.=" WHERE JOBID=". $id;
+		$mydb->setQuery($sql);
+		$cur = $mydb->loadResultList();
+		return $cur;
+	}
+
+
 }
 ?>

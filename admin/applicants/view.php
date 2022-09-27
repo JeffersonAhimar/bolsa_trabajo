@@ -123,7 +123,7 @@ $attachmentfile = $mydb->loadSingleResult();
 	<div class="col-sm-12 content-footer">
 		<p><i class="fa fa-paperclip"></i> Archivos Adjuntos</p>
 		<div class="col-sm-12 slider">
-			<h3>Revisar CV <a href="<?php echo web_root . 'uploads/' . $attachmentfile->FILE_LOCATION; ?>" target="_blank">Click aquí</a></h3>
+			<h3>Revisar CV <a href="<?php echo web_root . 'uploads/documents/' . $attachmentfile->FILE_LOCATION; ?>" target="_blank">Click aquí</a></h3>
 		</div>
 
 		<div class="col-sm-12">

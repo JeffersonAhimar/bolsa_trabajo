@@ -26,8 +26,8 @@ function doSubmitApplication()
 	$autonum = new Autonumber();
 	$fileid = $autonum->set_autonumber('FILEID');
 
-	@$picture = UploadFile();
-	@$location = "documents/" . $picture;
+	@$picture = UploadFile($_SESSION['APPLICANTID']);
+	@$location =  $picture;
 	// @$picture = UploadImage();
 	// @$location = "photos/". $picture ;
 
@@ -65,10 +65,10 @@ function doSubmitApplication()
 }
 
 
-function UploadFile()
+function UploadFile($id)
 {
 	$target_dir = "uploads/documents/";
-	$target_file = $target_dir . date("dmYhis") . basename($_FILES["picture"]["name"]);
+	$target_file = $target_dir . date("dmYhis") . $id . basename($_FILES["picture"]["name"]);
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
@@ -77,7 +77,7 @@ function UploadFile()
 		$imageFileType == "pdf"
 	) {
 		if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
-			return  date("dmYhis") . basename($_FILES["picture"]["name"]);
+			return  date("dmYhis") . $id . basename($_FILES["picture"]["name"]);
 		} else {
 			message("Error Subiendo Archivo", "error");
 			// redirect(web_root."index.php?q=apply&job=".$jobid."&view=personalinfo");

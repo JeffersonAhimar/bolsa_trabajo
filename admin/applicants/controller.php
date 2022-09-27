@@ -169,32 +169,42 @@ function doEdit()
 		}
 	}
 }
+
 function doDelete()
 {
 	$id = 	$_GET['id'];
 
 	// $emp = new Employee();
 	$emp = new JobRegistration();
-	$emp->delete($id);
-
-	// delete FEEDBACK WHERE REGISTRATIONID = ID
-	
-
-	// delete from database ATTACHMENTFILE WHERE FILEID = JR.FILEID
-
-
 
 	// delete from webroot/uploads/documents ATTACHMENTFILE WHERE FILEID = JR.FILEID
+	//BORRANDO EL ARCHIVO DEL SERVIDOR
+	$fileAttachment = $emp->getFILEFROMSERVER($id);
+	$file_path = path_to_delete . "uploads/documents/" . $fileAttachment->FILE_LOCATION;
+	if (!file_exists($file_path)) {
+		echo 'El archivo no existe';
+	} else {
+		if (unlink($file_path)) {
+			echo 'El archivo fue eliminado satisfactoriamente';
+		} else {
+			echo 'Hubo un problema eliminando el archivo';
+		}
+	}
 
 
+	// delete from database ATTACHMENTFILE WHERE FILEID = JR.FILEID
+	$emp->deleteAttachmentFile($id);
 
+	// delete FEEDBACK WHERE REGISTRATIONID = ID
+	$emp->deleteFeedback($id);
+
+	// delete from TBLJOBREGISTRATION
+	$emp->delete($id);
 
 	// }
 	message("Postulación eliminada!", "success");
 	redirect('index.php');
 	// }
-
-
 }
 
 

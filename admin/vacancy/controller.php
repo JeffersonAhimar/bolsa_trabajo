@@ -50,7 +50,7 @@ function doInsert()
 			$job->DATEPOSTED						= date('Y-m-d H:i');
 			$job->create();
 
-			message("Nueva Vacante Laboral creada Correctamente!", "success");
+			message("Nueva Oferta Laboral creada Correctamente!", "success");
 			redirect("index.php");
 		}
 	}
@@ -81,7 +81,7 @@ function doEdit()
 			$job->JOBTYPE						= $_POST['JOBTYPE'];
 			$job->update($_POST['JOBID']);
 
-			message("La Vacante Laboral ha sido actualizada!", "success");
+			message("La Oferta Laboral ha sido actualizada!", "success");
 			redirect("index.php");
 		}
 	}
@@ -90,13 +90,46 @@ function doEdit()
 
 function doDelete()
 {
-
 	$id = $_GET['id'];
 
 	$job = new Jobs();
+
+	// delete JOBREGISTRATION WHERE JOBID = ID
+	$jrToDelete = $job->getJobRegistrations($id);
+
+	// 
+	$jrObj = new JobRegistration();
+	foreach ($jrToDelete as $result) {
+		// $result->REGISTRATIONID
+		// delete from webroot/uploads/documents ATTACHMENTFILE WHERE FILEID = JR.FILEID
+		//BORRANDO EL ARCHIVO DEL SERVIDOR
+		$fileAttachment = $jrObj->getFILEFROMSERVER($result->REGISTRATIONID);
+		$file_path = path_to_delete . "uploads/documents/" . $fileAttachment->FILE_LOCATION;
+		if (!file_exists($file_path)) {
+			echo 'El archivo no existe';
+		} else {
+			if (unlink($file_path)) {
+				echo 'El archivo fue eliminado satisfactoriamente';
+			} else {
+				echo 'Hubo un problema eliminando el archivo';
+			}
+		}
+
+
+		// delete from database ATTACHMENTFILE WHERE FILEID = JR.FILEID
+		$jrObj->deleteAttachmentFile($result->REGISTRATIONID);
+
+		// delete FEEDBACK WHERE REGISTRATIONID = ID
+		$jrObj->deleteFeedback($result->REGISTRATIONID);
+
+		// delete from TBLJOBREGISTRATION
+		$jrObj->delete($result->REGISTRATIONID);
+	}
+	// JOBREGISTRATIONS ELIMINADOS
+
 	$job->delete($id);
 
-	message("La Vacante Laboral ha sido eliminada!", "info");
+	message("La Oferta Laboral ha sido eliminada!", "info");
 	redirect('index.php');
 }
 ?>
