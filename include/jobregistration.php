@@ -163,4 +163,6 @@ class JobRegistration
 		$cur = $mydb->loadSingleResult();
 		return $cur;
 	}
+
+	
 }

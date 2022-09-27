@@ -13,6 +13,7 @@ class Company
 	{
 		global $mydb;
 		$mydb->setQuery("SELECT * FROM " . self::$tblname);
+		$cur = $mydb->loadResultList();
 		return $cur;
 	}
 
@@ -188,8 +189,8 @@ class Company
 	public function getPHOTOFROMSERVER($id = '')
 	{
 		global $mydb;
-		$sql = "SELECT COMPANYPHOTO FROM ". self::$tblname;
-		$sql .= " WHERE COMPANYID= ".$id;
+		$sql = "SELECT COMPANYPHOTO FROM " . self::$tblname;
+		$sql .= " WHERE COMPANYID= " . $id;
 
 		$mydb->setQuery($sql);
 		$cur = $mydb->loadSingleResult();

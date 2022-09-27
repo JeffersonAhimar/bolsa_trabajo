@@ -141,6 +141,20 @@ function doDelete()
 		$jobObj->delete($jobId);
 	}
 
+
+	// ELIMINAR IMAGEN DE LA COMPAÑIA
+	$logoCompany = $company->getPHOTOFROMSERVER($id);
+	$file_path = path_to_delete . "uploads/images/companies/" . $logoCompany->COMPANYPHOTO;
+	if (!file_exists($file_path)) {
+		echo 'El archivo no existe';
+	} else {
+		if (unlink($file_path)) {
+			echo 'El archivo fue eliminado satisfactoriamente';
+		} else {
+			echo 'Hubo un problema eliminando el archivo';
+		}
+	}
+
 	$company->delete($id);
 
 	message("La compañía ha sido eliminada!", "info");

@@ -124,7 +124,7 @@ function doupdateimage()
 		} else {
 			$user = new Company();
 
-			// eliminar imagen anterior
+			// ELIMINAR IMAGEN DE LA COMPAÑIA
 			$logoCompany = $user->getPHOTOFROMSERVER($_SESSION['ADMIN_COMPANYID']);
 			$file_path = path_to_delete . "uploads/images/companies/" . $logoCompany->COMPANYPHOTO;
 			if (!file_exists($file_path)) {
