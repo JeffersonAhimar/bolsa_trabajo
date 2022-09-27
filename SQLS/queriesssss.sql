@@ -101,6 +101,10 @@ SELECT * FROM tbljobregistration
 WHERE JOBID = ID;
 
 
+SELECT * FROM tbljob
+WHERE COMPANYID = ID;
+
+
 Required No. of Employee's
 Nro. de Empleados Requeridos
 

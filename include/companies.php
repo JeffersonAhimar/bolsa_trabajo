@@ -147,11 +147,12 @@ class Company
 			$mydb->setQuery("SELECT * FROM `tblcompany` WHERE `COMPANYUSER` = '" . $USERNAME . "' and `COMPANYPASS` = '" . $h_pass . "'");
 			$cur = $mydb->executeQuery();
 			if ($cur == false) {
-				die(mysql_error());
+				// die(mysql_error());
+				die($mydb->error_msg);
 			}
 			$row_count = $mydb->num_rows($cur); //get the number of count
 			$user_found = $mydb->loadSingleResult();
-			if ($row_count == 1 && $user_found->COMPANYSTATUS=='habilitado') {
+			if ($row_count == 1 && $user_found->COMPANYSTATUS == 'habilitado') {
 				$_SESSION['COMPANYID']   		= $user_found->COMPANYID;
 				$_SESSION['COMPANYNAME']      	= $user_found->COMPANYNAME;
 				$_SESSION['COMPANYUSER'] 		= $user_found->COMPANYUSER;
@@ -168,6 +169,29 @@ class Company
 		global $mydb;
 		$mydb->setQuery("SELECT * FROM " . self::$tblname . " 
 				Where COMPANYID= '{$id}' LIMIT 1");
+		$cur = $mydb->loadSingleResult();
+		return $cur;
+	}
+
+
+	public function getJobs($id = 0)
+	{
+		global $mydb;
+		$sql = "SELECT * FROM tbljob";
+		$sql .= " WHERE COMPANYID=" . $id;
+		$mydb->setQuery($sql);
+		$cur = $mydb->loadResultList();
+		return $cur;
+	}
+
+
+	public function getPHOTOFROMSERVER($id = '')
+	{
+		global $mydb;
+		$sql = "SELECT COMPANYPHOTO FROM ". self::$tblname;
+		$sql .= " WHERE COMPANYID= ".$id;
+
+		$mydb->setQuery($sql);
 		$cur = $mydb->loadSingleResult();
 		return $cur;
 	}

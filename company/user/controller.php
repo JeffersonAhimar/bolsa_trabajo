@@ -92,7 +92,6 @@ function doDelete()
 
 	message("User has been deleted!", "info");
 	redirect('index.php');
-
 }
 
 
@@ -105,8 +104,8 @@ function doupdateimage()
 	$type = $_FILES['photo']['type'];
 	$temp = $_FILES['photo']['tmp_name'];
 	// $myfile = $_FILES['photo']['name'];
-	$myfile = date("dmYhis") . basename($_FILES['photo']['name']);
-	$location = "photos/" . $myfile;
+	$myfile = date("dmYhis") . "_" . $_SESSION['ADMIN_COMPANYID'] . "_" . basename($_FILES['photo']['name']);
+	$location = $myfile;
 
 
 	if ($errofile > 0) {
@@ -123,12 +122,26 @@ function doupdateimage()
 			message("Uploaded file is not an image!", "error");
 			redirect("index.php?view=view&id=" . $_GET['id']);
 		} else {
-			//uploading the file
-			move_uploaded_file($temp, "photos/" . $myfile);
-
-
-
 			$user = new Company();
+
+			// eliminar imagen anterior
+			$logoCompany = $user->getPHOTOFROMSERVER($_SESSION['ADMIN_COMPANYID']);
+			$file_path = path_to_delete . "uploads/images/companies/" . $logoCompany->COMPANYPHOTO;
+			if (!file_exists($file_path)) {
+				echo 'El archivo no existe';
+			} else {
+				if (unlink($file_path)) {
+					echo 'El archivo fue eliminado satisfactoriamente';
+				} else {
+					echo 'Hubo un problema eliminando el archivo';
+				}
+			}
+
+			//uploading the file
+			move_uploaded_file($temp, path_to_delete . "uploads/images/companies/" . $myfile);
+
+
+
 			$user->COMPANYPHOTO 			= $location;
 			$user->update($_SESSION['ADMIN_COMPANYID']);
 			// redirect("index.php?view=view");

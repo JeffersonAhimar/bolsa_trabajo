@@ -1,0 +1,6 @@
+# IGNORAR CV'S
+/uploads/documents/*
+
+
+# IGNORAR IMAGENES DE PERFIL DE LAS COMPAÑIAS
+/uploads/images/companies/*

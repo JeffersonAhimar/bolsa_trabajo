@@ -75,7 +75,7 @@
                           if ($singleuser->COMPANYPHOTO == '') {
                             echo web_root . 'uploads/images/no-company.png';
                           } else {
-                            echo web_root . 'company/user/' . $singleuser->COMPANYPHOTO;
+                            echo web_root . 'uploads/images/companies/' . $singleuser->COMPANYPHOTO;
                           }
                           ?>" class="user-image" alt="User Image">
 
@@ -90,7 +90,7 @@
                   if ($singleuser->COMPANYPHOTO == '') {
                     echo web_root . 'uploads/images/no-company.png';
                   } else {
-                    echo web_root . 'company/user/' . $singleuser->COMPANYPHOTO;
+                    echo web_root . 'uploads/images/companies/' . $singleuser->COMPANYPHOTO;
                   }
                   ?>" class="img-circle" alt="User Image" />
                 </li>

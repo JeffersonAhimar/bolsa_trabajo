@@ -99,6 +99,8 @@ function doDelete()
 
 	// 
 	$jrObj = new JobRegistration();
+
+	// ELIMINAR TODAS LAS POSTULACIONES
 	foreach ($jrToDelete as $result) {
 		// $result->REGISTRATIONID
 		// delete from webroot/uploads/documents ATTACHMENTFILE WHERE FILEID = JR.FILEID
@@ -114,7 +116,6 @@ function doDelete()
 				echo 'Hubo un problema eliminando el archivo';
 			}
 		}
-
 
 		// delete from database ATTACHMENTFILE WHERE FILEID = JR.FILEID
 		$jrObj->deleteAttachmentFile($result->REGISTRATIONID);
