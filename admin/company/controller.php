@@ -39,13 +39,16 @@ function doInsert()
 			redirect('index.php?view=add');
 		} else {
 			$company = new Company();
-			$company->COMPANYNAME		= $_POST['COMPANYNAME'];
-			$company->COMPANYADDRESS	= $_POST['COMPANYADDRESS'];
-			$company->COMPANYRUC	= $_POST['COMPANYRUC'];
-			$company->COMPANYCONTACTNO	= $_POST['COMPANYCONTACTNO'];
-			$company->COMPANYSTATUS	= $_POST['COMPANYSTATUS'];
+			$company->COMPANYNAME			= $_POST['COMPANYNAME'];
+			$company->COMPANYADDRESS		= $_POST['COMPANYADDRESS'];
+			$company->COMPANYRUC			= $_POST['COMPANYRUC'];
+			$company->COMPANYCONTACTNO		= $_POST['COMPANYCONTACTNO'];
+			$company->COMPANYSTATUS			= $_POST['COMPANYSTATUS'];
 			$company->COMPANYUSER			= $_POST['COMPANYUSER'];
-			$company->COMPANYPASS				= sha1($_POST['COMPANYPASS']);
+			$company->COMPANYPASS			= sha1($_POST['COMPANYPASS']);
+			$company->COMPANYDEPARTAMENTO	= $_POST['COMPANYDEPARTAMENTO'];
+			$company->COMPANYPROVINCIA		= $_POST['COMPANYPROVINCIA'];
+			$company->COMPANYDISTRITO		= $_POST['COMPANYDISTRITO'];
 			$company->create();
 
 			message("Nueva compañía creada correctamente!", "success");
@@ -59,15 +62,15 @@ function doEdit()
 	if (isset($_POST['save'])) {
 
 		$company = new Company();
-		$company->COMPANYNAME		= $_POST['COMPANYNAME'];
-		$company->COMPANYADDRESS	= $_POST['COMPANYADDRESS'];
-		$company->COMPANYRUC	= $_POST['COMPANYRUC'];
-		$company->COMPANYCONTACTNO	= $_POST['COMPANYCONTACTNO'];
+		$company->COMPANYNAME			= $_POST['COMPANYNAME'];
+		$company->COMPANYADDRESS		= $_POST['COMPANYADDRESS'];
+		$company->COMPANYRUC			= $_POST['COMPANYRUC'];
+		$company->COMPANYCONTACTNO		= $_POST['COMPANYCONTACTNO'];
 		$company->COMPANYUSER			= $_POST['COMPANYUSER'];
-		$company->COMPANYPASS				= sha1($_POST['COMPANYPASS']);
+		$company->COMPANYPASS			= sha1($_POST['COMPANYPASS']);
 		$company->COMPANYDEPARTAMENTO	= $_POST['COMPANYDEPARTAMENTO'];
-		$company->COMPANYPROVINCIA	= $_POST['COMPANYPROVINCIA'];
-		$company->COMPANYDISTRITO	= $_POST['COMPANYDISTRITO'];
+		$company->COMPANYPROVINCIA		= $_POST['COMPANYPROVINCIA'];
+		$company->COMPANYDISTRITO		= $_POST['COMPANYDISTRITO'];
 		$company->update($_POST['COMPANYID']);
 
 		message("La compañía se ha actualizado!", "success");
