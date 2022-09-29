@@ -29,7 +29,7 @@ if (!isset($_SESSION['ADMIN_COMPANYID'])) {
 			<?php
 			// $mydb->setQuery("SELECT * 
 			// 			FROM  `tblusers` WHERE TYPE != 'Customer'");
-			$mydb->setQuery("SELECT * FROM `tblcompany` c  , `tbljobregistration` j, `tbljob` j2, `tblapplicants` a WHERE c.`COMPANYID`=j.`COMPANYID` AND  j.`JOBID`=j2.`JOBID` AND j.`APPLICANTID`=a.`APPLICANTID` AND c.COMPANYID ='" . $_SESSION['ADMIN_COMPANYID'] . "'");
+			$mydb->setQuery("SELECT * FROM `tblcompany` c  , `tbljobregistration` j, `tbljob` j2 WHERE c.`COMPANYID`=j.`COMPANYID` AND  j.`JOBID`=j2.`JOBID` AND c.COMPANYID ='" . $_SESSION['ADMIN_COMPANYID'] . "'");
 			$cur = $mydb->loadResultList();
 
 			foreach ($cur as $result) {

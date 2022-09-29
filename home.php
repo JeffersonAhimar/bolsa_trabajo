@@ -50,18 +50,15 @@
 
       ?>
         <div class="col-sm-4 info-blocks">
-          <!-- <i class="icon-info-blocks fa fa-building-o"> -->
           <?php
           if ($company->COMPANYPHOTO == '') {
             echo '<i class="icon-info-blocks fa fa-building-o"></i>';
-            // echo web_root . 'uploads/images/no-image.png';
           } else {
-            echo '<img src="' . web_root . 'company/user/' . $company->COMPANYPHOTO . '" alt="" height="100px">';
+            echo '<img src="' . web_root . 'uploads/images/companies/' . $company->COMPANYPHOTO . '" alt="" height="100px">';
           }
           ?>
           <div class="info-blocks-in">
             <h3><?php echo $company->COMPANYNAME; ?></h3>
-            <!-- <p><?php echo $company->COMPANYMISSION; ?></p> -->
             <p>Dirección: <?php echo $company->COMPANYADDRESS; ?></p>
             <p>Nro. de Contacto: <?php echo $company->COMPANYCONTACTNO; ?></p>
           </div>

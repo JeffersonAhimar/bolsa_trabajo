@@ -201,24 +201,21 @@ $searchfor = (isset($_GET['searchfor']) && $_GET['searchfor'] != '') ? $_GET['se
 												<td>
 													<div class="media">
 														<a href="#" class="pull-left">
-															<!-- <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo"> -->
-															<!-- <span class="fa fa-building-o"></span> -->
 															<?php
 															if ($row->COMPANYPHOTO == '') {
-																// echo '<span class="fa fa-building-o"></span>';
-																echo '<img src="' . web_root . 'uploads/images/no-company.png" ' . 'alt="" width="80px"; height="80px"';
+																echo '<i class="icon-info-blocks fa fa-building-o" style="font-size: xxx-large;"></i>';
 															} else {
-																echo '<img src="' . web_root . 'company/user/' . $row->COMPANYPHOTO . '" alt="" width="80px"; height="80px';
+																echo '<img src="' . web_root . 'uploads/images/companies/' . $row->COMPANYPHOTO . '" alt="" height="50px" >';
 															}
 															?>
+
 														</a>
 														<div class="media-body">
-															<!-- <span class="media-meta pull-right"><?php echo $row->OCCUPATIONTITLE; ?></span> -->
 															<h4 class="title">
 																<a href="index.php?q=viewjob&search=<?php echo $row->JOBID ?>">
 																	<?php echo $row->OCCUPATIONTITLE; ?>
 																</a>
-																<span class="pull-right pagado">(Company <?php echo $row->COMPANYNAME ?>)</span>
+																<span class="pull-right pagado">(Compañia <?php echo $row->COMPANYNAME ?>)</span>
 															</h4>
 															<p class="summary"><?php echo $row->JOBDESCRIPTION; ?></p>
 														</div>

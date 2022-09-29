@@ -16,19 +16,14 @@ if (!isset($_SESSION['APPLICANTID'])) {
             foreach ($comp as $company) {
             ?>
                 <div class="col-sm-4 info-blocks">
-                    <!-- <i class="icon-info-blocks fa fa-building-o"></i> -->
+                    <?php
+                    if ($company->COMPANYPHOTO == '') {
+                        echo '<i class="icon-info-blocks fa fa-building-o"></i>';
+                    } else {
+                        echo '<img src="' . web_root . 'uploads/images/companies/' . $company->COMPANYPHOTO . '" alt="" height="100px">';
+                    }
+                    ?>
 
-                    <i class="fa">
-                        <img src="
-            <?php
-                if ($company->COMPANYPHOTO == '') {
-                    echo web_root . 'uploads/images/no-image.png';
-                } else {
-                    echo web_root . 'company/user/' . $company->COMPANYPHOTO;
-                }
-            ?>
-            " alt="" width="80px" height="100%">
-                    </i>
                     <div class="info-blocks-in">
                         <h3><?php echo '<a href="' . web_root . 'index.php?q=hiring&search=' . $company->COMPANYNAME . '">' . $company->COMPANYNAME . '</a>'; ?></h3>
                         <!-- <p><?php echo $company->COMPANYMISSION; ?></p> -->

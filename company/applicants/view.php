@@ -4,20 +4,16 @@ $red_id = isset($_GET['id']) ? $_GET['id'] : '';
 
 $jobregistration = new JobRegistration();
 $jobreg = $jobregistration->single_jobregistration($red_id);
-// `COMPANYID`, `JOBID`, `APPLICANTID`, `APPLICANT`, `REGISTRATIONDATE`, `REMARKS`, `FILEID`, `PENDINGAPPLICATION`
 
 
-$applicant = new Applicants();
+$applicant = new Applicants_mo();
 $appl = $applicant->single_applicant($jobreg->APPLICANTID);
-// `FNAME`, `LNAME` `ADDRESS`, `SEX`, `CIVILSTATUS`, `BIRTHDATE`, `BIRTHPLACE`, `AGE`, `USERNAME`, `PASS`, `EMAILADDRESS`,CONTACTNO
 
 $jobvacancy = new Jobs();
 $job = $jobvacancy->single_job($jobreg->JOBID);
-// `COMPANYID`, `CATEGORY`, `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `JOBDESCRIPTION`, `PREFEREDSEX`, `SECTOR_VACANCY`, `JOBSTATUS`, `DATEPOSTED`
 
 $company = new Company();
 $comp = $company->single_company($jobreg->COMPANYID);
-// `COMPANYNAME`, `COMPANYADDRESS`, `COMPANYCONTACTNO`
 
 $sql = "SELECT * FROM `tblattachmentfile` WHERE `FILEID`=" . $jobreg->FILEID;
 $mydb->setQuery($sql);
@@ -85,37 +81,87 @@ $attachmentfile = $mydb->loadSingleResult();
 		</div>
 		<div class="col-sm-6">
 			<ul>
-				<!-- <li><i class="fp-ht-dumbbell"></i>Qualification/Work Experience : <?php echo $result->QUALIFICATION_WORKEXPERIENCE; ?></li> -->
 				<li><i class="fp-ht-tv"></i>Modalidad : <?php echo $job->JOBTYPE; ?></li>
 			</ul>
 		</div>
 		<div class="col-sm-12">
 			<p>Descripción del Trabajo : </p>
-			<p style="margin-left: 15px;"><?php echo $job->JOBDESCRIPTION; ?></p>
+			<ul>
+				<li><?php echo $job->JOBDESCRIPTION; ?></li>
+			</ul>
 		</div>
 		<div class="col-sm-12">
 			<p>Calificación/Experiencia Laboral : </p>
-			<p style="margin-left: 15px;"><?php echo $job->QUALIFICATION_WORKEXPERIENCE; ?></p>
+			<ul>
+				<li>
+					<?php echo $job->QUALIFICATION_WORKEXPERIENCE; ?>
+				</li>
+			</ul>
 		</div>
 		<div class="col-sm-12">
 			<p>Empleador : </p>
-			<p style="margin-left: 15px;"><?php echo $comp->COMPANYNAME; ?></p>
-			<p style="margin-left: 15px;">@ <?php echo $comp->COMPANYADDRESS; ?></p>
+			<ul>
+				<li><?php echo $comp->COMPANYNAME; ?></li>
+				@ <?php echo $comp->COMPANYADDRESS; ?>
 		</div>
 	</div>
 	<div class="col-sm-6 content-body">
 		<p>Información del Postulante</p>
-		<h3> <?php echo $appl->FNAME . ' ' . $appl->LNAME; ?></h3>
+		<h3> <?php echo $appl->firstname . ' ' . $appl->lastname; ?></h3>
 		<ul>
-			<li>Dirección : <?php echo $appl->ADDRESS; ?></li>
-			<li>Nro. de Contacto : <?php echo $appl->CONTACTNO; ?></li>
-			<li>Correo Electrónico : <?php echo $appl->EMAILADDRESS; ?></li>
-			<li>Género : <?php echo $appl->SEX; ?></li>
-			<li>Edad : <?php echo $appl->AGE; ?></li>
+			<li>Teléfono :
+				<?php
+				if ($appl->phone1 == '') {
+					echo '---';
+				} else {
+					echo $appl->phone1;
+				} ?>
+			</li>
+			<li>Teléfono 2 :
+				<?php
+				if ($appl->phone2 == '') {
+					echo '---';
+				} else {
+					echo $appl->phone2;
+				} ?>
+			</li>
+			<li>Correo Electrónico :
+				<?php
+				if ($appl->email == '') {
+					echo '---';
+				} else {
+					echo $appl->email;
+				} ?>
+			</li>
+			<li>Dirección :
+				<?php
+				if ($appl->address == '') {
+					echo '---';
+				} else {
+					echo $appl->address;
+				} ?>
+			</li>
+			<li>Ciudad :
+				<?php
+				if ($appl->city == '') {
+					echo '---';
+				} else {
+					echo $appl->city;
+				} ?>
+			</li>
 		</ul>
 		<div class="col-sm-12">
-			<p>Estudios : </p>
-			<p style="margin-left: 15px;"><?php echo $appl->DEGREE; ?></p>
+			<p>Institución : </p>
+			<ul>
+				<li>
+					<?php
+					if ($appl->institution == '') {
+						echo '---';
+					} else {
+						echo $appl->institution;
+					} ?>
+				</li>
+			</ul>
 		</div>
 	</div>
 

@@ -161,7 +161,7 @@ function doUpdate($jobid = 0, $fileid = 0)
 	if (isset($_POST['submit'])) {
 		global $mydb;
 
-		$applicant = new Applicants();
+		$applicant = new Applicants_mo();
 		$appl  = $applicant->single_applicant($_SESSION['APPLICANTID']);
 
 
@@ -174,8 +174,8 @@ function doUpdate($jobid = 0, $fileid = 0)
 		$jobreg = new JobRegistration();
 		$jobreg->COMPANYID = $result->COMPANYID;
 		$jobreg->JOBID     = $result->JOBID;
-		$jobreg->APPLICANTID = $appl->APPLICANTID;
-		$jobreg->APPLICANT   = $appl->FNAME . ' ' . $appl->LNAME;
+		$jobreg->APPLICANTID = $appl->id;
+		$jobreg->APPLICANT   = $appl->firstname . ' ' . $appl->lastname;
 		$jobreg->REGISTRATIONDATE = date('Y-m-d');
 		$jobreg->FILEID = date('Y') . $fileid;
 		$jobreg->REMARKS = 'Pendiente';

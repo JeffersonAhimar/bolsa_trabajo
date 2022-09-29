@@ -48,45 +48,60 @@ $appl_photo = $appl->getProfilePictureMoodle($_SESSION['APPLICANTID']);
 
 
         <ul class="list-group">
-          <li class="list-group-item text-muted">
+          <li class="list-group-item text-muted" style="text-align: center">
             <!-- <a href="index.php?view=edit_profile&id=<?php echo $applicant->id; ?>">Editar Perfil</a> -->
             <a href="
-            <?php echo 'https://www.educacioncajamarca.com/user/edit.php?id='.$applicant->id.'&returnto=profile'; ?>
+            <?php echo 'https://www.educacioncajamarca.com/user/edit.php?id=' . $applicant->id . '&returnto=profile'; ?>
             " target="_blank">Editar Perfil</a>
           </li>
           <!-- 
             <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> 2.13.2014</li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> Yesterday</li> -->
           <li class="list-group-item text-right"><span class="pull-left"><strong>Nombre</strong></span>
-            <?php echo $applicant->firstname . ' ' . $applicant->lastname; ?>
+            <?php if ($applicant->email != '') {
+              echo $applicant->firstname . ' ' . $applicant->lastname;
+            } else {
+              echo '---';
+            } ?>
           </li>
           <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span>
-            <?php echo $applicant->email; ?>
+            <?php if ($applicant->email != '') {
+              echo $applicant->email;
+            } else {
+              echo '---';
+            } ?>
           </li>
-          <?php if ($applicant->institution != '') { ?>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Institución</strong></span>
-              <?php echo $applicant->institution; ?>
-            </li>
-          <?php } ?>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Institución</strong></span>
+            <?php if ($applicant->institution != '') {
+              echo $applicant->institution;
+            } else {
+              echo '---';
+            } ?>
+          </li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Teléfono</strong></span>
+            <?php if ($applicant->phone1 != '') {
+              echo $applicant->phone1;
+            } else {
+              echo '---';
+            } ?>
+          </li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Teléfono 2</strong></span>
+            <?php if ($applicant->phone2 != '') {
+              echo $applicant->phone2;
+            } else {
+              echo '---';
+            } ?>
+          </li>
         </ul>
-
-        <!-- <a href="compose.html" class="btn btn-primary btn-block margin-bottom">Compose</a> -->
 
         <div class="box box-solid">
           <div class="box-body no-padding">
             <ul class="nav nav-pills nav-stacked">
               <li class="<?php echo ($view == 'appliedjobs' || $view == '') ? 'active' : ''; ?>"><a href="<?php echo web_root . 'applicant/index.php?view=appliedjobs'; ?>"><i class="fa fa-list"></i> Trabajos Aplicados
                 </a></li>
-              <!-- <li class="<?php echo ($view == 'accounts') ? 'active' : ''; ?>"><a href="<?php echo web_root . 'applicant/index.php?view=accounts'; ?>"><i class="fa fa-user"></i> Cuentas </a></li> -->
               <li class="<?php echo ($view == 'message') ? 'active' : ''; ?>"><a href="<?php echo web_root . 'applicant/index.php?view=message'; ?>"><i class="fa fa-envelope-o"></i> Mensajes
                   <span class="label label-success pull-right"><?php echo isset($showMsg->COUNT) ? $showMsg->COUNT : 0; ?></span></a></li>
-              <!--      <li class="<?php echo ($view == 'notification') ? 'active' : ''; ?>"><a href="<?php echo web_root . 'applicant/index.php?view=notification'; ?>"><i class="fa fa-bell-o"></i> Notification
-                  <span class="label label-success pull-right"><?php echo $notif; ?></span></a></li> -->
-              <!-- <li><a href="#"><i class="fa fa-envelope-o"></i> Sent</a></li> -->
-              <!-- <li><a href="#"><i class="fa fa-file-text-o"></i> Drafts</a></li> -->
-              <!-- <li><a href="#"><i class="fa fa-filter"></i> Junk <span class="label label-warning pull-right">65</span></a> 
-                </li>-->
-              <!-- <li><a href="#"><i class="fa fa-trash-o"></i> Trash</a></li> -->
+
             </ul>
           </div>
           <!-- /.box-body -->
@@ -130,19 +145,6 @@ $appl_photo = $appl->getProfilePictureMoodle($_SESSION['APPLICANTID']);
           break;
       }
       ?>
-      <!--   <ul class="nav nav-tabs" id="myTab">
-        <li class="<?php echo  $_SESSION['appliedjobs']; ?>"><a href="<?php echo web_root . 'applicant/index.php?view=appliedjobs'; ?>" >Applied Jobs</a></li> 
-        <li class="<?php echo  $_SESSION['accounts'];  ?>"><a href="<?php echo web_root . 'applicant/index.php?view=accounts'; ?>" >Accounts</a></li> 
-      </ul>
-          
-      <div class="tab-content bottomline">
-         
-         <div class="tab-pane <?php echo $_SESSION['appliedjobs']; ?>" id="appliedjobs"><br/>  
-         </div>
-           <div class="tab-pane <?php echo $_SESSION['accounts']; ?>" id="accounts"><br/>  
-          </div> 
-
-        </div> -->
     </div>
     <!--/col-sm-9-->
   </div>

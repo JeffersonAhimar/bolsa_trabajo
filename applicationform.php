@@ -93,7 +93,7 @@
                             </div>
                             <div class="panel-body">
                                 <label class="col-md-2" for="picture" style="padding: 0;margin: 0;">Adjuntar Archivo:</label>
-                                <div class="col-md-10" style="padding: 0;margin: 0;">(Sólo archivos .pdf)
+                                <div class="col-md-10" style="padding: 0; margin: 0;">(Sólo archivos .pdf)
                                     <input id="picture" name="picture" type="file">
                                     <input name="MAX_FILE_SIZE" type="hidden" value="1000000">
                                 </div>
@@ -113,7 +113,7 @@
                 <div class="col-sm-8">
                     <div class="row">
                         <h2 class=" ">Personal Info</h2>
-                        <?php require_once('applicantform.php') ?>
+                        <!-- <?php require_once('applicantform.php') ?> -->
                     </div>
                 </div>
                 <div class="col-sm-4">

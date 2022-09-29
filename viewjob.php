@@ -28,11 +28,16 @@
                                     <!-- <a href="#"><span class="fa fa-building-o" style="font-size: 50px"></span> -->
                                     <!-- <img src="img/room-1.png" alt="" class="img-responsive"></a> -->
                                     <?php
+                                    // if ($result->COMPANYPHOTO == '') {
+                                    //     echo '<span class="fa fa-building-o" style="font-size: 50px"></span>';
+                                    //     // echo web_root . 'uploads/images/no-image.png';
+                                    // } else {
+                                    //     echo '<img src="' . web_root . 'company/user/' . $result->COMPANYPHOTO . '" alt="" width="80px" height="100%">';
+                                    // }
                                     if ($result->COMPANYPHOTO == '') {
-                                        echo '<span class="fa fa-building-o" style="font-size: 50px"></span>';
-                                        // echo web_root . 'uploads/images/no-image.png';
+                                        echo '<i class="icon-info-blocks fa fa-building-o" style="font-size: 100px"></i>';
                                     } else {
-                                        echo '<img src="' . web_root . 'company/user/' . $result->COMPANYPHOTO . '" alt="" width="80px" height="100%">';
+                                        echo '<img src="' . web_root . 'uploads/images/companies/' . $result->COMPANYPHOTO . '" alt="" height="100px">';
                                     }
                                     ?>
                                 </div>

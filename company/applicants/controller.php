@@ -301,7 +301,7 @@ function doApproved()
 			message("Se ha enviado el mensaje al postulante.", "success");
 			redirect("index.php?view=view&id=" . $id);
 		} else {
-			message("cannot be sve.", "error");
+			message("Error", "error");
 			redirect("index.php?view=view&id=" . $id);
 		}
 	}

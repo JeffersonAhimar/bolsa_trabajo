@@ -1,8 +1,21 @@
 <?php
 require_once("../../include/initialize.php");
+require_once(LIB_PATH . DS . 'database_mo.php');
+
+
 if (!isset($_SESSION['ADMIN_USERID'])) {
 	redirect(web_root . "admin/index.php");
 }
+
+$op = $_POST['op'];
+switch ($op) {
+	case 1:
+		tablaByInstitution();
+		break;
+}
+
+
+
 
 $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : '';
 
@@ -272,4 +285,45 @@ function doupdateimage()
 			redirect("index.php?view=view&id=" . $_POST['StudentID']);
 		}
 	}
+}
+
+
+function tablaByInstitution()
+{
+	global $mydb_mo;
+	$mydb_mo->setQuery("SELECT * FROM mo_user WHERE INSTITUTION = '" . $_POST['mo_user_institution'] . "'	");
+	$cur = $mydb_mo->loadResultList();
+	$table = "";
+	// $table .= '<form class="wow fadeInDownaction" action="controller.php?action=delete" Method="POST">';
+	// $table .= '<table id="dash-table" class="table table-striped  table-hover table-responsive" style="font-size:12px" cellspacing="0">';
+	// $table .= '<thead>';
+	// $table .= '<tr>';
+	// $table .= '<th width="5%">ID Usuario</th>';
+	// $table .= '<th>Nombres</th>';
+	// $table .= '<th>Apellidos</th>';
+	// $table .= '<th>Dirección</th>';
+	// $table .= '<th>Teléfono</th>';
+	// $table .= '<th>Tlf. 2</th>';
+	// $table .= '<th>Email</th>';
+	// $table .= '<th>Institución</th>';
+	// $table .= '</tr>';
+	// $table .= '</thead>';
+	// $table .= '<tbody>';
+	foreach ($cur as $result) {
+		$table .= '<tr>';
+		$table .= '<td>' . $result->id . '</td>';
+		$table .= '<td>' . $result->firstname . '</td>';
+		$table .= '<td>' . $result->lastname . '</td>';
+		$table .= '<td>' . $result->address . '</td>';
+		$table .= '<td>' . $result->phone1 . '</td>';
+		$table .= '<td>' . $result->phone2 . '</td>';
+		$table .= '<td>' . $result->username . '</td>';
+		$table .= '<td>' . $result->email . '</td>';
+		$table .= '<td>' . $result->institution . '</td>';
+		$table .= '</tr>';
+	}
+	// $table .= '</tbody>';
+	// $table .= '</table>';
+	// $table .= '</form>';
+	echo $table;
 }

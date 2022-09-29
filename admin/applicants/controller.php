@@ -49,7 +49,7 @@ function doInsert()
 			or $_POST['TELNO'] == ""
 		) {
 			$messageStats = false;
-			message("All fields are required!", "error");
+			message("Todos los campos son requeridos!", "error");
 			redirect('index.php?view=add');
 		} else {
 
@@ -125,7 +125,7 @@ function doEdit()
 			or $_POST['TELNO'] == ""
 		) {
 			$messageStats = false;
-			message("All fields are required!", "error");
+			message("Todos los campos son requeridos!", "error");
 			redirect('index.php?view=add');
 		} else {
 
