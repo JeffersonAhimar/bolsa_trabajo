@@ -28,20 +28,10 @@ if (isset($_SESSION['ADMIN_USERID'])) {
   <link rel="stylesheet" href="<?php echo web_root; ?>plugins/iCheck/square/blue.css">
   <link rel="icon" type="image/x-icon" href="<?php echo web_root; ?>/plugins/home-plugins/img/icon_dre.png">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
 </head>
 
 <body class="hold-transition login-page">
   <div class="login-box">
-    <!--   <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
-  </div> -->
-    <!-- /.login-logo -->
     <div class="login-box-body" style="min-height: 280px;">
       <h1 class="login-box-msg">Login - ADMIN</h1>
       <hr />
@@ -57,14 +47,7 @@ if (isset($_SESSION['ADMIN_USERID'])) {
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
-          <!-- <div class="col-xs-8"> -->
-          <!--   <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Remember Me
-            </label>
-          </div>
-        </div>   -->
-          <!-- /.col -->
+
           <div class="col-xs-4">
             <button type="submit" name="btnLogin" class="btn btn-primary btn-block btn-flat">Ingresar</button>
           </div>
@@ -73,17 +56,6 @@ if (isset($_SESSION['ADMIN_USERID'])) {
     </div>
     </form>
 
-    <!--  <div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
-    </div> -->
-    <!-- /.social-auth-links -->
-
-    <!--    <a href="#">I forgot my password</a><br>
-    <a href="register.html" class="text-center">Register a new membership</a> -->
 
   </div>
   <!-- /.login-box-body -->

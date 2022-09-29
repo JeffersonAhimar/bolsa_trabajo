@@ -6,16 +6,14 @@
         <li>
           <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/1.jpg" alt="" />
           <div class="flex-caption">
-            <!-- <h3>innovation</h3> -->
-            <!-- <p>We create the opportunities</p> -->
+
 
           </div>
         </li>
         <li>
           <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/2.jpg" alt="" />
           <div class="flex-caption">
-            <!-- <h3>Specialize</h3> -->
-            <!-- <p>Success depends on work</p> -->
+
 
           </div>
         </li>

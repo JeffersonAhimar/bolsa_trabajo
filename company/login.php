@@ -55,7 +55,7 @@ if (isset($_SESSION['COMPANYID'])) {
           <div class="col-xs-4">
             <button type="submit" name="btnLogin" class="btn btn-primary btn-block btn-flat">Ingresar</button>
             <br>
-            <a href="<?php echo web_root; ?>company/register.php" class="text-center">Registrarse</a>
+            <a href="<?php echo web_root; ?>index.php?q=register" target="_blank" class="text-center">Registrarse</a>
           </div>
         </div>
       </form>

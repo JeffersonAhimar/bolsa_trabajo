@@ -86,6 +86,7 @@
 
                 echo ' <p class="pull-right login"><a title="View Notification(s)" href="' . web_root . 'applicant/index.php?view=notification"> <i class="fa fa-bell-o"></i> <span class="label label-success">' . $notif . '</span></a> | <a title="View Message(s)" href="' . web_root . 'applicant/index.php?view=message"> <i class="fa fa-envelope-o"></i> <span class="label label-success">' . $msg . '</span></a> | <a title="View Profile" href="' . web_root . 'applicant/"> <i class="fa fa-user"></i> ' . $appl->firstname . ' ' . $appl->lastname . ' </a> | <a href="' . web_root . 'logout.php">  <i class="fa fa-sign-out"> </i>Salir</a> </p>';
               } else { ?>
+                <!-- <p class="pull-right login" style="margin-left: 15px;"><a  href="<?php echo web_root . 'company' ?>" target="_blank"> <i class="fa fa-lock"></i> Ingresar como Compañía </a></p> -->
                 <p class="pull-right login"><a data-target="#myModal" data-toggle="modal" href=""> <i class="fa fa-lock"></i> Ingresar </a></p>
               <?php } ?>
 
@@ -178,6 +179,7 @@
                               echo '';
                             }
                           } ?>"><a href="<?php echo web_root; ?>index.php?q=hiring">Postula Ahora</a></li>
+
               <!-- <li class="<?php if (isset($_GET['q'])) {
                                 if ($_GET['q'] == 'Contact') {
                                   echo 'active';
