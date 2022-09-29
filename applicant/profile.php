@@ -1,7 +1,8 @@
 <?php
 $view = isset($_GET['view']) ? $_GET['view'] : "";
-$appl = new Applicants();
+$appl = new Applicants_mo();
 $applicant = $appl->single_applicant($_SESSION['APPLICANTID']);
+$appl_photo = $appl->getProfilePictureMoodle($_SESSION['APPLICANTID']);
 ?>
 <style type="text/css">
   /*    #image-container {
@@ -34,36 +35,39 @@ $applicant = $appl->single_applicant($_SESSION['APPLICANTID']);
       <div class="panel panel-default">
 
         <div class="panel-body">
-          <div id="image-container">
+          <div id="image-container" style="text-align: center;">
             <img title="profile image" data-target="#myModal" data-toggle="modal" src="
             <?php
-            // echo web_root . 'applicant/' . $applicant->APPLICANTPHOTO; 
-            if ($applicant->APPLICANTPHOTO == '') {
-              echo web_root . 'uploads/images/no-image.png';
-            } else {
-              echo web_root . 'applicant/' . $applicant->APPLICANTPHOTO;
-            }
+            echo 'https://www.educacioncajamarca.com/pluginfile.php/' . $appl_photo->id . '/user/icon/academi/f1?rev=' . $appl_photo->picture;
             ?>
-            ">
-            <!-- <a href="index.php?view=edit_profile&id=<?php echo $applicant->APPLICANTID; ?>">
-              <img title="profile image" src="./photos/avatar.png">
-            </a> -->
+            " style="height: 100px; width: 100px;">
+
           </div>
-          <!-- <a title="Edit" href="index.php?view=edit_profile&id=<?php echo $applicant->APPLICANTID; ?>"  class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></span></a> -->
+
         </div>
 
 
         <ul class="list-group">
           <li class="list-group-item text-muted">
-            <a href="index.php?view=edit_profile&id=<?php echo $applicant->APPLICANTID; ?>">Editar Perfil
-            </a>
+            <!-- <a href="index.php?view=edit_profile&id=<?php echo $applicant->id; ?>">Editar Perfil</a> -->
+            <a href="
+            <?php echo 'https://www.educacioncajamarca.com/user/edit.php?id='.$applicant->id.'&returnto=profile'; ?>
+            " target="_blank">Editar Perfil</a>
           </li>
           <!-- 
             <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> 2.13.2014</li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> Yesterday</li> -->
           <li class="list-group-item text-right"><span class="pull-left"><strong>Nombre</strong></span>
-            <?php echo $applicant->FNAME . ' ' . $applicant->LNAME; ?>
+            <?php echo $applicant->firstname . ' ' . $applicant->lastname; ?>
           </li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span>
+            <?php echo $applicant->email; ?>
+          </li>
+          <?php if ($applicant->institution != '') { ?>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Institución</strong></span>
+              <?php echo $applicant->institution; ?>
+            </li>
+          <?php } ?>
         </ul>
 
         <!-- <a href="compose.html" class="btn btn-primary btn-block margin-bottom">Compose</a> -->

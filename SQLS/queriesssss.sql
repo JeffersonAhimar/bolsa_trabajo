@@ -105,6 +105,29 @@ SELECT * FROM tbljob
 WHERE COMPANYID = ID;
 
 
+
+
+
+-- 
+
+
+SELECT * FROM tbljob
+WHERE COMPANYID = 1;
+
+
+SELECT DISTINCT institution FROM mo_user;
+
+
+
+SELECT * FROM mo_user WHERE username='invitado1' OR username='invitado2';
+
+
+SELECT * FROM mo_context WHERE id = 11761 OR id = 11693; 
+
+
+SELECT * FROM mo_context WHERE instanceid = 4809;
+
+
 Required No. of Employee's
 Nro. de Empleados Requeridos
 

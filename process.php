@@ -1,5 +1,9 @@
 <?php
 require_once("include/initialize.php");
+
+// require_once(LIB_PATH . DS . "applicant_mo.php");
+
+
 $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : '';
 switch ($action) {
 	case 'submitapplication':
@@ -12,6 +16,10 @@ switch ($action) {
 
 	case 'login':
 		doLogin();
+		break;
+
+	case 'login_mo':
+		doLogin_mo();
 		break;
 }
 
@@ -294,6 +302,28 @@ function doLogin()
 		echo "Error al ingresar! Por favor contacta con el administrador";
 	}
 }
+
+function doLogin_mo()
+{
+
+	$uusername = trim($_POST['USERNAME']);
+	$upass  = trim($_POST['PASS']);
+	// $h_upass = sha1($upass);
+
+	//it creates a new objects of member
+	$applicant = new Applicants_mo();
+	//make use of the static function, and we passed to parameters
+	$res = $applicant->applicantAuthentication_mo($uusername, $upass);
+	if ($res == true) {
+
+		message("Te logueaste correctamente!", "success");
+		
+		redirect(web_root . "applicant/");
+	} else {
+		echo "Error al ingresar! Por favor contacta con el administrador";
+	}
+}
+
 
 function UploadImage($jobid = 0)
 {

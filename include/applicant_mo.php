@@ -1,47 +1,48 @@
 <?php
-require_once(LIB_PATH . DS . 'database.php');
-class Applicants
+require_once(LIB_PATH . DS . 'database_mo.php');
+class Applicants_mo
 {
-	protected static  $tblname = "tblapplicants";
+	protected static  $tblname = "mo_user";
 
 	function dbfields()
 	{
-		global $mydb;
-		return $mydb->getfieldsononetable(self::$tblname);
+		global $mydb_mo;
+		return $mydb_mo->getfieldsononetable(self::$tblname);
 	}
 	function listofapplicant()
 	{
-		global $mydb;
-		$mydb->setQuery("SELECT * FROM " . self::$tblname);
+		global $mydb_mo;
+		$mydb_mo->setQuery("SELECT * FROM " . self::$tblname);
+		$cur = $mydb_mo->loadResultList();
 		return $cur;
 	}
 	function find_applicant($id = "", $name = "")
 	{
-		global $mydb;
-		$mydb->setQuery("SELECT * FROM " . self::$tblname . " 
+		global $mydb_mo;
+		$mydb_mo->setQuery("SELECT * FROM " . self::$tblname . " 
 			WHERE APPLICANTID = {$id} OR Lastname = '{$name}'");
-		$cur = $mydb->executeQuery();
-		$row_count = $mydb->num_rows($cur);
+		$cur = $mydb_mo->executeQuery();
+		$row_count = $mydb_mo->num_rows($cur);
 		return $row_count;
 	}
 
 	function find_all_applicant($lname = "", $Firstname = "", $mname = "")
 	{
-		global $mydb;
-		$mydb->setQuery("SELECT * FROM " . self::$tblname . " 
+		global $mydb_mo;
+		$mydb_mo->setQuery("SELECT * FROM " . self::$tblname . " 
 			WHERE LNAME = '{$lname}' AND FNAME= '{$Firstname}' AND MNAME='{$mname}'");
-		$cur = $mydb->executeQuery();
-		$row_count = $mydb->num_rows($cur);
+		$cur = $mydb_mo->executeQuery();
+		$row_count = $mydb_mo->num_rows($cur);
 		return $row_count;
 	}
 
 
 	function single_applicant($id = "")
 	{
-		global $mydb;
-		$mydb->setQuery("SELECT * FROM " . self::$tblname . " 
-				Where APPLICANTID= '{$id}' LIMIT 1");
-		$cur = $mydb->loadSingleResult();
+		global $mydb_mo;
+		$mydb_mo->setQuery("SELECT * FROM " . self::$tblname . " 
+				WHERE id= '{$id}' LIMIT 1");
+		$cur = $mydb_mo->loadSingleResult();
 		return $cur;
 	}
 
@@ -51,10 +52,10 @@ class Applicants
 
 	function select_applicant($id = "")
 	{
-		global $mydb;
-		$mydb->setQuery("SELECT * FROM " . self::$tblname . " 
+		global $mydb_mo;
+		$mydb_mo->setQuery("SELECT * FROM " . self::$tblname . " 
 				Where APPLICANTID= '{$id}' LIMIT 1");
-		$cur = $mydb->loadSingleResult();
+		$cur = $mydb_mo->loadSingleResult();
 		return $cur;
 	}
 
@@ -63,15 +64,15 @@ class Applicants
 	// VERIFICAR LOGIN
 	function applicantAuthentication($U_USERNAME, $h_pass)
 	{
-		global $mydb;
-		$mydb->setQuery("SELECT * FROM `tblapplicants` WHERE `USERNAME`='" . $U_USERNAME . "' AND `PASS`='" . $h_pass . "'");
-		$cur = $mydb->executeQuery();
+		global $mydb_mo;
+		$mydb_mo->setQuery("SELECT * FROM `tblapplicants` WHERE `USERNAME`='" . $U_USERNAME . "' AND `PASS`='" . $h_pass . "'");
+		$cur = $mydb_mo->executeQuery();
 		if ($cur == false) {
-			die($mydb->error_msg);
+			die($mydb_mo->error_msg);
 		}
-		$row_count = $mydb->num_rows($cur); //get the number of count
+		$row_count = $mydb_mo->num_rows($cur); //get the number of count
 		if ($row_count == 1) {
-			$emp_found = $mydb->loadSingleResult();
+			$emp_found = $mydb_mo->loadSingleResult();
 			$_SESSION['APPLICANTID']   		= $emp_found->APPLICANTID;
 			$_SESSION['USERNAME'] 			= $emp_found->USERNAME;
 			return true;
@@ -79,6 +80,53 @@ class Applicants
 			return false;
 		}
 	}
+
+
+	// VERIFICAR LOGIN MOODLE
+	function applicantAuthentication_mo($u_username, $u_pass)
+	{
+		global $mydb_mo;
+		$mydb_mo->setQuery("SELECT * FROM mo_user WHERE username='" . $u_username . "'");
+		$cur = $mydb_mo->executeQuery();
+		if ($cur == false) {
+			die($mydb_mo->error_msg);
+		}
+		$row_count = $mydb_mo->num_rows($cur); //get the number of count
+		if ($row_count == 1) {
+			$user_found = $mydb_mo->loadSingleResult();
+			$userEncryptedPassword = $user_found->password;
+			if (password_verify($u_pass, $userEncryptedPassword)) {
+				$_SESSION['APPLICANTID']   		= $user_found->id;
+				$_SESSION['USERNAME'] 			= $user_found->username;
+				return true;
+			}
+		} else {
+			return false;
+		}
+	}
+
+
+	// GET PROFILE PICTURE OF MOODLE
+	function getProfilePictureMoodle($userid)
+	{
+		global $mydb_mo;
+		$sql = "SELECT mc.id, mu.picture FROM mo_user mu";
+		$sql .= " INNER JOIN mo_context mc ON mu.id=mc.instanceid";
+		$sql .= " WHERE mu.id ='" . $userid . "'";
+		$mydb_mo->setQuery($sql);
+		$cur = $mydb_mo->loadSingleResult();
+		return $cur;
+	}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -107,7 +155,7 @@ class Applicants
 	protected function attributes()
 	{
 		// return an array of attribute names and their values
-		global $mydb;
+		global $mydb_mo;
 		$attributes = array();
 		foreach ($this->dbfields() as $field) {
 			if (property_exists($this, $field)) {
@@ -119,12 +167,12 @@ class Applicants
 
 	protected function sanitized_attributes()
 	{
-		global $mydb;
+		global $mydb_mo;
 		$clean_attributes = array();
 		// sanitize the values before submitting
 		// Note: does not alter the actual value of each attribute
 		foreach ($this->attributes() as $key => $value) {
-			$clean_attributes[$key] = $mydb->escape_value($value);
+			$clean_attributes[$key] = $mydb_mo->escape_value($value);
 		}
 		return $clean_attributes;
 	}
@@ -139,7 +187,7 @@ class Applicants
 
 	public function create()
 	{
-		global $mydb;
+		global $mydb_mo;
 		// Don't forget your SQL syntax and good habits:
 		// - INSERT INTO table (key, key) VALUES ('value', 'value')
 		// - single-quotes around all values
@@ -150,10 +198,10 @@ class Applicants
 		$sql .= ") VALUES ('";
 		$sql .= join("', '", array_values($attributes));
 		$sql .= "')";
-		echo $mydb->setQuery($sql);
+		echo $mydb_mo->setQuery($sql);
 
-		if ($mydb->executeQuery()) {
-			$this->id = $mydb->insert_id();
+		if ($mydb_mo->executeQuery()) {
+			$this->id = $mydb_mo->insert_id();
 			return true;
 		} else {
 			return false;
@@ -162,7 +210,7 @@ class Applicants
 
 	public function update($id = '')
 	{
-		global $mydb;
+		global $mydb_mo;
 		$attributes = $this->sanitized_attributes();
 		$attribute_pairs = array();
 		foreach ($attributes as $key => $value) {
@@ -171,13 +219,13 @@ class Applicants
 		$sql = "UPDATE " . self::$tblname . " SET ";
 		$sql .= join(", ", $attribute_pairs);
 		$sql .= " WHERE APPLICANTID='" . $id . "'";
-		$mydb->setQuery($sql);
-		if (!$mydb->executeQuery()) return false;
+		$mydb_mo->setQuery($sql);
+		if (!$mydb_mo->executeQuery()) return false;
 	}
 
 	public function APLupdate($id = 0)
 	{
-		global $mydb;
+		global $mydb_mo;
 		$attributes = $this->sanitized_attributes();
 		$attribute_pairs = array();
 		foreach ($attributes as $key => $value) {
@@ -186,51 +234,51 @@ class Applicants
 		$sql = "UPDATE " . self::$tblname . " SET ";
 		$sql .= join(", ", $attribute_pairs);
 		$sql .= " WHERE APPLICANTID=" . $id;
-		$mydb->setQuery($sql);
-		if (!$mydb->executeQuery()) return false;
+		$mydb_mo->setQuery($sql);
+		if (!$mydb_mo->executeQuery()) return false;
 	}
 
 	public function delete($id = '')
 	{
-		global $mydb;
+		global $mydb_mo;
 		$sql = "DELETE FROM " . self::$tblname;
 		$sql .= " WHERE APPLICANTID='" . $id . "'";
 		$sql .= " LIMIT 1 ";
-		$mydb->setQuery($sql);
+		$mydb_mo->setQuery($sql);
 
-		if (!$mydb->executeQuery()) return false;
+		if (!$mydb_mo->executeQuery()) return false;
 	}
 
 	public function deleteJobRegistrations($id = '')
 	{
-		global $mydb;
+		global $mydb_mo;
 		$sql = "DELETE FROM tbljobregistration";
 		$sql .= " WHERE APPLICANTID='" . $id . "'";
 		// $sql .= " LIMIT 1 ";
-		$mydb->setQuery($sql);
+		$mydb_mo->setQuery($sql);
 
-		if (!$mydb->executeQuery()) return false;
+		if (!$mydb_mo->executeQuery()) return false;
 	}
 
 	public function deleteFeedbacks($id = '')
 	{
-		global $mydb;
+		global $mydb_mo;
 		$sql = "DELETE FROM tblfeedback";
 		$sql .= " WHERE APPLICANTID='" . $id . "'";
 		// $sql .= " LIMIT 1 ";
-		$mydb->setQuery($sql);
+		$mydb_mo->setQuery($sql);
 
-		if (!$mydb->executeQuery()) return false;
+		if (!$mydb_mo->executeQuery()) return false;
 	}
 
 	public function deleteAttachedFiles($id = '')
 	{
-		global $mydb;
+		global $mydb_mo;
 		$sql = "DELETE FROM tblattachmentfile";
 		$sql .= " WHERE APPLICANTID='" . $id . "'";
 		// $sql .= " LIMIT 1 ";
-		$mydb->setQuery($sql);
+		$mydb_mo->setQuery($sql);
 
-		if (!$mydb->executeQuery()) return false;
+		if (!$mydb_mo->executeQuery()) return false;
 	}
 }

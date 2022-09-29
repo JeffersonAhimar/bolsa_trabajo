@@ -76,15 +76,15 @@
                 $notif = isset($showNotif->COUNTNOTIF) ? $showNotif->COUNTNOTIF : 0;
 
 
-                $applicant = new Applicants();
+                $applicant = new Applicants_mo();
                 $appl  = $applicant->single_applicant($_SESSION['APPLICANTID']);
 
-                $sql = "SELECT count(*) as 'COUNT' FROM `tbljobregistration` WHERE `PENDINGAPPLICATION`=0 AND `HVIEW`=0 AND `APPLICANTID`='{$appl->APPLICANTID}'";
+                $sql = "SELECT count(*) as 'COUNT' FROM `tbljobregistration` WHERE `PENDINGAPPLICATION`=0 AND `HVIEW`=0 AND `APPLICANTID`='{$appl->id}'";
                 $mydb->setQuery($sql);
                 $showMsg = $mydb->loadSingleResult();
                 $msg = isset($showMsg->COUNT) ? $showMsg->COUNT : 0;
 
-                echo ' <p class="pull-right login"><a title="View Notification(s)" href="' . web_root . 'applicant/index.php?view=notification"> <i class="fa fa-bell-o"></i> <span class="label label-success">' . $notif . '</span></a> | <a title="View Message(s)" href="' . web_root . 'applicant/index.php?view=message"> <i class="fa fa-envelope-o"></i> <span class="label label-success">' . $msg . '</span></a> | <a title="View Profile" href="' . web_root . 'applicant/"> <i class="fa fa-user"></i> ' . $appl->FNAME . ' ' . $appl->LNAME . ' </a> | <a href="' . web_root . 'logout.php">  <i class="fa fa-sign-out"> </i>Salir</a> </p>';
+                echo ' <p class="pull-right login"><a title="View Notification(s)" href="' . web_root . 'applicant/index.php?view=notification"> <i class="fa fa-bell-o"></i> <span class="label label-success">' . $notif . '</span></a> | <a title="View Message(s)" href="' . web_root . 'applicant/index.php?view=message"> <i class="fa fa-envelope-o"></i> <span class="label label-success">' . $msg . '</span></a> | <a title="View Profile" href="' . web_root . 'applicant/"> <i class="fa fa-user"></i> ' . $appl->firstname . ' ' . $appl->lastname . ' </a> | <a href="' . web_root . 'logout.php">  <i class="fa fa-sign-out"> </i>Salir</a> </p>';
               } else { ?>
                 <p class="pull-right login"><a data-target="#myModal" data-toggle="modal" href=""> <i class="fa fa-lock"></i> Ingresar </a></p>
               <?php } ?>
@@ -360,7 +360,8 @@
 
         $.ajax({ //create an ajax request to load_page.php
           type: "POST",
-          url: "process.php?action=login",
+          // url: "process.php?action=login",
+          url: "process.php?action=login_mo",
           dataType: "text", //expect html to be returned  
           data: {
             USERNAME: username.value,
