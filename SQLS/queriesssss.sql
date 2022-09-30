@@ -128,56 +128,35 @@ SELECT * FROM mo_context WHERE id = 11761 OR id = 11693;
 SELECT * FROM mo_context WHERE instanceid = 4809;
 
 
-Required No. of Employee's
-Nro. de Empleados Requeridos
-
-Salario
-Duración del Empleo
-
-Género Preferido
-Sector de Vacante
-
-Calificación/Experiencia Laboral
-Descripción del Trabajo
-
-Compañía
-Ubicación
-
-Adjunta tu CV aquí
-
-Fecha de Publicación
-
-
-SEARCH
-BÚSQUEDA
-COMPAÑÍA
-CATEGORÍA
-
-Categoría
-
-
-
-Edad inválida. Sólo mayores de 18 años son permitidos.
 
 
 
 
 
 
+SELECT * FROM tbljob
+WHERE COMPANYID = 1;
 
 
+SELECT DISTINCT institution FROM mo_user;
 
 
+SELECT * FROM mo_user WHERE institution = 'CUTERVO';
+
+SELECT * FROM mo_user WHERE username=27439518;
+
+SELECT * FROM mo_user WHERE username='invitado1' OR username='invitado2';
 
 
+SELECT * FROM mo_context WHERE id = 11761 OR id = 11693; 
 
 
+SELECT * FROM mo_context WHERE instanceid = 4809;
 
 
-
-
-
-
+SELECT mc.id, mu.picture FROM mo_user mu
+INNER JOIN mo_context mc ON mu.id=mc.instanceid
+WHERE mu.id = 4809;
 
 
 

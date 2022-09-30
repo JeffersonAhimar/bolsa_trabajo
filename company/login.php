@@ -27,12 +27,6 @@ if (isset($_SESSION['COMPANYID'])) {
   <!-- iCheck -->
   <link rel="stylesheet" href="<?php echo web_root; ?>plugins/iCheck/square/blue.css">
   <link rel="icon" type="image/x-icon" href="<?php echo web_root; ?>/plugins/home-plugins/img/icon_dre.png">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
 </head>
 
 <body class="hold-transition login-page">
@@ -52,10 +46,10 @@ if (isset($_SESSION['COMPANYID'])) {
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
-          <div class="col-xs-4">
+          <div class="col-xs-6">
             <button type="submit" name="btnLogin" class="btn btn-primary btn-block btn-flat">Ingresar</button>
             <br>
-            <a href="<?php echo web_root; ?>index.php?q=register" target="_blank" class="text-center">Registrarse</a>
+            <a href="<?php echo web_root; ?>index.php?q=register" target="_blank" class="text-center">¿No estás registrado?</a>
           </div>
         </div>
       </form>

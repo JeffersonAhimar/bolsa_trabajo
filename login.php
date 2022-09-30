@@ -40,7 +40,7 @@
             </form>
 
             <!-- <a href="#">Olvidé mi contraseña</a><br> -->
-            <a href="<?php echo web_root; ?>company" target="_blank" class="text-center">Login para compañías</a>
+            <a href="<?php echo web_root; ?>company" target="_blank" class="text-center">¿Eres una compañía?</a>
 
           </div>
           <!-- /.login-box-body -->

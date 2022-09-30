@@ -48,7 +48,7 @@ if (isset($_SESSION['ADMIN_USERID'])) {
         </div>
         <div class="row">
 
-          <div class="col-xs-4">
+          <div class="col-xs-6">
             <button type="submit" name="btnLogin" class="btn btn-primary btn-block btn-flat">Ingresar</button>
           </div>
         </div>
