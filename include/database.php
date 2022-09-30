@@ -20,6 +20,7 @@ class Database
 	public function open_connection()
 	{
 		$this->conn = mysqli_connect(server, user, pass);
+		mysqli_set_charset($this->conn, "utf8");
 		if (!$this->conn) {
 			echo "Problema en la conexión con la base de datos! Contacta con el administrador";
 			exit();
