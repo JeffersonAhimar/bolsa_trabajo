@@ -79,12 +79,12 @@ if (isset($_SESSION['COMPANYID'])) {
         $_SESSION['ADMIN_COMPANYID'] = $_SESSION['COMPANYID'];
         $_SESSION['ADMIN_COMPANYNAME'] = $_SESSION['COMPANYNAME'];
         $_SESSION['ADMIN_COMPANYUSER'] = $_SESSION['COMPANYUSER'];
-        $_SESSION['ADMIN_COMPANYPASS'] = $_SESSION['COMPANYPASS'];
+        // $_SESSION['ADMIN_COMPANYPASS'] = $_SESSION['COMPANYPASS'];
 
         unset($_SESSION['COMPANYID']);
         unset($_SESSION['COMPANYNAME']);
         unset($_SESSION['COMPANYUSER']);
-        unset($_SESSION['COMPANYPASS']);
+        // unset($_SESSION['COMPANYPASS']);
 
         redirect(web_root . "company/vacancy/");
         // } 

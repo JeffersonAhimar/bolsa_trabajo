@@ -18,9 +18,9 @@ require_once(LIB_PATH . DS . "accounts.php");
 require_once(LIB_PATH . DS . "autonumbers.php");
 require_once(LIB_PATH . DS . "companies.php");
 require_once(LIB_PATH . DS . "job.php");
-require_once(LIB_PATH . DS . "employees.php");
+// require_once(LIB_PATH . DS . "employees.php");
 require_once(LIB_PATH . DS . "categories.php");
-require_once(LIB_PATH . DS . "applicant.php");
+// require_once(LIB_PATH . DS . "applicant.php");
 // AGREGADO
 require_once(LIB_PATH . DS . "applicant_mo.php");
 require_once(LIB_PATH . DS . "jobregistration.php");

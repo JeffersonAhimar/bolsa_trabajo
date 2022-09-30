@@ -10,7 +10,6 @@
 
         $jobid = $_GET['job'];
 
-        // $sql = "SELECT * FROM tblcompany c, tbljob j WHERE c.COMPANYID=j.COMPANYID AND j.JOBID=' . $jobid .'";
         $sql = "SELECT * FROM `tblcompany` c,`tbljob` j WHERE c.`COMPANYID`=j.`COMPANYID` AND JOBID = '" . $jobid . "' ORDER BY DATEPOSTED DESC";
         $mydb->setQuery($sql);
         $result = $mydb->loadSingleResult();
@@ -42,7 +41,6 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <ul>
-                                        <!-- <li><i class="fp-ht-dumbbell"></i>Qualification/Work Experience : <?php echo $result->QUALIFICATION_WORKEXPERIENCE; ?></li> -->
                                         <li><i class="fp-ht-tv"></i>Modalidad : <?php echo $result->JOBTYPE; ?></li>
                                     </ul>
                                 </div>

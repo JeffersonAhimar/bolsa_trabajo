@@ -86,7 +86,6 @@
 
                 echo ' <p class="pull-right login"><a title="View Notification(s)" href="' . web_root . 'applicant/index.php?view=notification"> <i class="fa fa-bell-o"></i> <span class="label label-success">' . $notif . '</span></a> | <a title="View Message(s)" href="' . web_root . 'applicant/index.php?view=message"> <i class="fa fa-envelope-o"></i> <span class="label label-success">' . $msg . '</span></a> | <a title="View Profile" href="' . web_root . 'applicant/"> <i class="fa fa-user"></i> ' . $appl->firstname . ' ' . $appl->lastname . ' </a> | <a href="' . web_root . 'logout.php">  <i class="fa fa-sign-out"> </i>Salir</a> </p>';
               } else { ?>
-                <!-- <p class="pull-right login" style="margin-left: 15px;"><a  href="<?php echo web_root . 'company' ?>" target="_blank"> <i class="fa fa-lock"></i> Ingresar como Compañía </a></p> -->
                 <p class="pull-right login"><a data-target="#myModal" data-toggle="modal" href=""> <i class="fa fa-lock"></i> Ingresar </a></p>
               <?php } ?>
 
@@ -106,9 +105,7 @@
             <a class="navbar-brand" href="<?php echo web_root; ?>index.php">
               <img src="<?php echo web_root; ?>plugins/home-plugins/img/logo_blue.png" alt="logo" style="max-width: 200px;" />
             </a>
-            <!-- <a class="navbar-brand" href="<?php echo web_root; ?>index.php">BOLSA TRABAJO - DRE CAJAMARCA
-               <img src="<?php echo web_root; ?>plugins/home-plugins/img/logo.png" alt="logo" />
-             </a> -->
+
           </div>
           <div class="navbar-collapse collapse ">
             <ul class="nav navbar-nav">
@@ -125,9 +122,7 @@
                               }  ?>"><a href="<?php echo web_root; ?>index.php?q=advancesearch">Búsqueda Avanzada</a></li>
                   <li><a href="<?php echo web_root; ?>index.php?q=search-company">Trabajos por Compañía</a></li>
                   <li><a href="<?php echo web_root; ?>index.php?q=search-function">Trabajos por Categoría</a></li>
-                  <!-- <li><a href="<?php echo web_root; ?>index.php?q=search-jobtitle">Trabajo por Título</a></li> -->
-                  <!--      <li><a href="#">Job for Women</a></li>
-                              <li><a href="#">Job for Men</a></li> -->
+
                 </ul>
               </li>
               <li class="dropdown <?php if (isset($_GET['q'])) {
@@ -301,8 +296,8 @@
   <script src="<?php echo web_root; ?>plugins/home-plugins/js/bootstrap.min.js"></script>
 
 
-  <script type="text/javascript" src="<?php echo web_root; ?>plugins/dataTables/dataTables.bootstrap.min.js"></script>
   <script src="<?php echo web_root; ?>plugins/datatables/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="<?php echo web_root; ?>plugins/dataTables/dataTables.bootstrap.min.js"></script>
 
   <script type="text/javascript" src="<?php echo web_root; ?>plugins/datepicker/bootstrap-datepicker.js" charset="UTF-8"></script>
   <script type="text/javascript" src="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.js" charset="UTF-8"></script>

@@ -39,7 +39,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 					echo '<td>' . $result->COMPANYADDRESS . '</td>';
 					echo '<td>' . $result->COMPANYRUC . '</td>';
 					echo '<td>' . $result->COMPANYCONTACTNO . '</td>';
-					
+
 
 					if ($result->COMPANYSTATUS === 'deshabilitado') {
 						echo '<td style="color:red; ">' . $result->COMPANYSTATUS . '</td>';
@@ -64,11 +64,8 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 
 		</table>
 		<div class="btn-group">
-			<!--  <a href="index.php?view=add" class="btn btn-default">New</a> -->
 			<?php
-			if ($_SESSION['ADMIN_ROLE'] == 'Administrador') {
-					// echo '<button type="submit" class="btn btn-default" name="delete"><span class="glyphicon glyphicon-trash"></span> Delete Selected</button'
-				;
+			if ($_SESSION['ADMIN_ROLE'] == 'Administrador') {;
 			} ?>
 		</div>
 

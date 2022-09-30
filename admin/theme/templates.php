@@ -5,10 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <title><?php
-          // $query = "SELECT * FROM `tbltitle` WHERE TItleID=1";
-          // $res = mysql_query($query) or die(mysql_error());
-          // $viewTitle = mysql_fetch_assoc($res);
-          // echo $viewTitle['Title'];
+
           ?>
   </title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -188,21 +185,6 @@
             </a>
           </li>
 
-          <!--  <li class="treeview">
-          <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo web_root; ?>pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="<?php echo web_root; ?>pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="<?php echo web_root; ?>pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="<?php echo web_root; ?>pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="<?php echo web_root; ?>pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="<?php echo web_root; ?>pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
-          </ul>
-        </li> -->
 
           <li class="<?php echo (currentpage() == 'user') ? "active" : false; ?>">
             <a href="<?php echo web_root; ?>admin/user/">
@@ -289,16 +271,6 @@
 <script type="text/javascript" language="javascript" src="<?php echo web_root; ?>plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
 <script type="text/javascript" language="javascript" src="<?php echo web_root; ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
-<!--      <script src="<?php echo web_root; ?>admin/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo web_root; ?>admin/js/dataTables.bootstrap.min.js"></script>
- <script type="text/javascript" src="<?php echo web_root; ?>js/jquery-1.10.2.js"></script>       
-        <script type="text/javascript" src="<?php echo web_root; ?>js/jquery.mixitup.min.js" ></script>
-        <script type="text/javascript" src="<?php echo web_root; ?>js/main.js" ></script> 
-        <script type="text/javascript" src="<?php echo web_root; ?>js/janobe.js" ></script> 
-        <script src="<?php echo web_root; ?>admin/js/ekko-lightbox.js"></script>
-        <script src="<?php echo web_root; ?>admin/js/lightboxfunction.js"></script> 
-  -->
-<!-- jQuery 2.1.4 -->
 
 <script>
   $(function() {

@@ -28,7 +28,6 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
       <label class="col-md-4 control-label" for="COMPANYADDRESS">Dirección de la Compañía:</label>
       <div class="col-md-8">
         <textarea class="form-control input-sm" id="COMPANYADDRESS" name="COMPANYADDRESS" placeholder="Dirección de la Compañía" type="text" value="" required onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off"></textarea>
-        <!-- <input class="form-control input-sm" id="COMPANYADDRESS" name="COMPANYADDRESS" placeholder="Company Address"   autocomplete="none"/>  -->
       </div>
     </div>
   </div>

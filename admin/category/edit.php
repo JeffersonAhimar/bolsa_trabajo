@@ -33,7 +33,6 @@ $singlecategory = $category->single_category($categoryid);
         <label class="col-md-4 control-label" for="idno"></label>
 
         <div class="col-md-8">
-          <!-- <a href="index.php" class="btn btn_fixnmix"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<strong>Back</strong></a> -->
           <button class="btn btn-primary btn-sm" name="save" type="submit"><span class="fa fa-save fw-fa"></span> Guardar</button>
 
         </div>

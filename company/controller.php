@@ -1,9 +1,6 @@
 
 <?php
 require_once("../include/initialize.php");
-// if (!isset($_SESSION['ADMIN_USERID'])) {
-// 	redirect(web_root . "admin/index.php");
-// }
 
 
 $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : '';
@@ -18,10 +15,9 @@ function doRegister()
 {
 	if (isset($_POST['save'])) {
 
-		// `COMPANYNAME`, `COMPANYADDRESS`, `COMPANYCONTACTNO`
 		if ($_POST['COMPANYNAME'] == "" || $_POST['COMPANYADDRESS'] == "" || $_POST['COMPANYCONTACTNO'] == "") {
 			$messageStats = false;
-			message("All field is required!", "error");
+			message("Todos los campos son requeridos!", "error");
 			// redirect('index.php?view=add');
 			redirect(web_root . "company/login.php");
 		} else {

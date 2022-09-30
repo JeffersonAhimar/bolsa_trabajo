@@ -26,8 +26,6 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 		</thead>
 		<tbody>
 			<?php
-			// $mydb->setQuery("SELECT * 
-			// 			FROM  `tblusers` WHERE TYPE != 'Customer'");
 			$mydb->setQuery("SELECT * 
 											FROM  `tblusers`");
 			$cur = $mydb->loadResultList();

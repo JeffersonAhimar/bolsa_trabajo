@@ -20,12 +20,6 @@
               <div class="box-header with-border">
                 <h3 class="box-title">Mensajes</h3>
 
-                <!-- <div class="box-tools pull-right" style="margin-bottom: 5px;">
-                  <div class="has-feedback">
-                    <input type="text" class="form-control input-sm" placeholder="Buscar Mensaje">
-                    <span class="fa fa-search form-control-feedback" style="margin-top: -25px"></span>
-                  </div>
-                </div> -->
                 <!-- /.box-tools -->
               </div>
               <!-- /.box-header -->
@@ -48,7 +42,6 @@
                         # code...
                         echo '<tr>';
                         echo '<td><input type="checkbox"></td>';
-                        // echo '<td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>';
                         echo '<td class="mailbox-name"><a href="index.php?view=message&p=readmessage&id=' . $result->REGISTRATIONID . '">' . $result->COMPANYNAME . '</a></td>';
                         echo '<td class="mailbox-subject">' . $result->REMARKS . '</td>';
                         echo '<td class="mailbox-date">' . $result->DATETIMEAPPROVED . '</td>';
@@ -66,9 +59,7 @@
                 <div class="mailbox-controls">
                   <!-- Check all button -->
                   </button>
-                  <!-- <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                  </div> -->
+
                   <!-- /.btn-group -->
                   <a href="index.php?view=message" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></a>
                   <div class="pull-right">

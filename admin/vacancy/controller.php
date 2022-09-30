@@ -26,11 +26,10 @@ function doInsert()
 {
 	global $mydb;
 	if (isset($_POST['save'])) {
-		// `COMPANYID`, `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `JOBDESCRIPTION`
 
 		if ($_POST['COMPANYID'] == "None") {
 			$messageStats = false;
-			message("All field is required!", "error");
+			message("Todos los campos son requeridos!", "error");
 			redirect('index.php?view=add');
 		} else {
 			$sql = "SELECT * FROM tblcategory where CATEGORYID = {$_POST['CATEGORY']}";
@@ -62,7 +61,7 @@ function doEdit()
 	if (isset($_POST['save'])) {
 		if ($_POST['COMPANYID'] == "None") {
 			$messageStats = false;
-			message("All field is required!", "error");
+			message("Todos los campos son requeridos!", "error");
 			redirect('index.php?view=add');
 		} else {
 			$sql = "SELECT * FROM tblcategory where CATEGORYID = {$_POST['CATEGORY']}";

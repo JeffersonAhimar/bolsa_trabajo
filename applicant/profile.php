@@ -5,9 +5,6 @@ $applicant = $appl->single_applicant($_SESSION['APPLICANTID']);
 $appl_photo = $appl->getProfilePictureMoodle($_SESSION['APPLICANTID']);
 ?>
 <style type="text/css">
-  /*    #image-container {
-      width: 230px;
-    }*/
   .panel-body img {
     width: 100%;
     height: 50%;
@@ -36,7 +33,7 @@ $appl_photo = $appl->getProfilePictureMoodle($_SESSION['APPLICANTID']);
 
         <div class="panel-body">
           <div id="image-container" style="text-align: center;">
-            <img title="profile image" data-target="#myModal" data-toggle="modal" src="
+            <img title="profile image" src="
             <?php
             echo 'https://www.educacioncajamarca.com/pluginfile.php/' . $appl_photo->id . '/user/icon/academi/f1?rev=' . $appl_photo->picture;
             ?>
@@ -54,9 +51,6 @@ $appl_photo = $appl->getProfilePictureMoodle($_SESSION['APPLICANTID']);
             <?php echo 'https://www.educacioncajamarca.com/user/edit.php?id=' . $applicant->id . '&returnto=profile'; ?>
             " target="_blank">Editar Perfil</a>
           </li>
-          <!-- 
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> 2.13.2014</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> Yesterday</li> -->
           <li class="list-group-item text-right"><span class="pull-left"><strong>Nombre</strong></span>
             <?php if ($applicant->email != '') {
               echo $applicant->firstname . ' ' . $applicant->lastname;
@@ -157,38 +151,3 @@ $appl_photo = $appl->getProfilePictureMoodle($_SESSION['APPLICANTID']);
 unset($_SESSION['appliedjobs']);
 unset($_SESSION['accounts']);
 ?>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button class="close" data-dismiss="modal" type="button">×</button>
-
-        <h4 class="modal-title" id="myModalLabel">Escoger Imagen.</h4>
-      </div>
-
-      <form action="controller.php?action=photos" enctype="multipart/form-data" method="post">
-        <div class="modal-body">
-          <div class="form-group">
-            <div class="rows">
-              <div class="col-md-12">
-                <div class="rows">
-                  <div class="col-md-8">
-                    <input name="MAX_FILE_SIZE" type="hidden" value="1000000"> <input id="photo" name="photo" type="file">
-                  </div>
-
-                  <div class="col-md-4"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button class="btn btn-default" data-dismiss="modal" type="button">Cerrar</button> <button class="btn btn-primary" name="savephoto" type="submit">Subir Foto</button>
-        </div>
-      </form>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->

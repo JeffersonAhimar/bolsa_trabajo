@@ -13,6 +13,7 @@ class User
 	{
 		global $mydb;
 		$mydb->setQuery("SELECT * FROM " . self::$tblname);
+		$cur = $mydb->loadResultList();
 		return $cur;
 	}
 
@@ -39,7 +40,7 @@ class User
 			$mydb->setQuery("SELECT * FROM `tblusers` WHERE `USERNAME` = '" . $USERNAME . "' and `PASS` = '" . $h_pass . "'");
 			$cur = $mydb->executeQuery();
 			if ($cur == false) {
-				die(mysql_error());
+				die($mydb->error_msg);
 			}
 			$row_count = $mydb->num_rows($cur); //get the number of count
 			if ($row_count == 1) {
@@ -47,9 +48,9 @@ class User
 				$_SESSION['USERID']   		= $user_found->USERID;
 				$_SESSION['FULLNAME']      	= $user_found->FULLNAME;
 				$_SESSION['USERNAME'] 		= $user_found->USERNAME;
-				$_SESSION['PASS'] 			= $user_found->PASS;
+				// $_SESSION['PASS'] 			= $user_found->PASS;
 				$_SESSION['ROLE'] 			= $user_found->ROLE;
-				$_SESSION['PICLOCATION'] 	= $user_found->PICLOCATION;
+				// $_SESSION['PICLOCATION'] 	= $user_found->PICLOCATION;
 				return true;
 			} else {
 				return false;

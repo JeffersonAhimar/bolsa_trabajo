@@ -2,9 +2,7 @@
 if (!isset($_SESSION['ADMIN_COMPANYID'])) {
   redirect(web_root . "admin/index.php");
 }
-// if (!$_SESSION['ADMIN_ROLE'] == 'Administrator') {
-//   redirect(web_root . "admin/index.php");
-// }
+
 @$USERID = $_SESSION['ADMIN_COMPANYID'];
 if ($USERID == '') {
   redirect("index.php");

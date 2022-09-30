@@ -21,6 +21,8 @@ $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : 
 
 switch ($action) {
 
+
+	// OPCIONAL
 	case 'delete':
 		doDelete();
 		break;

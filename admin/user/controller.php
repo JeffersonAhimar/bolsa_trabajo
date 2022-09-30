@@ -31,7 +31,7 @@ function doInsert()
 
 		if ($_POST['U_NAME'] == "" or $_POST['U_USERNAME'] == "" or $_POST['U_PASS'] == "") {
 			$messageStats = false;
-			message("All field is required!", "error");
+			message("Todos los campos son requeridos!", "error");
 			redirect('index.php?view=add');
 		} else {
 			$user = new User();
@@ -87,10 +87,6 @@ function doDelete()
 
 	message("El usuario ha sido eliminado!", "info");
 	redirect('index.php');
-	// }
-	// }
-
-
 }
 
 function doupdateimage()

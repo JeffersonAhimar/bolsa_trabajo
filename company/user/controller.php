@@ -7,16 +7,9 @@ if (!isset($_SESSION['ADMIN_COMPANYID'])) {
 $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : '';
 
 switch ($action) {
-	case 'add':
-		doInsert();
-		break;
 
 	case 'edit':
 		doEdit();
-		break;
-
-	case 'delete':
-		doDelete();
 		break;
 
 	case 'photos':
@@ -24,32 +17,6 @@ switch ($action) {
 		break;
 }
 
-function doInsert()
-{
-	if (isset($_POST['save'])) {
-
-
-		if ($_POST['U_NAME'] == "" or $_POST['U_USERNAME'] == "" or $_POST['U_PASS'] == "") {
-			$messageStats = false;
-			message("All field is required!", "error");
-			redirect('index.php?view=add');
-		} else {
-			$user = new User();
-			$user->USERID 			= $_POST['user_id'];
-			$user->FULLNAME 		= $_POST['U_NAME'];
-			$user->USERNAME			= $_POST['U_USERNAME'];
-			$user->PASS				= sha1($_POST['U_PASS']);
-			$user->ROLE				=  $_POST['U_ROLE'];
-			$user->create();
-
-			$autonum = new Autonumber();
-			$autonum->auto_update('userid');
-
-			message("The account [" . $_POST['U_NAME'] . "] created successfully!", "success");
-			redirect("index.php");
-		}
-	}
-}
 
 function doEdit()
 {
@@ -82,17 +49,6 @@ function doEdit()
 	}
 }
 
-
-function doDelete()
-{
-	$id = 	$_GET['id'];
-
-	$user = new User();
-	$user->delete($id);
-
-	message("User has been deleted!", "info");
-	redirect('index.php');
-}
 
 
 

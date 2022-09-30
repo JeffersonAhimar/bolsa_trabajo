@@ -70,7 +70,7 @@ if (isset($_SESSION['ADMIN_USERID'])) {
 
     if ($email == '' or $upass == '') {
 
-      message("Nombre de Usuario y Contraseña Inválidos!", "error");
+      message("Nombre de Usuario y/o Contraseña Inválidos!", "error");
       redirect("login.php");
     } else {
       //it creates a new objects of member
@@ -85,14 +85,14 @@ if (isset($_SESSION['ADMIN_USERID'])) {
         $_SESSION['ADMIN_FULLNAME'] = $_SESSION['FULLNAME'];
         $_SESSION['ADMIN_USERNAME'] = $_SESSION['USERNAME'];
         $_SESSION['ADMIN_ROLE'] = $_SESSION['ROLE'];
-        $_SESSION['ADMIN_PICLOCATION'] = $_SESSION['PICLOCATION'];
+        // $_SESSION['ADMIN_PICLOCATION'] = $_SESSION['PICLOCATION'];
 
         unset($_SESSION['USERID']);
         unset($_SESSION['FULLNAME']);
         unset($_SESSION['USERNAME']);
-        unset($_SESSION['PASS']);
+        // unset($_SESSION['PASS']);
         unset($_SESSION['ROLE']);
-        unset($_SESSION['PICLOCATION']);
+        // unset($_SESSION['PICLOCATION']);
 
         redirect(web_root . "admin/company/");
         // } 

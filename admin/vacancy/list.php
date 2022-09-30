@@ -30,15 +30,10 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 			</thead>
 			<tbody>
 				<?php
-				// `COMPANYID`, `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `JOBDESCRIPTION`, `JOBSTATUS`
 				$mydb->setQuery("SELECT * FROM `tbljob` j, `tblcompany` c WHERE j.COMPANYID=c.COMPANYID");
 				$cur = $mydb->loadResultList();
 				foreach ($cur as $result) {
 					echo '<tr>';
-					// echo '<td width="5%" align="center"></td>';
-					// echo '<td>
-					//      <input type="checkbox" name="selector[]" id="selector[]" value="'.$result->CATEGORYID. '"/>
-					// 		' . $result->CATEGORIES.'</a></td>';
 					echo '<td>' . $result->COMPANYNAME . '</td>';
 					echo '<td>' . $result->OCCUPATIONTITLE . '</td>';
 					echo '<td>' . $result->REQ_NO_EMPLOYEES . '</td>';
@@ -49,7 +44,6 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 					echo '<td>' . $result->JOBTYPE . '</td>';
 					echo '<td align="center"><a title="Edit" href="index.php?view=edit&id=' . $result->JOBID . '" class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
 				  		     <a title="Delete" href="controller.php?action=delete&id=' . $result->JOBID . '" class="btn btn-danger btn-xs  ">  <span class="fa  fa-trash-o fw-fa "></a></td>';
-					// echo '<td></td>';
 					echo '</tr>';
 				}
 				?>
@@ -57,11 +51,8 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 
 		</table>
 		<div class="btn-group">
-			<!--  <a href="index.php?view=add" class="btn btn-default">New</a> -->
 			<?php
-			if ($_SESSION['ADMIN_ROLE'] == 'Administrador') {
-					// echo '<button type="submit" class="btn btn-default" name="delete"><span class="glyphicon glyphicon-trash"></span> Delete Selected</button'
-				;
+			if ($_SESSION['ADMIN_ROLE'] == 'Administrador') {;
 			} ?>
 		</div>
 

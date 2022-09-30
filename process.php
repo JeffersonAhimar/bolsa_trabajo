@@ -10,14 +10,6 @@ switch ($action) {
 		doSubmitApplication();
 		break;
 
-	case 'register':
-		doRegister();
-		break;
-
-	case 'login':
-		doLogin();
-		break;
-
 	case 'login_mo':
 		doLogin_mo();
 		break;
@@ -97,65 +89,7 @@ function UploadFile($id)
 		// exit;
 	}
 }
-function doInsert($jobid = 0, $fileid = 0)
-{
-	if (isset($_POST['submit'])) {
-		global $mydb;
 
-		$birthdate =  $_POST['year'] . '-' . $_POST['month'] . '-' . $_POST['day'];
-
-		$age = date_diff(date_create($birthdate), date_create('today'))->y;
-
-		if ($age < 20) {
-			message("Invalid age. 20 years old and above is allowed.", "error");
-			redirect("index.php?q=apply&view=personalinfo&job=" . $jobid);
-		} else {
-
-			$autonum = new Autonumber();
-			$auto = $autonum->set_autonumber('APPLICANT');
-
-			$applicant = new Applicants();
-			$applicant->APPLICANTID = date('Y') . $auto->AUTO;
-			$applicant->FNAME = $_POST['FNAME'];
-			$applicant->LNAME = $_POST['LNAME'];
-			$applicant->MNAME = $_POST['MNAME'];
-			$applicant->ADDRESS = $_POST['ADDRESS'];
-			$applicant->SEX = $_POST['optionsRadios'];
-			$applicant->CIVILSTATUS = $_POST['CIVILSTATUS'];
-			$applicant->BIRTHDATE = $birthdate;
-			$applicant->BIRTHPLACE = $_POST['BIRTHPLACE'];
-			$applicant->AGE = $age;
-			$applicant->USERNAME = $_POST['USERNAME'];
-			$applicant->PASS = sha1($_POST['PASS']);
-			$applicant->EMAILADDRESS = $_POST['EMAILADDRESS'];
-			$applicant->CONTACTNO = $_POST['TELNO'];
-			$applicant->DEGREE = $_POST['DEGREE'];
-			$applicant->create();
-
-
-			$sql = "SELECT * FROM `tblcompany` c,`tbljob` j WHERE c.`COMPANYID`=j.`COMPANYID` AND JOBID = '{$jobid}'";
-			$mydb->setQuery($sql);
-			$result = $mydb->loadSingleResult();
-
-
-			$jobreg = new JobRegistration();
-			$jobreg->COMPANYID = $result->COMPANYID;
-			$jobreg->JOBID     = $result->JOBID;
-			$jobreg->APPLICANTID = date('Y') . $auto->AUTO;
-			$jobreg->APPLICANT   = $_POST['FNAME'] . ' ' . $_POST['LNAME'];
-			$jobreg->REGISTRATIONDATE = date('Y-m-d');
-			$jobreg->FILEID = date('Y') . $fileid;
-			$jobreg->REMARKS = 'Pendiente';
-			$jobreg->DATETIMEAPPROVED = date('Y-m-d H:i');
-			$jobreg->create();
-
-
-			// message("Your application already submitted. Please wait for the company confirmation if your are qualified to this job.", "success");
-			message("Tu postulación ha sido enviada con éxito. Espera a la confirmación de la compañía si estás calificado para el trabajo.", "success");
-			redirect("index.php?q=success&job=" . $result->JOBID);
-		}
-	}
-}
 function doUpdate($jobid = 0, $fileid = 0)
 {
 	if (isset($_POST['submit'])) {
@@ -190,118 +124,6 @@ function doUpdate($jobid = 0, $fileid = 0)
 }
 
 
-function doRegister()
-{
-	global $mydb;
-	if (isset($_POST['btnRegister'])) {
-		$birthdate =  $_POST['year'] . '-' . $_POST['month'] . '-' . $_POST['day'];
-
-		$age = date_diff(date_create($birthdate), date_create('today'))->y;
-
-		if ($age < 20) {
-			message("Invalid age. 20 years old and above is allowed.", "error");
-			redirect("index.php?q=register");
-		} else {
-
-			$autonum = new Autonumber();
-			$auto = $autonum->set_autonumber('APPLICANT');
-
-			$applicant = new Applicants();
-			$applicant->APPLICANTID = date('Y') . $auto->AUTO;
-			$applicant->FNAME = $_POST['FNAME'];
-			$applicant->LNAME = $_POST['LNAME'];
-			$applicant->ADDRESS = $_POST['ADDRESS'];
-			$applicant->SEX = $_POST['SEX'];
-			$applicant->CIVILSTATUS = $_POST['CIVILSTATUS'];
-			$applicant->BIRTHDATE = $birthdate;
-			$applicant->BIRTHPLACE = $_POST['BIRTHPLACE'];
-			$applicant->AGE = $age;
-			$applicant->USERNAME = $_POST['USERNAME'];
-			$applicant->PASS = sha1($_POST['PASS']);
-			$applicant->EMAILADDRESS = $_POST['EMAILADDRESS'];
-			$applicant->CONTACTNO = $_POST['TELNO'];
-			$applicant->DEGREE = $_POST['DEGREE'];
-			$applicant->create();
-
-			$autonum = new Autonumber();
-			$autonum->auto_update('APPLICANT');
-
-
-			message("Te has registrado correctamente. Ahora puedes ingresar con tu cuenta!", "success");
-			redirect("index.php?q=success");
-		}
-	}
-}
-
-function doUpdate_Profile()
-{
-	global $mydb;
-	if (isset($_POST['btnRegister'])) {
-		$birthdate =  $_POST['year'] . '-' . $_POST['month'] . '-' . $_POST['day'];
-
-		$age = date_diff(date_create($birthdate), date_create('today'))->y;
-
-		if ($age < 20) {
-			message("Invalid age. 20 years old and above is allowed.", "error");
-			redirect("index.php?q=register");
-		} else {
-
-			$autonum = new Autonumber();
-			$auto = $autonum->set_autonumber('APPLICANT');
-
-			$applicant = new Applicants();
-			$applicant->APPLICANTID = date('Y') . $auto->AUTO;
-			$applicant->FNAME = $_POST['FNAME'];
-			$applicant->LNAME = $_POST['LNAME'];
-			$applicant->ADDRESS = $_POST['ADDRESS'];
-			$applicant->SEX = $_POST['optionsRadios'];
-			$applicant->CIVILSTATUS = $_POST['CIVILSTATUS'];
-			$applicant->BIRTHDATE = $birthdate;
-			$applicant->BIRTHPLACE = $_POST['BIRTHPLACE'];
-			$applicant->AGE = $age;
-			$applicant->USERNAME = $_POST['USERNAME'];
-			$applicant->PASS = sha1($_POST['PASS']);
-			$applicant->EMAILADDRESS = $_POST['EMAILADDRESS'];
-			$applicant->CONTACTNO = $_POST['TELNO'];
-			$applicant->DEGREE = $_POST['DEGREE'];
-			$applicant->create();
-
-			$autonum = new Autonumber();
-			$autonum->auto_update('APPLICANT');
-
-
-			message("You are successfully registered to the site. You can login now!", "success");
-			redirect("index.php?q=success");
-		}
-	}
-}
-
-
-
-
-function doLogin()
-{
-
-	$email = trim($_POST['USERNAME']);
-	$upass  = trim($_POST['PASS']);
-	$h_upass = sha1($upass);
-
-	//it creates a new objects of member
-	$applicant = new Applicants();
-	//make use of the static function, and we passed to parameters
-	$res = $applicant->applicantAuthentication($email, $h_upass);
-	if ($res == true) {
-
-		message("Te logueaste correctamente!", "success");
-
-		// $sql="INSERT INTO `tbllogs` (`USERID`,USERNAME, `LOGDATETIME`, `LOGROLE`, `LOGMODE`) 
-		//    VALUES (".$_SESSION['USERID'].",'".$_SESSION['FULLNAME']."','".date('Y-m-d H:i:s')."','".$_SESSION['UROLE']."','Logged in')";
-		//    mysql_query($sql) or die(mysql_error()); 
-		redirect(web_root . "applicant/");
-	} else {
-		echo "Error al ingresar! Por favor contacta con el administrador";
-	}
-}
 
 function doLogin_mo()
 {
@@ -317,7 +139,7 @@ function doLogin_mo()
 	if ($res == true) {
 
 		message("Te logueaste correctamente!", "success");
-		
+
 		redirect(web_root . "applicant/");
 	} else {
 		echo "Error al ingresar! Por favor contacta con el administrador";
