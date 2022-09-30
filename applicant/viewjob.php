@@ -7,7 +7,7 @@ $jobreg = $jobregistration->single_jobregistration($red_id);
 // `COMPANYID`, `JOBID`, `APPLICANTID`, `APPLICANT`, `REGISTRATIONDATE`, `REMARKS`, `FILEID`, `PENDINGAPPLICATION`
 
 
-$applicant = new Applicants();
+$applicant = new Applicants_mo();
 $appl = $applicant->single_applicant($jobreg->APPLICANTID);
 // `FNAME`, `LNAME`, `ADDRESS`, `SEX`, `CIVILSTATUS`, `BIRTHDATE`, `BIRTHPLACE`, `AGE`, `USERNAME`, `PASS`, `EMAILADDRESS`,CONTACTNO
 
@@ -83,31 +83,38 @@ $attachmentfile = $mydb->loadSingleResult();
 		</div>
 		<div class="col-sm-6">
 			<ul>
-				<li><i class="fp-ht-tv"></i>Género Preferido : <?php echo $job->PREFEREDSEX; ?></li>
+				<li><i class="fp-ht-tv"></i>Modalidad : <?php echo $job->JOBTYPE; ?></li>
 			</ul>
 		</div>
 		<div class="col-sm-12">
 			<p>Descripción del Trabajo : </p>
-			<p style="margin-left: 15px;"><?php echo $job->JOBDESCRIPTION; ?></p>
+			<ul>
+				<li><?php echo $job->JOBDESCRIPTION; ?></li>
+			</ul>
 		</div>
 		<div class="col-sm-12">
 			<p>Calificación/Experiencia Laboral : </p>
-			<p style="margin-left: 15px;"><?php echo $job->QUALIFICATION_WORKEXPERIENCE; ?></p>
+			<ul>
+				<li>
+					<?php echo $job->QUALIFICATION_WORKEXPERIENCE; ?>
+				</li>
+			</ul>
 		</div>
 		<div class="col-sm-12">
 			<p>Empleador : </p>
-			<p style="margin-left: 15px;"><?php echo $comp->COMPANYNAME; ?></p>
-			<p style="margin-left: 15px;">@ <?php echo $comp->COMPANYADDRESS; ?></p>
+			<ul>
+				<li><?php echo $comp->COMPANYNAME; ?></li>
+				@ <?php echo $comp->COMPANYADDRESS; ?>
 		</div>
 	</div>
 
 	<div class="col-sm-12 content-footer">
 		<p><i class="fa fa-paperclip"></i> Adjuntar Archivos</p>
 		<div class="col-sm-12 slider">
-			<h3>Descargar CV <a href="<?php echo web_root . 'applicant/' . $attachmentfile->FILE_LOCATION; ?>">Aquí</a></h3>
+			<h3>Revisar CV <a href="<?php echo web_root . 'uploads/documents/' . $attachmentfile->FILE_LOCATION; ?>" target="_blank">Aquí</a></h3>
 		</div>
 		<div class="col-sm-12">
-			<p>Feedback</p>
+			<p>Mensaje</p>
 			<p><?php echo isset($jobreg->REMARKS) ? $jobreg->REMARKS : ""; ?></p>
 		</div>
 		<div class="col-sm-12  submitbutton ">

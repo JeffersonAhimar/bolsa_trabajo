@@ -15,8 +15,6 @@
 
         foreach ($cur as $result) {
             # code...
-
-            // `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `PREFEREDSEX`, `DATEPOSTED`
         ?>
             <div class="container">
                 <div class="mg-available-rooms">
@@ -25,15 +23,9 @@
                         <div class="mg-avl-room">
                             <div class="row">
                                 <div class="col-sm-2">
-                                    <!-- <a href="#"><span class="fa fa-building-o" style="font-size: 50px"></span> -->
-                                    <!-- <img src="img/room-1.png" alt="" class="img-responsive"></a> -->
+
                                     <?php
-                                    // if ($result->COMPANYPHOTO == '') {
-                                    //     echo '<span class="fa fa-building-o" style="font-size: 50px"></span>';
-                                    //     // echo web_root . 'uploads/images/no-image.png';
-                                    // } else {
-                                    //     echo '<img src="' . web_root . 'company/user/' . $result->COMPANYPHOTO . '" alt="" width="80px" height="100%">';
-                                    // }
+
                                     if ($result->COMPANYPHOTO == '') {
                                         echo '<i class="icon-info-blocks fa fa-building-o" style="font-size: 100px"></i>';
                                     } else {

@@ -17,7 +17,7 @@
                 <table id="dash-table" class="table table-hover table-striped">
                   <thead> 
                     <tr>
-                      <th>Título Profesional</th>
+                      <th>Título Trabajo</th>
                       <th>Compañía</th>
                       <th>Ubicación</th>
                       <th>Estado</th>
