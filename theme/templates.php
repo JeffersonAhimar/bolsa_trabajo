@@ -15,8 +15,8 @@
   <!-- <link rel="stylesheet" href="<?php echo web_root; ?>plugins/dataTables/dataTables.bootstrap.css">  -->
   <link rel="stylesheet" href="<?php echo web_root; ?>plugins/font-awesome/css/font-awesome.min.css">
 
-  <link rel="stylesheet" href="<?php echo web_root; ?>plugins/dataTables/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="<?php echo web_root; ?>plugins/dataTables/jquery.dataTables_themeroller.css">
+  <link rel="stylesheet" href="<?php echo web_root; ?>plugins/datatables/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="<?php echo web_root; ?>plugins/datatables/jquery.dataTables_themeroller.css">
   <!-- datetime picker CSS -->
   <link href="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
   <link href="<?php echo web_root; ?>plugins/datepicker/datepicker3.css" rel="stylesheet" media="screen">
@@ -297,7 +297,7 @@
 
 
   <script src="<?php echo web_root; ?>plugins/datatables/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" src="<?php echo web_root; ?>plugins/dataTables/dataTables.bootstrap.min.js"></script>
+  <script type="text/javascript" src="<?php echo web_root; ?>plugins/datatables/dataTables.bootstrap.min.js"></script>
 
   <script type="text/javascript" src="<?php echo web_root; ?>plugins/datepicker/bootstrap-datepicker.js" charset="UTF-8"></script>
   <script type="text/javascript" src="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.js" charset="UTF-8"></script>
