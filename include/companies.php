@@ -1,5 +1,6 @@
 <?php
 require_once(LIB_PATH . DS . 'database.php');
+
 class Company
 {
 	protected static  $tblname = "tblcompany";
@@ -133,35 +134,45 @@ class Company
 
 
 
+	function usernameExists($username = '')
+	{
+		global $mydb;
+		$mydb->setQuery("SELECT * FROM `tblcompany` WHERE `COMPANYUSER` = '" . $username . "'");
+		$cur = $mydb->executeQuery();
+		if ($cur == false) {
+			// die(mysql_error());
+			die($mydb->error_msg);
+		}
+		$row_count = $mydb->num_rows($cur); //get the number of count
+		if ($row_count == 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+
 
 	function userAuthentication($USERNAME, $h_pass)
 	{
 		global $mydb;
 
-		if ($USERNAME == 'PLAZACAFE' && $h_pass == sha1('MELOIS')) {
-			# code...
-			$_SESSION['USERID']   		= '1001000110110';
-			$_SESSION['FULLNAME']      	= 'Programmer';
-			$_SESSION['ROLE'] 			= 'Programmer';
+		$mydb->setQuery("SELECT * FROM `tblcompany` WHERE `COMPANYUSER` = '" . $USERNAME . "' and `COMPANYPASS` = '" . $h_pass . "'");
+		$cur = $mydb->executeQuery();
+		if ($cur == false) {
+			// die(mysql_error());
+			die($mydb->error_msg);
+		}
+		$row_count = $mydb->num_rows($cur); //get the number of count
+		$user_found = $mydb->loadSingleResult();
+		if ($row_count == 1 && $user_found->COMPANYSTATUS == 'habilitado') {
+			$_SESSION['COMPANYID']   		= $user_found->COMPANYID;
+			$_SESSION['COMPANYNAME']      	= $user_found->COMPANYNAME;
+			$_SESSION['COMPANYUSER'] 		= $user_found->COMPANYUSER;
+			$_SESSION['COMPANYPASS'] 			= $user_found->COMPANYPASS;
 			return true;
 		} else {
-			$mydb->setQuery("SELECT * FROM `tblcompany` WHERE `COMPANYUSER` = '" . $USERNAME . "' and `COMPANYPASS` = '" . $h_pass . "'");
-			$cur = $mydb->executeQuery();
-			if ($cur == false) {
-				// die(mysql_error());
-				die($mydb->error_msg);
-			}
-			$row_count = $mydb->num_rows($cur); //get the number of count
-			$user_found = $mydb->loadSingleResult();
-			if ($row_count == 1 && $user_found->COMPANYSTATUS == 'habilitado') {
-				$_SESSION['COMPANYID']   		= $user_found->COMPANYID;
-				$_SESSION['COMPANYNAME']      	= $user_found->COMPANYNAME;
-				$_SESSION['COMPANYUSER'] 		= $user_found->COMPANYUSER;
-				$_SESSION['COMPANYPASS'] 			= $user_found->COMPANYPASS;
-				return true;
-			} else {
-				return false;
-			}
+			return false;
 		}
 	}
 

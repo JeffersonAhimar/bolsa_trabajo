@@ -32,27 +32,30 @@ function doInsert()
 {
 	if (isset($_POST['save'])) {
 
-		// `COMPANYNAME`, `COMPANYADDRESS`, `COMPANYCONTACTNO`
 		if ($_POST['COMPANYNAME'] == "" || $_POST['COMPANYADDRESS'] == "" || $_POST['COMPANYCONTACTNO'] == "") {
 			$messageStats = false;
-			message("All field is required!", "error");
+			message("Todos los campos son requeridos!", "error");
 			redirect('index.php?view=add');
 		} else {
 			$company = new Company();
-			$company->COMPANYNAME			= $_POST['COMPANYNAME'];
-			$company->COMPANYADDRESS		= $_POST['COMPANYADDRESS'];
-			$company->COMPANYRUC			= $_POST['COMPANYRUC'];
-			$company->COMPANYCONTACTNO		= $_POST['COMPANYCONTACTNO'];
-			$company->COMPANYSTATUS			= $_POST['COMPANYSTATUS'];
-			$company->COMPANYUSER			= $_POST['COMPANYUSER'];
-			$company->COMPANYPASS			= sha1($_POST['COMPANYPASS']);
-			$company->COMPANYDEPARTAMENTO	= $_POST['COMPANYDEPARTAMENTO'];
-			$company->COMPANYPROVINCIA		= $_POST['COMPANYPROVINCIA'];
-			$company->COMPANYDISTRITO		= $_POST['COMPANYDISTRITO'];
-			$company->create();
-
-			message("Nueva compañía creada correctamente!", "success");
-			redirect("index.php");
+			if ($company->usernameExists($_POST['COMPANYUSER'])) {
+				message("El nombre de usuario ya está en uso!", "error");
+				redirect('index.php?view=add');
+			} else {
+				$company->COMPANYNAME			= $_POST['COMPANYNAME'];
+				$company->COMPANYADDRESS		= $_POST['COMPANYADDRESS'];
+				$company->COMPANYRUC			= $_POST['COMPANYRUC'];
+				$company->COMPANYCONTACTNO		= $_POST['COMPANYCONTACTNO'];
+				$company->COMPANYSTATUS			= $_POST['COMPANYSTATUS'];
+				$company->COMPANYUSER			= $_POST['COMPANYUSER'];
+				$company->COMPANYPASS			= sha1($_POST['COMPANYPASS']);
+				$company->COMPANYDEPARTAMENTO	= $_POST['COMPANYDEPARTAMENTO'];
+				$company->COMPANYPROVINCIA		= $_POST['COMPANYPROVINCIA'];
+				$company->COMPANYDISTRITO		= $_POST['COMPANYDISTRITO'];
+				$company->create();
+				message("Nueva compañía creada correctamente!", "success");
+				redirect("index.php");
+			}
 		}
 	}
 }
@@ -124,11 +127,14 @@ function doDelete()
 				echo 'El archivo no existe';
 			} else {
 				if (unlink($file_path)) {
-					echo 'El archivo fue eliminado satisfactoriamente';
+					// echo 'El archivo fue eliminado satisfactoriamente';
+					echo '';
 				} else {
 					echo 'Hubo un problema eliminando el archivo';
 				}
 			}
+
+
 
 			// delete from database ATTACHMENTFILE WHERE FILEID = JR.FILEID
 			$jrObj->deleteAttachmentFile($result->REGISTRATIONID);
@@ -147,17 +153,24 @@ function doDelete()
 
 	// ELIMINAR IMAGEN DE LA COMPAÑIA
 	$logoCompany = $company->getPHOTOFROMSERVER($id);
-	$file_path = path_to_delete . "uploads/images/companies/" . $logoCompany->COMPANYPHOTO;
-	if (!file_exists($file_path)) {
-		echo 'El archivo no existe';
+	if ($logoCompany->COMPANYPHOTO == '') {
+		echo '';
 	} else {
-		if (unlink($file_path)) {
-			echo 'El archivo fue eliminado satisfactoriamente';
+		$file_path = path_to_delete . "uploads/images/companies/" . $logoCompany->COMPANYPHOTO;
+		if (!file_exists($file_path)) {
+			// echo 'El archivo no existe';
+			echo '';
 		} else {
-			echo 'Hubo un problema eliminando el archivo';
+			if (unlink($file_path)) {
+				// echo 'El archivo fue eliminado satisfactoriamente';
+				echo '';
+			} else {
+				echo 'Hubo un problema eliminando el archivo';
+			}
 		}
 	}
 
+	// BORRAR COMPAÑIA
 	$company->delete($id);
 
 	message("La compañía ha sido eliminada!", "info");

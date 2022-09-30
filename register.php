@@ -2,7 +2,7 @@
 	<div class="container content">
 		<p> <?php check_message(); ?></p>
 		<!-- <form class="row form-horizontal span6  wow fadeInDown" action="process.php?action=register" method="POST"> -->
-		<form class="form-horizontal span6" action="<?php echo web_root;?>company/controller.php?action=add" method="POST">
+		<form class="form-horizontal span6" action="<?php echo web_root; ?>company/controller.php?action=add" method="POST">
 			<h2 class=" ">Información de la Compañía</h2>
 			<div class="row">
 
@@ -143,8 +143,6 @@
 
 						<div class="col-md-8">
 							<button class="btn btn-primary btn-sm" name="save" type="submit"><span class="fa fa-save fw-fa"></span> Registrar</button>
-							<!-- <a href="index.php" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<strong>Back</strong></a> -->
-
 						</div>
 					</div>
 				</div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-09-2022 a las 01:22:27
+-- Tiempo de generación: 30-09-2022 a las 23:32:36
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -18,41 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `erisdb`
+-- Base de datos: `bolsa_trabajo`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tblapplicants`
---
-
-CREATE TABLE `tblapplicants` (
-  `APPLICANTID` int(11) NOT NULL,
-  `FNAME` varchar(90) NOT NULL,
-  `LNAME` varchar(90) NOT NULL,
-  `ADDRESS` varchar(255) NOT NULL,
-  `SEX` varchar(11) NOT NULL,
-  `CIVILSTATUS` varchar(30) NOT NULL,
-  `BIRTHDATE` date NOT NULL,
-  `BIRTHPLACE` varchar(255) NOT NULL,
-  `AGE` int(2) NOT NULL,
-  `USERNAME` varchar(90) NOT NULL,
-  `PASS` varchar(90) NOT NULL,
-  `EMAILADDRESS` varchar(90) NOT NULL,
-  `CONTACTNO` varchar(90) NOT NULL,
-  `DEGREE` text NOT NULL,
-  `APPLICANTPHOTO` varchar(255) NOT NULL,
-  `NATIONALID` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `tblapplicants`
---
-
-INSERT INTO `tblapplicants` (`APPLICANTID`, `FNAME`, `LNAME`, `ADDRESS`, `SEX`, `CIVILSTATUS`, `BIRTHDATE`, `BIRTHPLACE`, `AGE`, `USERNAME`, `PASS`, `EMAILADDRESS`, `CONTACTNO`, `DEGREE`, `APPLICANTPHOTO`, `NATIONALID`) VALUES
-(2022017, 'Jefferson', 'Ahimar', 'Av. Flores de Primavera 585', 'Masculino', 'Soltero(a)', '1999-09-11', 'SJL', 23, 'jeffersonahimar', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'jeffersonahimar@gmail.com', '920574430', 'Sistemas', 'photos/22092022114937avatar.png', ''),
-(2022020, 'Wilmer', 'Wilmer', 'Wilmer', 'Femenino', 'Soltero(a)', '1995-01-17', 'Wilmer', 27, 'wilmer', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'sdsadas@asdas.com', 'Wilmer', 'Wilmer', 'photos/22092022114903avatar.png', '');
 
 -- --------------------------------------------------------
 
@@ -88,10 +55,10 @@ CREATE TABLE `tblautonumbers` (
 --
 
 INSERT INTO `tblautonumbers` (`AUTOID`, `AUTOSTART`, `AUTOEND`, `AUTOINC`, `AUTOKEY`) VALUES
-(1, '02983', 9, 1, 'userid'),
+(1, '02983', 11, 1, 'userid'),
 (2, '000', 78, 1, 'employeeid'),
-(3, '0', 21, 1, 'APPLICANT'),
-(4, '69125', 62, 1, 'FILEID');
+(3, '0', 22, 1, 'APPLICANT'),
+(4, '69125', 94, 1, 'FILEID');
 
 -- --------------------------------------------------------
 
@@ -120,7 +87,8 @@ INSERT INTO `tblcategory` (`CATEGORYID`, `CATEGORY`) VALUES
 (25, 'Construcción Civil'),
 (26, 'Contabilidad'),
 (27, 'Computación e Informática'),
-(28, 'Administración');
+(28, 'Administración'),
+(29, 'Otros');
 
 -- --------------------------------------------------------
 
@@ -131,20 +99,17 @@ INSERT INTO `tblcategory` (`CATEGORYID`, `CATEGORY`) VALUES
 CREATE TABLE `tblcompany` (
   `COMPANYID` int(11) NOT NULL,
   `COMPANYNAME` varchar(90) NOT NULL,
+  `COMPANYRUC` varchar(90) NOT NULL,
   `COMPANYADDRESS` varchar(90) NOT NULL,
   `COMPANYCONTACTNO` varchar(30) NOT NULL,
   `COMPANYSTATUS` varchar(90) NOT NULL,
   `COMPANYUSER` varchar(90) NOT NULL,
   `COMPANYPASS` varchar(90) NOT NULL,
+  `COMPANYDEPARTAMENTO` varchar(90) NOT NULL,
+  `COMPANYPROVINCIA` varchar(90) NOT NULL,
+  `COMPANYDISTRITO` varchar(90) NOT NULL,
   `COMPANYPHOTO` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `tblcompany`
---
-
-INSERT INTO `tblcompany` (`COMPANYID`, `COMPANYNAME`, `COMPANYADDRESS`, `COMPANYCONTACTNO`, `COMPANYSTATUS`, `COMPANYUSER`, `COMPANYPASS`, `COMPANYPHOTO`) VALUES
-(8, 'Silfersystem', 'Av. Arequipa 1345', '92010156', 'enabled', 'silfer', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'photos/23092022011238logo_silfer.jpg');
 
 -- --------------------------------------------------------
 
@@ -175,17 +140,10 @@ CREATE TABLE `tbljob` (
   `DURATION_EMPLOYEMENT` varchar(90) NOT NULL,
   `QUALIFICATION_WORKEXPERIENCE` text NOT NULL,
   `JOBDESCRIPTION` text NOT NULL,
-  `PREFEREDSEX` varchar(30) NOT NULL,
+  `JOBTYPE` varchar(30) NOT NULL,
   `JOBSTATUS` varchar(90) NOT NULL,
   `DATEPOSTED` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `tbljob`
---
-
-INSERT INTO `tbljob` (`JOBID`, `COMPANYID`, `CATEGORY`, `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `JOBDESCRIPTION`, `PREFEREDSEX`, `JOBSTATUS`, `DATEPOSTED`) VALUES
-(6, 8, 'Tecnología', 'Prueba', 1, 200, '4 meses', '5 años en puestos similares', 'Desarrollo Web PHP', 'Femenino', '', '2022-09-20 19:13:00');
 
 -- --------------------------------------------------------
 
@@ -207,13 +165,6 @@ CREATE TABLE `tbljobregistration` (
   `DATETIMEAPPROVED` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `tbljobregistration`
---
-
-INSERT INTO `tbljobregistration` (`REGISTRATIONID`, `COMPANYID`, `JOBID`, `APPLICANTID`, `APPLICANT`, `REGISTRATIONDATE`, `REMARKS`, `FILEID`, `PENDINGAPPLICATION`, `HVIEW`, `DATETIMEAPPROVED`) VALUES
-(19, 9, 7, 2022017, 'Jefferson Huaman Perez', '2022-09-21', 'Pending', '20226912548', 1, 1, '2022-09-21 20:14:00');
-
 -- --------------------------------------------------------
 
 --
@@ -234,17 +185,12 @@ CREATE TABLE `tblusers` (
 --
 
 INSERT INTO `tblusers` (`USERID`, `FULLNAME`, `USERNAME`, `PASS`, `ROLE`, `PICLOCATION`) VALUES
-('029838', 'DRE CAJAMARCA', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'Administrator', '');
+('029838', 'DRE CAJAMARCA', 'admin', 'e34375fd03c68a9dd50670f8806be9a50dcb7ecd', 'Administrador', ''),
+('029839', 'IESTP1', 'iestp1', '81cd20ca26e3319e2b7c7c663713153bd216f3ce', 'IESTP', '');
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `tblapplicants`
---
-ALTER TABLE `tblapplicants`
-  ADD PRIMARY KEY (`APPLICANTID`);
 
 --
 -- Indices de la tabla `tblattachmentfile`
@@ -268,7 +214,8 @@ ALTER TABLE `tblcategory`
 -- Indices de la tabla `tblcompany`
 --
 ALTER TABLE `tblcompany`
-  ADD PRIMARY KEY (`COMPANYID`);
+  ADD PRIMARY KEY (`COMPANYID`),
+  ADD UNIQUE KEY `COMPANYUSER` (`COMPANYUSER`);
 
 --
 -- Indices de la tabla `tblfeedback`
@@ -292,23 +239,18 @@ ALTER TABLE `tbljobregistration`
 -- Indices de la tabla `tblusers`
 --
 ALTER TABLE `tblusers`
-  ADD PRIMARY KEY (`USERID`);
+  ADD PRIMARY KEY (`USERID`),
+  ADD UNIQUE KEY `USERNAME` (`USERNAME`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `tblapplicants`
---
-ALTER TABLE `tblapplicants`
-  MODIFY `APPLICANTID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2022021;
-
---
 -- AUTO_INCREMENT de la tabla `tblattachmentfile`
 --
 ALTER TABLE `tblattachmentfile`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de la tabla `tblautonumbers`
@@ -320,31 +262,31 @@ ALTER TABLE `tblautonumbers`
 -- AUTO_INCREMENT de la tabla `tblcategory`
 --
 ALTER TABLE `tblcategory`
-  MODIFY `CATEGORYID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `CATEGORYID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `tblcompany`
 --
 ALTER TABLE `tblcompany`
-  MODIFY `COMPANYID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `COMPANYID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `tblfeedback`
 --
 ALTER TABLE `tblfeedback`
-  MODIFY `FEEDBACKID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `FEEDBACKID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `tbljob`
 --
 ALTER TABLE `tbljob`
-  MODIFY `JOBID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `JOBID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `tbljobregistration`
 --
 ALTER TABLE `tbljobregistration`
-  MODIFY `REGISTRATIONID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `REGISTRATIONID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

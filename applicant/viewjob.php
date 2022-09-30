@@ -104,7 +104,7 @@ $attachmentfile = $mydb->loadSingleResult();
 	</div>
 
 	<div class="col-sm-12 content-footer">
-		<p><i class="fa fa-paperclip"></i> Adjuntar Archivos</p>
+		<p><i class="fa fa-paperclip"></i> Archivos Adjuntos</p>
 		<div class="col-sm-12 slider">
 			<h3>Revisar CV <a href="<?php echo web_root . 'uploads/documents/' . $attachmentfile->FILE_LOCATION; ?>" target="_blank">Aquí</a></h3>
 		</div>

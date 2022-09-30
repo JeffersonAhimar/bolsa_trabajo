@@ -31,16 +31,11 @@ if (!isset($_SESSION['ADMIN_COMPANYID'])) {
 			</thead>
 			<tbody>
 				<?php
-				// `COMPANYID`, `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `JOBDESCRIPTION`,  `SECTOR_VACANCY`, `JOBSTATUS`
 				$mydb->setQuery("SELECT * FROM `tbljob` j, `tblcompany` c WHERE j.COMPANYID=c.COMPANYID AND c.COMPANYID ='" . $_SESSION['ADMIN_COMPANYID'] . "'");
 				$cur = $mydb->loadResultList();
 				foreach ($cur as $result) {
 					echo '<tr>';
-					// echo '<td width="5%" align="center"></td>';
-					// echo '<td>
-					//      <input type="checkbox" name="selector[]" id="selector[]" value="'.$result->CATEGORYID. '"/>
-					// 		' . $result->CATEGORIES.'</a></td>';
-					// echo '<td>' . $result->COMPANYNAME . '</td>';
+
 					echo '<td>' . $result->OCCUPATIONTITLE . '</td>';
 					echo '<td>' . $result->CATEGORY . '</td>';
 					echo '<td>' . $result->REQ_NO_EMPLOYEES . '</td>';

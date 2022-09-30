@@ -26,11 +26,10 @@ function doInsert()
 {
 	global $mydb;
 	if (isset($_POST['save'])) {
-		// `COMPANYID`, `OCCUPATIONTITLE`, `REQ_NO_EMPLOYEES`, `SALARIES`, `DURATION_EMPLOYEMENT`, `QUALIFICATION_WORKEXPERIENCE`, `JOBDESCRIPTION`, `SECTOR_VACANCY`
 
 		if ($_POST['COMPANYID'] == "None") {
 			$messageStats = false;
-			message("All field is required!", "error");
+			message("Todos los campos son requeridos!", "error");
 			redirect('index.php?view=add');
 		} else {
 			$sql = "SELECT * FROM tblcategory where CATEGORYID = {$_POST['CATEGORY']}";
@@ -62,7 +61,7 @@ function doEdit()
 	if (isset($_POST['save'])) {
 		if ($_POST['COMPANYID'] == "None") {
 			$messageStats = false;
-			message("All field is required!", "error");
+			message("Todos los campos son requeridos!", "error");
 			redirect('index.php?view=add');
 		} else {
 			$sql = "SELECT * FROM tblcategory where CATEGORYID = {$_POST['CATEGORY']}";
@@ -81,7 +80,7 @@ function doEdit()
 			$job->JOBTYPE						= $_POST['JOBTYPE'];
 			$job->update($_POST['JOBID']);
 
-			message("La Oferta Laboral ha sido actulizada!", "success");
+			message("La Oferta Laboral ha sido actualizada!", "success");
 			redirect("index.php");
 		}
 	}
@@ -109,7 +108,8 @@ function doDelete()
 			echo 'El archivo no existe';
 		} else {
 			if (unlink($file_path)) {
-				echo 'El archivo fue eliminado satisfactoriamente';
+				// echo 'El archivo fue eliminado satisfactoriamente';
+				echo '';
 			} else {
 				echo 'Hubo un problema eliminando el archivo';
 			}

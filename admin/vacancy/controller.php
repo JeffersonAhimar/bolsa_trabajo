@@ -110,7 +110,8 @@ function doDelete()
 			echo 'El archivo no existe';
 		} else {
 			if (unlink($file_path)) {
-				echo 'El archivo fue eliminado satisfactoriamente';
+				// echo 'El archivo fue eliminado satisfactoriamente';
+				echo '';
 			} else {
 				echo 'Hubo un problema eliminando el archivo';
 			}

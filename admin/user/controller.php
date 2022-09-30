@@ -19,9 +19,6 @@ switch ($action) {
 		doDelete();
 		break;
 
-	case 'photos':
-		doupdateimage();
-		break;
 }
 
 function doInsert()
@@ -35,18 +32,24 @@ function doInsert()
 			redirect('index.php?view=add');
 		} else {
 			$user = new User();
-			$user->USERID 			= $_POST['user_id'];
-			$user->FULLNAME 		= $_POST['U_NAME'];
-			$user->USERNAME			= $_POST['U_USERNAME'];
-			$user->PASS				= sha1($_POST['U_PASS']);
-			$user->ROLE				=  $_POST['U_ROLE'];
-			$user->create();
+			if ($user->usernameExists($_POST['U_USERNAME'])) {
+				message("El nombre de usuario ya está en uso!", "error");
+				redirect("index.php?view=view");
+			} else {
 
-			$autonum = new Autonumber();
-			$autonum->auto_update('userid');
+				$user->USERID 			= $_POST['user_id'];
+				$user->FULLNAME 		= $_POST['U_NAME'];
+				$user->USERNAME			= $_POST['U_USERNAME'];
+				$user->PASS				= sha1($_POST['U_PASS']);
+				$user->ROLE				=  $_POST['U_ROLE'];
+				$user->create();
 
-			message("La cuenta [" . $_POST['U_NAME'] . "] ha sido creada correctamente!", "success");
-			redirect("index.php");
+				$autonum = new Autonumber();
+				$autonum->auto_update('userid');
+
+				message("La cuenta [" . $_POST['U_NAME'] . "] ha sido creada correctamente!", "success");
+				redirect("index.php");
+			}
 		}
 	}
 }
@@ -57,22 +60,25 @@ function doEdit()
 
 
 		$user = new User();
-		$user->FULLNAME 		= $_POST['U_NAME'];
-		$user->USERNAME			= $_POST['U_USERNAME'];
-		$user->PASS				= sha1($_POST['U_PASS']);
-		$user->ROLE				= $_POST['U_ROLE'];
-		$user->update($_POST['USERID']);
 
-
-
-
-		if (isset($_GET['view'])) {
-			# code...
-			message("El perfil ha sido actualiado!", "success");
+		if ($user->usernameExists($_POST['U_USERNAME'])) {
+			message("El nombre de usuario ya está en uso!", "error");
 			redirect("index.php?view=view");
 		} else {
-			message("El perfil [" . $_POST['U_NAME'] . "] ha sido actualizado!", "success");
-			redirect("index.php");
+			$user->FULLNAME 		= $_POST['U_NAME'];
+			$user->USERNAME			= $_POST['U_USERNAME'];
+			$user->PASS				= sha1($_POST['U_PASS']);
+			$user->ROLE				= $_POST['U_ROLE'];
+			$user->update($_POST['USERID']);
+
+			if (isset($_GET['view'])) {
+				# code...
+				message("El perfil ha sido actualizado!", "success");
+				redirect("index.php?view=view");
+			} else {
+				message("El perfil [" . $_POST['U_NAME'] . "] ha sido actualizado!", "success");
+				redirect("index.php");
+			}
 		}
 	}
 }
@@ -87,41 +93,4 @@ function doDelete()
 
 	message("El usuario ha sido eliminado!", "info");
 	redirect('index.php');
-}
-
-function doupdateimage()
-{
-
-	$errofile = $_FILES['photo']['error'];
-	$type = $_FILES['photo']['type'];
-	$temp = $_FILES['photo']['tmp_name'];
-	$myfile = $_FILES['photo']['name'];
-	$location = "photos/" . $myfile;
-
-
-	if ($errofile > 0) {
-		message("No Image Selected!", "error");
-		redirect("index.php?view=view&id=" . $_GET['id']);
-	} else {
-
-		@$file = $_FILES['photo']['tmp_name'];
-		@$image = addslashes(file_get_contents($_FILES['photo']['tmp_name']));
-		@$image_name = addslashes($_FILES['photo']['name']);
-		@$image_size = getimagesize($_FILES['photo']['tmp_name']);
-
-		if ($image_size == FALSE) {
-			message("Uploaded file is not an image!", "error");
-			redirect("index.php?view=view&id=" . $_GET['id']);
-		} else {
-			//uploading the file
-			move_uploaded_file($temp, "photos/" . $myfile);
-
-
-
-			$user = new User();
-			$user->PICLOCATION 			= $location;
-			$user->update($_SESSION['ADMIN_USERID']);
-			redirect("index.php?view=view");
-		}
-	}
 }

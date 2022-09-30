@@ -34,13 +34,6 @@ $res = $job->single_job($jobid);
             # code...
             echo '<option SELECTED value=' . $row->COMPANYID . '>' . $row->COMPANYNAME . '</option>';
           }
-          // $sql ="Select * From tblcompany WHERE COMPANYID!=".$res->COMPANYID;
-          // $mydb->setQuery($sql);
-          // $result  = $mydb->loadResultList();
-          // foreach ($result as $row) {
-          //   # code...
-          //   echo '<option value='.$row->COMPANYID.'>'.$row->COMPANYNAME.'</option>';
-          // }
 
           ?>
         </select>

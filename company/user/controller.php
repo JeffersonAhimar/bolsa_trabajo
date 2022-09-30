@@ -22,8 +22,8 @@ function doEdit()
 {
 	if (isset($_POST['save'])) {
 
-
 		$user = new Company();
+
 		$user->COMPANYNAME 		= $_POST['U_NAME'];
 		$user->COMPANYADDRESS 		= $_POST['U_ADDRESS'];
 		$user->COMPANYRUC 		= $_POST['U_RUC'];
@@ -35,15 +35,12 @@ function doEdit()
 		$user->COMPANYPASS				= sha1($_POST['U_PASS']);
 		$user->update($_POST['COMPANYID']);
 
-
-
-
 		if (isset($_GET['view'])) {
 			# code...
 			message("Su perfil ha sido actualizado!", "success");
 			redirect("index.php?view=view");
 		} else {
-			message("[" . $_POST['U_NAME'] . "] has been updated!", "success");
+			message("[" . $_POST['U_NAME'] . "] ha sido actualizado!", "success");
 			redirect("index.php");
 		}
 	}
@@ -65,7 +62,7 @@ function doupdateimage()
 
 
 	if ($errofile > 0) {
-		message("No Image Selected!", "error");
+		message("No hay imagen seleccionada!", "error");
 		redirect("index.php?view=view&id=" . $_GET['id']);
 	} else {
 
@@ -75,7 +72,7 @@ function doupdateimage()
 		@$image_size = getimagesize($_FILES['photo']['tmp_name']);
 
 		if ($image_size == FALSE) {
-			message("Uploaded file is not an image!", "error");
+			message("El archivo no es una imagen!", "error");
 			redirect("index.php?view=view&id=" . $_GET['id']);
 		} else {
 			$user = new Company();
@@ -87,7 +84,8 @@ function doupdateimage()
 				echo 'El archivo no existe';
 			} else {
 				if (unlink($file_path)) {
-					echo 'El archivo fue eliminado satisfactoriamente';
+					// echo 'El archivo fue eliminado satisfactoriamente';
+					echo '';
 				} else {
 					echo 'Hubo un problema eliminando el archivo';
 				}
