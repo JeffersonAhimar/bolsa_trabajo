@@ -21,7 +21,7 @@
   <link href="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
   <link href="<?php echo web_root; ?>plugins/datepicker/datepicker3.css" rel="stylesheet" media="screen">
 
-  <link rel="icon" type="image/x-icon" href="<?php echo web_root; ?>/plugins/home-plugins/img/icon_dre.png">
+  <link rel="icon" type="image/x-icon" href="<?php echo web_root; ?>/plugins/home-plugins/img/favicon.png">
 
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>

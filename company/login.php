@@ -26,7 +26,7 @@ if (isset($_SESSION['COMPANYID'])) {
   <link rel="stylesheet" href="<?php echo web_root; ?>dist/css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="<?php echo web_root; ?>plugins/iCheck/square/blue.css">
-  <link rel="icon" type="image/x-icon" href="<?php echo web_root; ?>/plugins/home-plugins/img/icon_dre.png">
+  <link rel="icon" type="image/x-icon" href="<?php echo web_root; ?>/plugins/home-plugins/img/favicon.png">
 </head>
 
 <body class="hold-transition login-page">

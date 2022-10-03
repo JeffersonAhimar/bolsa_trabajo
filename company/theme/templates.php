@@ -38,7 +38,7 @@
   <!-- <link rel="stylesheet" href="<?php echo web_root; ?>plugins/daterangepicker/daterangepicker-bs3.css"> -->
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo web_root; ?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <link rel="icon" type="image/x-icon" href="<?php echo web_root; ?>/plugins/home-plugins/img/icon_dre.png">
+  <link rel="icon" type="image/x-icon" href="<?php echo web_root; ?>/plugins/home-plugins/img/favicon.png">
 </head>
 
 <body class="hold-transition skin-blue fixed sidebar-mini">

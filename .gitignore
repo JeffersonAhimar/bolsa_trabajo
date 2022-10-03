@@ -8,3 +8,7 @@
 
 # IGNORAR CONFIG-KEYS
 /include/config_keys.php
+
+
+#IGNORAR .zip
+*.zip
