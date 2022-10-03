@@ -63,21 +63,33 @@ function doInsert()
 function doEdit()
 {
 	if (isset($_POST['save'])) {
-
 		$company = new Company();
-		$company->COMPANYNAME			= $_POST['COMPANYNAME'];
-		$company->COMPANYADDRESS		= $_POST['COMPANYADDRESS'];
-		$company->COMPANYRUC			= $_POST['COMPANYRUC'];
-		$company->COMPANYCONTACTNO		= $_POST['COMPANYCONTACTNO'];
-		$company->COMPANYUSER			= $_POST['COMPANYUSER'];
-		$company->COMPANYPASS			= sha1($_POST['COMPANYPASS']);
-		$company->COMPANYDEPARTAMENTO	= $_POST['COMPANYDEPARTAMENTO'];
-		$company->COMPANYPROVINCIA		= $_POST['COMPANYPROVINCIA'];
-		$company->COMPANYDISTRITO		= $_POST['COMPANYDISTRITO'];
-		$company->update($_POST['COMPANYID']);
+		// VERIFY IF THE NEW USER NAME EXISTS
+		$cur = $company->usernameEditExists($_POST['COMPANYID']);
+		$state = false;
+		foreach ($cur as $result) {
+			if ($result->COMPANYUSER == $_POST['COMPANYUSER']) {
+				$state = true;
+			}
+		}
+		if ($state) {
+			message("El nombre de usuario ya está en uso!", "error");
+			redirect('index.php');
+		} else {
+			$company->COMPANYNAME			= $_POST['COMPANYNAME'];
+			$company->COMPANYADDRESS		= $_POST['COMPANYADDRESS'];
+			$company->COMPANYRUC			= $_POST['COMPANYRUC'];
+			$company->COMPANYCONTACTNO		= $_POST['COMPANYCONTACTNO'];
+			$company->COMPANYUSER			= $_POST['COMPANYUSER'];
+			$company->COMPANYPASS			= sha1($_POST['COMPANYPASS']);
+			$company->COMPANYDEPARTAMENTO	= $_POST['COMPANYDEPARTAMENTO'];
+			$company->COMPANYPROVINCIA		= $_POST['COMPANYPROVINCIA'];
+			$company->COMPANYDISTRITO		= $_POST['COMPANYDISTRITO'];
+			$company->update($_POST['COMPANYID']);
 
-		message("La compañía se ha actualizado!", "success");
-		redirect("index.php");
+			message("La compañía se ha actualizado!", "success");
+			redirect("index.php");
+		}
 	}
 }
 

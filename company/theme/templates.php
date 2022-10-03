@@ -31,7 +31,7 @@
   <!-- Date Picker -->
   <link href="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 
-  <link rel="stylesheet" href="<?php echo web_root; ?>plugins/dataTables/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="<?php echo web_root; ?>plugins/datatables/jquery.dataTables.min.css">
 
   <!-- <link rel="stylesheet" href="<?php echo web_root; ?>plugins/datepicker/datepicker3.css"> -->
   <!-- Daterange picker -->
@@ -252,8 +252,8 @@
 <script type="text/javascript" src="<?php echo web_root; ?>plugins/datepicker/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <script type="text/javascript" src="<?php echo web_root; ?>plugins/datepicker/locales/bootstrap-datetimepicker.uk.js" charset="UTF-8"></script>
 
-<script type="text/javascript" src="<?php echo web_root; ?>plugins/dataTables/dataTables.bootstrap.min.js"></script>
 <script src="<?php echo web_root; ?>plugins/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<?php echo web_root; ?>plugins/datatables/dataTables.bootstrap.min.js"></script>
 
 <script src="<?php echo web_root; ?>plugins/slimScroll/jquery.slimscroll.min.js"></script>
 

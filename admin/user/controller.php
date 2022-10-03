@@ -18,7 +18,6 @@ switch ($action) {
 	case 'delete':
 		doDelete();
 		break;
-
 }
 
 function doInsert()
@@ -57,13 +56,18 @@ function doInsert()
 function doEdit()
 {
 	if (isset($_POST['save'])) {
-
-
 		$user = new User();
-
-		if ($user->usernameExists($_POST['U_USERNAME'])) {
+		// VERIFY IF THE NEW USER NAME EXISTS
+		$state = false;
+		$cur = $user->usernameEditExists($_POST['USERID']);
+		foreach ($cur as $result) {
+			if ($result->USERNAME == $_POST['U_USERNAME']) {
+				$state = true;
+			}
+		}
+		if ($state) {
 			message("El nombre de usuario ya está en uso!", "error");
-			redirect("index.php?view=view");
+			redirect('index.php');
 		} else {
 			$user->FULLNAME 		= $_POST['U_NAME'];
 			$user->USERNAME			= $_POST['U_USERNAME'];

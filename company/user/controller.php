@@ -23,25 +23,37 @@ function doEdit()
 	if (isset($_POST['save'])) {
 
 		$user = new Company();
-
-		$user->COMPANYNAME 		= $_POST['U_NAME'];
-		$user->COMPANYADDRESS 		= $_POST['U_ADDRESS'];
-		$user->COMPANYRUC 		= $_POST['U_RUC'];
-		$user->COMPANYDEPARTAMENTO 		= $_POST['U_DEPARTAMENTO'];
-		$user->COMPANYPROVINCIA 		= $_POST['U_PROVINCIA'];
-		$user->COMPANYDISTRITO 		= $_POST['U_DISTRITO'];
-		$user->COMPANYCONTACTNO 		= $_POST['U_CONTACTNO'];
-		$user->COMPANYUSER			= $_POST['U_USERNAME'];
-		$user->COMPANYPASS				= sha1($_POST['U_PASS']);
-		$user->update($_POST['COMPANYID']);
-
-		if (isset($_GET['view'])) {
-			# code...
-			message("Su perfil ha sido actualizado!", "success");
-			redirect("index.php?view=view");
+		// VERIFY IF THE NEW USER NAME EXISTS
+		$cur = $user->usernameEditExists($_POST['COMPANYID']);
+		$state = false;
+		foreach ($cur as $result) {
+			if ($result->COMPANYUSER == $_POST['U_USERNAME']) {
+				$state = true;
+			}
+		}
+		if ($state) {
+			message("El nombre de usuario ya está en uso!", "error");
+			redirect('index.php?view=view');
 		} else {
-			message("[" . $_POST['U_NAME'] . "] ha sido actualizado!", "success");
-			redirect("index.php");
+			$user->COMPANYNAME 		= $_POST['U_NAME'];
+			$user->COMPANYADDRESS 		= $_POST['U_ADDRESS'];
+			$user->COMPANYRUC 		= $_POST['U_RUC'];
+			$user->COMPANYDEPARTAMENTO 		= $_POST['U_DEPARTAMENTO'];
+			$user->COMPANYPROVINCIA 		= $_POST['U_PROVINCIA'];
+			$user->COMPANYDISTRITO 		= $_POST['U_DISTRITO'];
+			$user->COMPANYCONTACTNO 		= $_POST['U_CONTACTNO'];
+			$user->COMPANYUSER			= $_POST['U_USERNAME'];
+			$user->COMPANYPASS				= sha1($_POST['U_PASS']);
+			$user->update($_POST['COMPANYID']);
+
+			if (isset($_GET['view'])) {
+				# code...
+				message("Su perfil ha sido actualizado!", "success");
+				redirect("index.php?view=view");
+			} else {
+				message("[" . $_POST['U_NAME'] . "] ha sido actualizado!", "success");
+				redirect("index.php");
+			}
 		}
 	}
 }

@@ -152,6 +152,15 @@ class Company
 	}
 
 
+	function usernameEditExists($companyid = '')
+	{
+		global $mydb;
+		$mydb->setQuery("SELECT * FROM `tblcompany` WHERE `COMPANYID` != '" . $companyid . "'");
+		$cur = $mydb->loadResultList();
+		return $cur;
+	}
+
+
 
 	function userAuthentication($USERNAME, $h_pass)
 	{

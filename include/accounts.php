@@ -45,6 +45,17 @@ class User
 			return false;
 		}
 	}
+
+	function usernameEditExists($userid = '')
+	{
+		global $mydb;
+		$mydb->setQuery("SELECT * FROM `tblusers` WHERE `USERID` != '" . $userid . "'");
+		$cur = $mydb->loadResultList();
+		return $cur;
+	}
+
+
+
 	function userAuthentication($USERNAME, $h_pass)
 	{
 		global $mydb;
