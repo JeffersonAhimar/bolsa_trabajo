@@ -31,7 +31,16 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 			</thead>
 			<tbody>
 				<?php
-				$mydb->setQuery("SELECT * FROM `tblcompany`");
+				// $mydb->setQuery("SELECT * FROM `tblcompany`");
+				$sql = "SELECT com.COMPANYID, com.COMPANYNAME, com.COMPANYRUC, com.COMPANYADDRESS, com.COMPANYCONTACTNO,";
+				$sql .= " com.COMPANYSTATUS, com.COMPANYUSER, com.COMPANYPASS, pa.pais AS COMPANYPAIS, ";
+				$sql .= " dep.departamento AS COMPANYDEPARTAMENTO, pro.provincia AS COMPANYPROVINCIA, dis.distrito AS COMPANYDISTRITO";
+				$sql .= " FROM tblcompany com";
+				$sql .= " INNER JOIN tblpais pa ON com.COMPANYPAIS = pa.idPais";
+				$sql .= " INNER JOIN tbldepartamentos dep ON com.COMPANYDEPARTAMENTO = dep.idDepartamento";
+				$sql .= " INNER JOIN tblprovincia pro ON com.COMPANYPROVINCIA = pro.idProvincia";
+				$sql .= " INNER JOIN tbldistrito dis ON com.COMPANYDISTRITO = dis.idDistrito;";
+				$mydb->setQuery($sql);
 				$cur = $mydb->loadResultList();
 				foreach ($cur as $result) {
 					echo '<tr>';

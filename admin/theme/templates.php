@@ -163,7 +163,7 @@
           </li>
           <li class="<?php echo (currentpage() == 'employee') ? "active" : false; ?>">
             <a href="<?php echo web_root; ?>admin/employee/">
-              <i class="fa fa-users"></i> <span>Usuarios</span>
+              <i class="fa fa-users"></i> <span>Usuarios Moodle</span>
             </a>
           </li>
           <li class="<?php echo (currentpage() == 'vacancy') ? "active" : false; ?>">

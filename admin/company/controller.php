@@ -5,6 +5,74 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 	redirect(web_root . "admin/index.php");
 }
 
+if (isset($_POST['op'])) {
+	$op = $_POST['op'];
+	switch ($op) {
+		case 1:
+			departamentoByPais();
+			break;
+
+		case 2:
+			provinciasByDepartamento();
+			break;
+
+		case 3:
+			distritosByProvincias();
+			break;
+	}
+}
+
+
+function departamentoByPais()
+{
+	global $mydb;
+	$mydb->setQuery("SELECT * FROM tbldepartamentos WHERE idPais = '" . $_POST['idPais'] . "'	");
+	$cur = $mydb->loadResultList();
+	$options = "";
+	$options .= '<option value="">Seleccione el Departamento</option>';
+	foreach ($cur as $result) {
+		$options .= '<option value=' . $result->idDepartamento . '>' . $result->departamento . '</option>';
+	}
+
+	echo $options;
+}
+
+
+function provinciasByDepartamento()
+{
+	global $mydb;
+	$mydb->setQuery("SELECT * FROM tblprovincia WHERE idDepartamento = '" . $_POST['idDepartamento'] . "'	");
+	$cur = $mydb->loadResultList();
+	$options = "";
+	$options .= '<option value="">Seleccione la Provincia</option>';
+	foreach ($cur as $result) {
+		$options .= '<option value=' . $result->idProvincia . '>' . $result->provincia . '</option>';
+	}
+
+	echo $options;
+}
+
+function distritosByProvincias()
+{
+	global $mydb;
+	$mydb->setQuery("SELECT * FROM tbldistrito WHERE idProvincia = '" . $_POST['idProvincia'] . "'	");
+	$cur = $mydb->loadResultList();
+	$options = "";
+	$options .= '<option value="">Seleccione el Distrito</option>';
+	foreach ($cur as $result) {
+		$options .= '<option value=' . $result->idDistrito . '>' . $result->distrito . '</option>';
+	}
+
+	echo $options;
+}
+
+
+
+
+
+
+// 
+// 
 
 $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : '';
 
@@ -49,6 +117,7 @@ function doInsert()
 				$company->COMPANYSTATUS			= $_POST['COMPANYSTATUS'];
 				$company->COMPANYUSER			= $_POST['COMPANYUSER'];
 				$company->COMPANYPASS			= sha1($_POST['COMPANYPASS']);
+				$company->COMPANYPAIS			= $_POST['COMPANYPAIS'];
 				$company->COMPANYDEPARTAMENTO	= $_POST['COMPANYDEPARTAMENTO'];
 				$company->COMPANYPROVINCIA		= $_POST['COMPANYPROVINCIA'];
 				$company->COMPANYDISTRITO		= $_POST['COMPANYDISTRITO'];
@@ -82,6 +151,7 @@ function doEdit()
 			$company->COMPANYCONTACTNO		= $_POST['COMPANYCONTACTNO'];
 			$company->COMPANYUSER			= $_POST['COMPANYUSER'];
 			$company->COMPANYPASS			= sha1($_POST['COMPANYPASS']);
+			$company->COMPANYPAIS			= $_POST['COMPANYPAIS'];
 			$company->COMPANYDEPARTAMENTO	= $_POST['COMPANYDEPARTAMENTO'];
 			$company->COMPANYPROVINCIA		= $_POST['COMPANYPROVINCIA'];
 			$company->COMPANYDISTRITO		= $_POST['COMPANYDISTRITO'];

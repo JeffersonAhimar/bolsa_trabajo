@@ -15,7 +15,14 @@ if (!isset($_SESSION['APPLICANTID'])) {
         } else {
             $category = '';
         }
-        $sql = "SELECT * FROM `tblcompany` c,`tbljob` j WHERE c.`COMPANYID`=j.`COMPANYID` AND CATEGORY LIKE '%" . $category . "%' ORDER BY DATEPOSTED DESC";
+        // $sql = "SELECT * FROM `tblcompany` c,`tbljob` j WHERE c.`COMPANYID`=j.`COMPANYID` AND CATEGORY LIKE '%" . $category . "%' ORDER BY DATEPOSTED DESC";
+        $sql = "SELECT * FROM tblcompany c";
+        $sql .= " INNER JOIN tbljob j ON j.COMPANYID=c.COMPANYID";
+        $sql .= " INNER JOIN tblpais pa ON pa.idPais=c.COMPANYPAIS";
+        $sql .= " INNER JOIN tbldepartamentos d ON d.idDepartamento=c.COMPANYDEPARTAMENTO";
+        $sql .= " INNER JOIN tblprovincia pro ON pro.idProvincia=c.COMPANYPROVINCIA";
+        $sql .= " INNER JOIN tbldistrito dis ON dis.idDistrito=c.COMPANYDISTRITO";
+        $sql .= " WHERE j.CATEGORY = '" . $category . "'";
         $mydb->setQuery($sql);
         $cur = $mydb->loadResultList();
 
@@ -49,10 +56,10 @@ if (!isset($_SESSION['APPLICANTID'])) {
                                 <li><?php echo $result->COMPANYNAME; ?></li>
                             </ul>
                             <!-- <p>Ubicación : <?php echo  $result->COMPANYADDRESS; ?></p> -->
-                            <p>Ubicación : </p>
+                            <p>Ubicación de la Compañía : </p>
                             <ul style="list-style: none;">
-                                <li><?php echo  $result->COMPANYDEPARTAMENTO . ' - ' . $result->COMPANYPROVINCIA . ' - ' . $result->COMPANYDISTRITO; ?></li>
-                                <li><?php echo  $result->COMPANYADDRESS; ?></li>
+                                <li><?php echo  "Ubigeo : " . $result->pais . ' - ' . $result->departamento . ' - ' . $result->provincia . ' - ' . $result->distrito; ?></li>
+                                <li><?php echo  "Dirección : " . $result->COMPANYADDRESS; ?></li>
                             </ul>
 
                         </div>

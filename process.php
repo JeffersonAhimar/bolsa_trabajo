@@ -172,3 +172,128 @@ function UploadImage($jobid = 0)
 		// exit;
 	}
 }
+
+
+
+// 
+// 
+// 
+// 
+// 
+// 
+
+
+
+
+if (isset($_POST['op'])) {
+	$op = $_POST['op'];
+	switch ($op) {
+		case 1:
+			departamentoByPais();
+			break;
+
+		case 2:
+			provinciasByDepartamento();
+			break;
+
+		case 3:
+			distritosByProvincias();
+			break;
+		case 4:
+			searchByLocation_Departamento();
+			break;
+		case 5:
+			searchByLocation_Provincia();
+			break;
+		case 6:
+			searchByLocation_Distrito();
+			break;
+	}
+}
+
+
+function departamentoByPais()
+{
+	global $mydb;
+	$mydb->setQuery("SELECT * FROM tbldepartamentos WHERE idPais = '" . $_POST['idPais'] . "'	");
+	$cur = $mydb->loadResultList();
+	$options = "";
+	$options .= "<option>Seleccione el Departamento</option>";
+	foreach ($cur as $result) {
+		$options .= '<option value=' . $result->idDepartamento . '>' . $result->departamento . '</option>';
+	}
+
+	echo $options;
+}
+
+
+function provinciasByDepartamento()
+{
+	global $mydb;
+	$mydb->setQuery("SELECT * FROM tblprovincia WHERE idDepartamento = '" . $_POST['idDepartamento'] . "'	");
+	$cur = $mydb->loadResultList();
+	$options = "";
+	$options .= "<option>Seleccione la Provincia</option>";
+	foreach ($cur as $result) {
+		$options .= '<option value=' . $result->idProvincia . '>' . $result->provincia . '</option>';
+	}
+
+	echo $options;
+}
+
+function distritosByProvincias()
+{
+	global $mydb;
+	$mydb->setQuery("SELECT * FROM tbldistrito WHERE idProvincia = '" . $_POST['idProvincia'] . "'	");
+	$cur = $mydb->loadResultList();
+	$options = "";
+	$options .= "<option>Seleccione el Distrito</option>";
+	foreach ($cur as $result) {
+		$options .= '<option value=' . $result->idDistrito . '>' . $result->distrito . '</option>';
+	}
+
+	echo $options;
+}
+
+function searchByLocation_Departamento()
+{
+	global $mydb;
+	$mydb->setQuery("SELECT * FROM tbldepartamentos WHERE idPais = '" . $_POST['idPais'] . "'	");
+	$cur = $mydb->loadResultList();
+	$options = "";
+	$options .= "<option value=''>Todos</option>";
+	foreach ($cur as $result) {
+		$options .= '<option value=' . $result->idDepartamento . '>' . $result->departamento . '</option>';
+	}
+
+	echo $options;
+}
+
+
+function searchByLocation_Provincia()
+{
+	global $mydb;
+	$mydb->setQuery("SELECT * FROM tblprovincia WHERE idDepartamento = '" . $_POST['idDepartamento'] . "'	");
+	$cur = $mydb->loadResultList();
+	$options = "";
+	$options .= "<option value=''>Todos</option>";
+	foreach ($cur as $result) {
+		$options .= '<option value=' . $result->idProvincia . '>' . $result->provincia . '</option>';
+	}
+
+	echo $options;
+}
+
+function searchByLocation_Distrito()
+{
+	global $mydb;
+	$mydb->setQuery("SELECT * FROM tbldistrito WHERE idProvincia = '" . $_POST['idProvincia'] . "'	");
+	$cur = $mydb->loadResultList();
+	$options = "";
+	$options .= "<option value=''>Todos</option>";
+	foreach ($cur as $result) {
+		$options .= '<option value=' . $result->idDistrito . '>' . $result->distrito . '</option>';
+	}
+
+	echo $options;
+}

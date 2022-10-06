@@ -57,10 +57,14 @@ switch ($view) {
 		$title = 'Buscar por Función';
 		$content = 'searchbyfunction.php';
 		break;
+	case 'search-location':
+		$title = 'Buscar por Ubicación';
+		$content = 'searchbylocation.php';
+		break;
 
 	default:
 		$active_home = 'active';
-		$title = "Inicio";
+		$title = "Bolsa Trabajo";
 		$content = 'home.php';
 }
 require_once("theme/templates.php");

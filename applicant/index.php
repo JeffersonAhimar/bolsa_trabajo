@@ -7,30 +7,30 @@ if (!isset($_SESSION['APPLICANTID'])) {
 $view = (isset($_GET['view']) && $_GET['view'] != '') ? $_GET['view'] : '';
 switch ($view) {
 	case 'appliedjobs':
-		$title = "Profile";
+		$title = "Perfil";
 		$_SESSION['appliedjobs']	= 'active';
 		$content = 'profile.php';
 		break;
 
 	case 'notification':
-		$title = "Profile";
+		$title = "Perfil";
 		$_SESSION['notification']	= 'active';
 		$content = 'profile.php';
 		break;
 
 	case 'accounts':
-		$title = "Profile";
+		$title = "Perfil";
 		$_SESSION['accounts']	= 'active';
 		$content = 'profile.php';
 		break;
 
 	case 'edit_profile':
-		$title = "Edit_Profile";
+		$title = "Editar Perfil";
 		$content    = 'edit_profile.php';
 		break;
 
 	default:
-		$title = "Profile";
+		$title = "Perfil";
 		$_SESSION['appliedjobs']	= 'active';
 		$content = 'profile.php';
 }

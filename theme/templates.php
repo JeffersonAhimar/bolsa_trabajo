@@ -122,9 +122,12 @@
                               }  ?>"><a href="<?php echo web_root; ?>index.php?q=advancesearch">Búsqueda Avanzada</a></li>
                   <li><a href="<?php echo web_root; ?>index.php?q=search-company">Trabajos por Compañía</a></li>
                   <li><a href="<?php echo web_root; ?>index.php?q=search-function">Trabajos por Categoría</a></li>
+                  <li><a href="<?php echo web_root; ?>index.php?q=search-location">Trabajos por Ubicación</a></li>
 
                 </ul>
               </li>
+
+              <!-- TRABAJOS POPULARES -->
               <li class="dropdown <?php if (isset($_GET['q'])) {
                                     if ($_GET['q'] == 'category') {
                                       echo 'active';
@@ -156,10 +159,11 @@
 
                     echo $viewresult;
                   }
-
                   ?>
                 </ul>
               </li>
+
+              <!-- COMPAÑÍAS -->
               <li class="<?php if (isset($_GET['q'])) {
                             if ($_GET['q'] == 'company') {
                               echo 'active';
@@ -275,11 +279,11 @@
             </div>
             <div class="col-lg-6">
               <ul class="social-network">
-                <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
-                <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="https://www.facebook.com/Direcci%C3%B3n-Regional-de-Educaci%C3%B3n-Cajamarca-792142750944542/" target="_blank" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/dre_cajamarca/?hl=es-la" target="_blank" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/direcci%C3%B3n-regional-de-educaci%C3%B3n-cajamarca-seguir" target="_blank" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCoNpn2SDmlX9BBV3kANF0YA?view_as=subscriber" target="_blank" data-placement="top" title="Youtube"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="https://www.flickr.com/people/184859940@N02/" target="_blank" data-placement="top" title="Flickr"><i class="fa fa-flickr"></i></a></li>
               </ul>
             </div>
           </div>

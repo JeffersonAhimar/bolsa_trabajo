@@ -12,6 +12,9 @@ switch ($op) {
 	case 1:
 		tablaByInstitution();
 		break;
+	case 2:
+		formExportData();
+		break;
 }
 
 
@@ -22,7 +25,7 @@ $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : 
 switch ($action) {
 
 
-	// OPCIONAL
+		// OPCIONAL
 	case 'delete':
 		doDelete();
 		break;
@@ -30,24 +33,18 @@ switch ($action) {
 
 
 
-function doDelete()
-{
+// function doDelete()
+// {
+// 	$id = 	$_GET['id'];
 
-	$id = 	$_GET['id'];
+// 	$emp = new Applicants();
+// 	$emp->delete($id);
+// 	$emp->deleteJobRegistrations($id);
+// 	$emp->deleteFeedbacks($id);
 
-	$emp = new Applicants();
-	$emp->delete($id);
-	$emp->deleteJobRegistrations($id);
-	$emp->deleteFeedbacks($id);
-
-
-	// }
-	message("Usuario eliminado correctamente!", "success");
-	redirect('index.php');
-	// }
-
-
-}
+// 	message("Usuario eliminado correctamente!", "success");
+// 	redirect('index.php');
+// }
 
 
 
@@ -73,4 +70,18 @@ function tablaByInstitution()
 	}
 
 	echo $table;
+}
+
+
+function formExportData()
+{
+	$form = '<form action="' . web_root . 'admin/employee/dataController.php" method="post" style="display: inline;">';
+	$form .= '<button type="submit" id="export_data" name="exportarCSV" value="Export to excel" class="btn" style="padding: 0; background:none;">';
+	$form .= '<img src="' . web_root . 'uploads/images/sql_csv.ico" alt="Exportar en CSV" style="width: 50px; height: 50px;">';
+	$form .= '</button>';
+	$form .= '<input type="hidden" name="instName" id="instName" value="' . $_POST['mo_user_institution'] . '">';
+	$form .= '</form>';
+	$form .= '';
+
+	echo $form;
 }

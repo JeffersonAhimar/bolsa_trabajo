@@ -4,6 +4,73 @@ if (!isset($_SESSION['ADMIN_COMPANYID'])) {
 	redirect(web_root . "admin/index.php");
 }
 
+
+
+if (isset($_POST['op'])) {
+	$op = $_POST['op'];
+	switch ($op) {
+		case 1:
+			departamentoByPais();
+			break;
+
+		case 2:
+			provinciasByDepartamento();
+			break;
+
+		case 3:
+			distritosByProvincias();
+			break;
+	}
+}
+
+
+function departamentoByPais()
+{
+	global $mydb;
+	$mydb->setQuery("SELECT * FROM tbldepartamentos WHERE idPais = '" . $_POST['idPais'] . "'	");
+	$cur = $mydb->loadResultList();
+	$options = "";
+	$options .= "<option>Seleccione el Departamento</option>";
+	foreach ($cur as $result) {
+		$options .= '<option value=' . $result->idDepartamento . '>' . $result->departamento . '</option>';
+	}
+
+	echo $options;
+}
+
+
+function provinciasByDepartamento()
+{
+	global $mydb;
+	$mydb->setQuery("SELECT * FROM tblprovincia WHERE idDepartamento = '" . $_POST['idDepartamento'] . "'	");
+	$cur = $mydb->loadResultList();
+	$options = "";
+	$options .= "<option>Seleccione la Provincia</option>";
+	foreach ($cur as $result) {
+		$options .= '<option value=' . $result->idProvincia . '>' . $result->provincia . '</option>';
+	}
+
+	echo $options;
+}
+
+function distritosByProvincias()
+{
+	global $mydb;
+	$mydb->setQuery("SELECT * FROM tbldistrito WHERE idProvincia = '" . $_POST['idProvincia'] . "'	");
+	$cur = $mydb->loadResultList();
+	$options = "";
+	$options .= "<option>Seleccione el Distrito</option>";
+	foreach ($cur as $result) {
+		$options .= '<option value=' . $result->idDistrito . '>' . $result->distrito . '</option>';
+	}
+
+	echo $options;
+}
+
+// 
+// 
+// 
+
 $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : '';
 
 switch ($action) {
@@ -35,15 +102,16 @@ function doEdit()
 			message("El nombre de usuario ya está en uso!", "error");
 			redirect('index.php?view=view');
 		} else {
-			$user->COMPANYNAME 		= $_POST['U_NAME'];
+			$user->COMPANYNAME 			= $_POST['U_NAME'];
 			$user->COMPANYADDRESS 		= $_POST['U_ADDRESS'];
-			$user->COMPANYRUC 		= $_POST['U_RUC'];
-			$user->COMPANYDEPARTAMENTO 		= $_POST['U_DEPARTAMENTO'];
-			$user->COMPANYPROVINCIA 		= $_POST['U_PROVINCIA'];
+			$user->COMPANYRUC 			= $_POST['U_RUC'];
+			$user->COMPANYPAIS 			= $_POST['U_PAIS'];
+			$user->COMPANYDEPARTAMENTO 	= $_POST['U_DEPARTAMENTO'];
+			$user->COMPANYPROVINCIA 	= $_POST['U_PROVINCIA'];
 			$user->COMPANYDISTRITO 		= $_POST['U_DISTRITO'];
-			$user->COMPANYCONTACTNO 		= $_POST['U_CONTACTNO'];
+			$user->COMPANYCONTACTNO 	= $_POST['U_CONTACTNO'];
 			$user->COMPANYUSER			= $_POST['U_USERNAME'];
-			$user->COMPANYPASS				= sha1($_POST['U_PASS']);
+			$user->COMPANYPASS			= sha1($_POST['U_PASS']);
 			$user->update($_POST['COMPANYID']);
 
 			if (isset($_GET['view'])) {
@@ -93,13 +161,15 @@ function doupdateimage()
 			$logoCompany = $user->getPHOTOFROMSERVER($_SESSION['ADMIN_COMPANYID']);
 			$file_path = path_to_delete . "uploads/images/companies/" . $logoCompany->COMPANYPHOTO;
 			if (!file_exists($file_path)) {
-				echo 'El archivo no existe';
+				// echo 'El archivo no existe';
+				echo '';
 			} else {
 				if (unlink($file_path)) {
 					// echo 'El archivo fue eliminado satisfactoriamente';
 					echo '';
 				} else {
-					echo 'Hubo un problema eliminando el archivo';
+					// echo 'Hubo un problema eliminando el archivo';
+					echo '';
 				}
 			}
 

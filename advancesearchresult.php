@@ -145,9 +145,13 @@ $searchfor = (isset($_GET['searchfor']) && $_GET['searchfor'] != '') ? $_GET['se
 								<?php
 
 
-								$search = isset($_POST['SEARCH']) ? ($_POST['SEARCH'] != '') ? $_POST['SEARCH'] : 'All' : 'All';
-								$company = isset($_POST['COMPANY']) ? ($_POST['COMPANY'] != '') ? $_POST['COMPANY'] : 'All' : 'All';
-								$category = isset($_POST['CATEGORY']) ? ($_POST['CATEGORY'] != '') ? $_POST['CATEGORY'] : 'All' : 'All';
+								$search = isset($_POST['SEARCH']) ? ($_POST['SEARCH'] != '') ? $_POST['SEARCH'] : 'Todos' : 'Todos';
+								$company = isset($_POST['COMPANY']) ? ($_POST['COMPANY'] != '') ? $_POST['COMPANY'] : 'Todos' : 'Todos';
+								$category = isset($_POST['CATEGORY']) ? ($_POST['CATEGORY'] != '') ? $_POST['CATEGORY'] : 'Todos' : 'Todos';
+								$pais = isset($_POST['PAIS']) ? ($_POST['PAIS'] != '') ? $_POST['PAIS'] : 'Todos' : 'Todos';
+								$departamento = isset($_POST['DEPARTAMENTO']) ? ($_POST['DEPARTAMENTO'] != '') ? $_POST['DEPARTAMENTO'] : 'Todos' : 'Todos';
+								$provincia = isset($_POST['PROVINCIA']) ? ($_POST['PROVINCIA'] != '') ? $_POST['PROVINCIA'] : 'Todos' : 'Todos';
+								$distrito = isset($_POST['DISTRITO']) ? ($_POST['DISTRITO'] != '') ? $_POST['DISTRITO'] : 'Todos' : 'Todos';
 
 								switch ($searchfor) {
 									case 'bycompany':
@@ -161,6 +165,49 @@ $searchfor = (isset($_GET['searchfor']) && $_GET['searchfor'] != '') ? $_GET['se
 									case 'byfunction':
 										# code... 
 										echo 'Result : '  . $search . ' | Categoría : ' . $category;
+										break;
+
+									case 'bylocation':
+										# code... 
+										# PAIS
+										if ($pais != "Todos") {
+											$sql = "SELECT * FROM tblpais WHERE idPais='" . $pais . "'";
+											$mydb->setQuery($sql);
+											$cur  = $mydb->loadSingleResult();
+											$nom_pais = $cur->pais;
+										} else {
+											$nom_pais = "";
+										}
+										# DEPARTAMENTO
+										if ($departamento != "Todos") {
+											$sql = "SELECT * FROM tbldepartamentos WHERE idDepartamento='" . $departamento . "'";
+											$mydb->setQuery($sql);
+											$cur  = $mydb->loadSingleResult();
+											$nom_departamento = $cur->departamento;
+										} else {
+											$nom_departamento = "";
+										}
+										# PROVINCIA
+										if ($provincia != "Todos") {
+											$sql = "SELECT * FROM tblprovincia WHERE idProvincia='" . $provincia . "'";
+											$mydb->setQuery($sql);
+											$cur  = $mydb->loadSingleResult();
+											$nom_provincia = $cur->provincia;
+										} else {
+											$nom_provincia = "";
+										}
+										# DISTRITO
+										if ($distrito != "Todos") {
+											$sql = "SELECT * FROM tblDistrito WHERE idDistrito='" . $distrito . "'";
+											$mydb->setQuery($sql);
+											$cur  = $mydb->loadSingleResult();
+											$nom_distrito = $cur->distrito;
+										} else {
+											$nom_distrito = "";
+										}
+
+										// echo 'Result : '  . $search . ' | Pais : ' . $pais . ' | Departamento : ' . $departamento . ' | Provincia : ' . $provincia . ' | Distrito : ' . $distrito;
+										echo 'Result : '  . $search . ' | Pais : ' . $nom_pais . ' | Departamento : ' . $nom_departamento . ' | Provincia : ' . $nom_provincia . ' | Distrito : ' . $nom_distrito;
 										break;
 
 									case 'bytitle':
@@ -185,9 +232,13 @@ $searchfor = (isset($_GET['searchfor']) && $_GET['searchfor'] != '') ? $_GET['se
 									$search = isset($_POST['SEARCH']) ? $_POST['SEARCH'] : '';
 									$company = isset($_POST['COMPANY']) ? $_POST['COMPANY'] : '';
 									$category = isset($_POST['CATEGORY']) ? $_POST['CATEGORY'] : '';
+									$pais = isset($_POST['PAIS']) ? $_POST['PAIS'] : '';
+									$departamento = isset($_POST['DEPARTAMENTO']) ? $_POST['DEPARTAMENTO'] : '';
+									$provincia = isset($_POST['PROVINCIA']) ? $_POST['PROVINCIA'] : '';
+									$distrito = isset($_POST['DISTRITO']) ? $_POST['DISTRITO'] : '';
 
-									$sql = "SELECT * FROM `tbljob` j, `tblcompany` c 
-										WHERE j.`COMPANYID`=c.`COMPANYID` AND COMPANYNAME LIKE '%{$company}%' AND CATEGORY LIKE '%{$category}%' AND (`OCCUPATIONTITLE` LIKE '%{$search}%' OR `JOBDESCRIPTION` LIKE '%{$search}%' OR `QUALIFICATION_WORKEXPERIENCE` LIKE '%{$search}%')";
+									// $sql = "SELECT * FROM `tbljob` j, `tblcompany` c WHERE j.`COMPANYID`=c.`COMPANYID` AND COMPANYNAME LIKE '%{$company}%' AND CATEGORY LIKE '%{$category}%' AND (`OCCUPATIONTITLE` LIKE '%{$search}%' OR `JOBDESCRIPTION` LIKE '%{$search}%' OR `QUALIFICATION_WORKEXPERIENCE` LIKE '%{$search}%')";
+									$sql = "SELECT * FROM `tbljob` j, `tblcompany` c WHERE j.`COMPANYID`=c.`COMPANYID` AND `COMPANYNAME` LIKE '%{$company}%' AND `CATEGORY` LIKE '%{$category}%' AND `COMPANYPAIS` LIKE '%{$pais}%' AND `COMPANYDEPARTAMENTO` LIKE '%{$departamento}%' AND `COMPANYPROVINCIA` LIKE'%{$provincia}%' AND `COMPANYDISTRITO` LIKE'%{$distrito}%' AND (`OCCUPATIONTITLE` LIKE '%{$search}%' OR `JOBDESCRIPTION` LIKE '%{$search}%' OR `QUALIFICATION_WORKEXPERIENCE` LIKE '%{$search}%')";
 									$mydb->setQuery($sql);
 									$cur = $mydb->executeQuery();
 									$maxrow = $mydb->num_rows($cur);

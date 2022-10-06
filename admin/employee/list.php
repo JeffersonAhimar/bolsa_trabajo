@@ -21,23 +21,55 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 			},
 			success: function(result) {
 				$("#tbody-dash-table").html(result);
+				formExportData();
+			}
+		});
+	}
+
+	function formExportData() {
+		var mo_user_institution = $("#mo_user_institution").val();
+		$.ajax({
+			type: type,
+			url: url,
+			data: {
+				op: '2',
+				mo_user_institution: mo_user_institution
+			},
+			success: function(result) {
+				$("#form_export_data").html(result);
 			}
 		});
 	}
 </script>
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Lista de Usuarios del instituto:
+		<h1 class="page-header">Instituto:
 			<select style="font-size: 15px;" onchange="cambiaTabla()" id="mo_user_institution">
+				<option>--- Seleccione un Instituto ---</option>
 				<?php
-				$mydb_mo->setQuery("SELECT DISTINCT institution FROM mo_user");
+				$mydb_mo->setQuery("SELECT DISTINCT institution FROM mo_user ORDER BY institution ASC");
 				$cur = $mydb_mo->loadResultList();
 				foreach ($cur as $result) {
-					echo '<option value="' . $result->institution . '">' . $result->institution . '</option>';
+					if ($result->institution == "") {
+						$lastInstitution = $result->institution;
+					} else {
+						echo '<option value="' . $result->institution . '">' . $result->institution . '</option>';
+					}
 				}
+				echo '<option value="' . $lastInstitution . '">' . 'SIN INSTITUCION' . '</option>';
 				?>
 			</select>
+			<div id="form_export_data" style="display: inline;">
+				<form action="<?php echo web_root; ?>admin/employee/dataController.php" method="post" style="display: inline;">
+					<button type="submit" id="export_data" name="exportarCSV" value="Export to excel" class="btn" style="padding: 0; background:none;">
+						<img src="<?php echo web_root; ?>uploads/images/sql_csv.ico" alt="Exportar en CSV" style="width: 50px; height: 50px;">
+					</button>
+					<input type="hidden" name="instName" id="instName" value="">
+				</form>
+			</div>
+
 		</h1>
+
 
 
 	</div>
