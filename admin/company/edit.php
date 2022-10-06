@@ -135,7 +135,7 @@ $res = $company->single_company($companyid);
         <select class="form-control input-sm" id="COMPANYDEPARTAMENTO" name="COMPANYDEPARTAMENTO" onchange="cambiaProvincia()" required="">
           <option value="">Seleccione el Departamento</option>
           <?php
-          $sql = "SELECT * FROM tblDepartamentos WHERE idPais = '" . $res->COMPANYPAIS . "'";
+          $sql = "SELECT * FROM tbldepartamentos WHERE idPais = '" . $res->COMPANYPAIS . "'";
           $mydb->setQuery($sql);
           $cur  = $mydb->loadResultList();
           foreach ($cur as $row) {
@@ -159,7 +159,7 @@ $res = $company->single_company($companyid);
         <select class="form-control input-sm" id="COMPANYPROVINCIA" name="COMPANYPROVINCIA" onchange="cambiaDistrito()" required="">
           <option value="">Seleccione la Provincia</option>
           <?php
-          $sql = "SELECT * FROM tblProvincia WHERE idDepartamento = " . $res->COMPANYDEPARTAMENTO;
+          $sql = "SELECT * FROM tblprovincia WHERE idDepartamento = " . $res->COMPANYDEPARTAMENTO;
           $mydb->setQuery($sql);
           $cur  = $mydb->loadResultList();
           foreach ($cur as $row) {
@@ -183,7 +183,7 @@ $res = $company->single_company($companyid);
         <select class="form-control input-sm" id="COMPANYDISTRITO" name="COMPANYDISTRITO" required="">
           <option value="">Seleccione el Distrito</option>
           <?php
-          $sql = "SELECT * FROM tblDistrito WHERE idProvincia = " . $res->COMPANYPROVINCIA;
+          $sql = "SELECT * FROM tbldistrito WHERE idProvincia = " . $res->COMPANYPROVINCIA;
           $mydb->setQuery($sql);
           $cur  = $mydb->loadResultList();
           foreach ($cur as $row) {
