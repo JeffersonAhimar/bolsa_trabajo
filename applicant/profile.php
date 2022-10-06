@@ -51,9 +51,16 @@ $appl_photo = $appl->getProfilePictureMoodle($_SESSION['APPLICANTID']);
             <?php echo 'https://www.educacioncajamarca.com/user/edit.php?id=' . $applicant->id . '&returnto=profile'; ?>
             " target="_blank">Editar Perfil</a>
           </li>
-          <li class="list-group-item text-right"><span class="pull-left"><strong>Nombre</strong></span>
-            <?php if ($applicant->email != '') {
-              echo $applicant->firstname . ' ' . $applicant->lastname;
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Nombres</strong></span>
+            <?php if ($applicant->firstname != '') {
+              echo $applicant->firstname;
+            } else {
+              echo '---';
+            } ?>
+          </li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Apellidos</strong></span>
+            <?php if ($applicant->lastname != '') {
+              echo $applicant->lastname;
             } else {
               echo '---';
             } ?>
