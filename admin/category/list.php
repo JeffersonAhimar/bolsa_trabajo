@@ -19,7 +19,11 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 					<th>
 						Categoría
 					</th>
-					<th width="10%" align="center">Acción</th>
+					<?php
+					if ($_SESSION['ADMIN_ROLE'] == 'Administrador') {
+						echo '<th width="10%">Acción</th>';
+					}
+					?>
 				</tr>
 			</thead>
 			<tbody>
@@ -31,8 +35,10 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 					echo '<tr>';
 
 					echo '<td>' . $result->CATEGORY . '</td>';
-					echo '<td align="center"><a title="Edit" href="index.php?view=edit&id=' . $result->CATEGORYID . '" class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
-				  		     <a title="Delete" href="controller.php?action=delete&id=' . $result->CATEGORYID . '" class="btn btn-danger btn-xs  ">  <span class="fa  fa-trash-o fw-fa "></a></td>';
+					if ($_SESSION['ADMIN_ROLE'] == 'Administrador') {
+						echo '<td align="center"><a title="Edit" href="index.php?view=edit&id=' . $result->CATEGORYID . '" class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></a>
+				  		     <a title="Delete" href="controller.php?action=delete&id=' . $result->CATEGORYID . '" class="btn btn-danger btn-xs ">  <span class="fa  fa-trash-o fw-fa "></a></td>';
+					}
 					echo '</tr>';
 				}
 				?>

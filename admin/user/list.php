@@ -5,7 +5,13 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 
 ?>
 <div class="col-lg-12">
-	<h1 class="page-header">Lista de Admins <a href="index.php?view=add" class="btn btn-primary btn-xs  "> <i class="fa fa-plus-circle fw-fa"></i> Añadir Admin</a> </h1>
+	<h1 class="page-header">Lista de Admins
+		<?php
+		if ($_SESSION['ADMIN_ROLE'] == 'Administrador') {
+			echo '<a href="index.php?view=add" class="btn btn-primary btn-xs  "> <i class="fa fa-plus-circle fw-fa"></i> Añadir Admin</a>';
+		}
+		?>
+	</h1>
 </div>
 <!-- /.col-lg-12 -->
 <div class="col-lg-12">
@@ -21,7 +27,6 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 					echo '<th width="10%">Acción</th>';
 				}
 				?>
-
 			</tr>
 		</thead>
 		<tbody>
@@ -38,7 +43,7 @@ if (!isset($_SESSION['ADMIN_USERID'])) {
 				echo '<td>' . $result->USERNAME . '</td>';
 				echo '<td>' . $result->ROLE . '</td>';
 				if ($_SESSION['ADMIN_ROLE'] == 'Administrador') {
-					if ($result->USERID == $_SESSION['ADMIN_USERID'] || $result->ROLE == 'MainAdministrador' || $result->ROLE == 'Administrador') {
+					if ($result->ROLE == 'Administrador') {
 						$active = "disabled";
 					} else {
 						$active = "";
